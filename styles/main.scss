@@ -1,0 +1,33 @@
+
+/**
+ * main.scss
+ *
+ * MAIN STYLESHEET
+ */
+
+
+/* MIXINS
+   ----------------------------- */
+
+@import "mixins/prefix";
+@import "mixins/background-cover";
+@import "mixins/border-radius";
+@import "mixins/box-sizing";
+@import "mixins/box-shadow";
+@import "mixins/user-select";
+@import "mixins/transition";
+@import "mixins/fonts";
+
+/* VARIABLES
+   ----------------------------- */
+
+@import "variables/colors";
+@import "variables/sizes";
+@import "variables/others";
+
+/* BASE
+   ----------------------------- */
+
+@import "base/reset";
+@import "base/fonts-loader";
+@import "base/body";

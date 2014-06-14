@@ -1,0 +1,52 @@
+
+/* FONTS LOADER
+   ============================= */
+
+// TITLES
+
+@font-face {
+
+	font-family: "Raleway";
+	font-style: normal;
+	font-weight: 300;
+	src: local("Raleway Light"), local("Raleway-Light"), url(../assets/fonts/raleway-light.woff) format("woff");
+
+}
+
+@font-face {
+
+	font-family: "Raleway";
+	font-style: normal;
+	font-weight: 800;
+	src: local("Raleway ExtraBold"), local("Raleway-ExtraBold"), url(../assets/fonts/raleway-extra-bold.woff) format("woff");
+
+}
+
+// PARAGRAPHS
+
+@font-face {
+
+	font-family: "Merriweather";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Merriweather"), url(../assets/fonts/merriweather-regular.woff) format("woff");
+
+}
+
+@font-face {
+
+	font-family: "Merriweather";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Merriweather Bold"), local("Merriweather-Bold"), url(../assets/fonts/merriweather-bold.woff) format("woff");
+
+}
+
+@font-face {
+
+	font-family: "Merriweather";
+	font-style: italic;
+	font-weight: 400;
+	src: local("Merriweather Italic"), local("Merriweather-Italic"), url(../assets/fonts/merriweather-italic.woff) format("woff");
+
+}
