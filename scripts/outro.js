@@ -1,0 +1,4 @@
+
+Window.Application = Application;
+
+})(this);
