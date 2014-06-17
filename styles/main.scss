@@ -9,14 +9,20 @@
 /* MIXINS
    ----------------------------- */
 
-@import "mixins/prefix";
-@import "mixins/background-cover";
 @import "mixins/border-radius";
-@import "mixins/box-sizing";
 @import "mixins/box-shadow";
-@import "mixins/user-select";
-@import "mixins/transition";
+@import "mixins/box-sizing";
 @import "mixins/fonts";
+@import "mixins/prefix";
+@import "mixins/transition";
+@import "mixins/user-select";
+
+/* EXTENDS
+   ----------------------------- */
+
+@import "extends/background-cover";
+@import "extends/center";
+@import "extends/coverer";
 
 /* VARIABLES
    ----------------------------- */

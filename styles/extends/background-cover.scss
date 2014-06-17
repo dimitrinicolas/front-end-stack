@@ -2,7 +2,7 @@
 /* BACKGROUND COVER
    ============================= */
 
-@mixin background-cover() {
+%background-cover {
 
 	background-position: center;
 	background-size: cover;

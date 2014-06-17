@@ -3,7 +3,7 @@
 > Commencer un projet facilement en Sass et JavaScript avec MarmWork.
 
 ## Dépendances
-Require NodeJs, Ruby et Grunt `~0.4.0`
+Require NodeJs, Ruby et Grunt
 
 MarmWork nécessite plusieurs dépendances indispensables :
 

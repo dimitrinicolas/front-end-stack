@@ -2,19 +2,19 @@
 /* FONTS PRESETS
    ============================= */
 
-@mixin font-italic() {
+@mixin font-italic {
 
 	font-style: italic;
 
 }
 
-@mixin font-bold() {
+@mixin font-bold {
 
 	font-weight: 800;
 
 }
 
-@mixin font-light() {
+@mixin font-light {
 
 	font-weight: 300;
 
