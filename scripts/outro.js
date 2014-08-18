@@ -1,4 +1,4 @@
 
-Window.Application = Application;
+window.Application = Application;
 
-})(this);
+})(window, document);

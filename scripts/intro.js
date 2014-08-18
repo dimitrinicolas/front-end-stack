@@ -1,3 +1,4 @@
-(function(){
+(function(win, doc){
 
-var Window = this;
+var window = win,
+	document = doc;

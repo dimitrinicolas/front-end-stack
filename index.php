@@ -1,18 +1,15 @@
-<?php include("includes/data.php"); ?>
-
 <!DOCTYPE html>
 <html>
 
     <head>
 
-        <title><?php echo $data["title"]; ?></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+        <title>MARMWORK</title>
 
         <link rel="stylesheet" href="bin/style.min.css">
-
-        <!-- Balises Meta -->
-
-        <?php include("includes/meta.php"); ?>
-
+        
     </head>
 
     <body>

@@ -23,6 +23,7 @@
 @import "extends/background-cover";
 @import "extends/center";
 @import "extends/coverer";
+@import "extends/preserve-3d";
 
 /* VARIABLES
    ----------------------------- */
@@ -37,3 +38,8 @@
 @import "base/reset";
 @import "base/fonts-loader";
 @import "base/body";
+
+/* COMPONENTS
+   ----------------------------- */
+
+@import "components/btn/btn";

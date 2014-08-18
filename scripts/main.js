@@ -1,9 +1,12 @@
+
 /**
- *	main.js
+ * main.js
  *
- *	Fichier JavaScript principal.
+ * Fichier JavaScript principal.
  */
 
-var Application = function() {
+var Application = {
+
+	name: "MarmWork"
 
 };
