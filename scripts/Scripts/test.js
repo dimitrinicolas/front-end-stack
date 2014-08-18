@@ -7,12 +7,12 @@
 
 $(function() {
 
-	El(document.body).add(DOM('<btn id="yolo">yolo</btn>'));
+	var btns = El(document.body).add(DOM('<btn>yolo</btn>'));
 
-	El("#yolo").on("CLICK", function() {
+	on(btns, "CLICK", function(event, btns) {
 
-		console.log('test');
+		console.log(btns);
 
-	});
+	}, btns);
 
 });

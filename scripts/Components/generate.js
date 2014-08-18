@@ -20,18 +20,21 @@ var DOM = Component.generate = Component.gen = function(html, parameters) {
 	var element = document.createElement("div");
 	element.innerHTML = html;
 
-	var no_more_conpoment = false,
+	var no_more_conponent = false,
+		element_generated = false;
 		loops = 0;
 
-	while (!no_more_conpoment) {
+	while (!no_more_conponent) {
+
+		element_generated = false;
 
 		loops ++;
 
-		if (loops > 1024) {
+		if (loops > 10) {
 
 			console.error("Une boucle de création de component a été détéctée");
 
-			no_more_conpoment = true;
+			no_more_conponent = true;
 
 		}
 		
@@ -41,7 +44,13 @@ var DOM = Component.generate = Component.gen = function(html, parameters) {
 
 			var child = childs[i];
 
-			var tag_name = child.getAttribute("tag-name") || child.nodeName.replace("/", "").toLowerCase();
+			var tag_name = "";
+			
+			if (child.getAttribute) {
+
+				tag_name = child.getAttribute("tag-name") || "";
+
+			}
 
 			if (Application.components[tag_name]) {
 
@@ -62,8 +71,12 @@ var DOM = Component.generate = Component.gen = function(html, parameters) {
 
 				}
 
+				element_created.removeAttribute("tag-name");
+
 				child.parentNode.insertBefore(component, child);
 				child.parentNode.removeChild(child);
+
+				element_generated = true;
 
 				break;
 
@@ -71,18 +84,14 @@ var DOM = Component.generate = Component.gen = function(html, parameters) {
 
 		}
 
-		no_more_conpoment = true;
+		if (!element_generated) {
+
+			no_more_conponent = true;
+
+		}
 
 	}
 
-	var fragment = document.createDocumentFragment();
-
-	while (element.childNodes.length) {
-
-		fragment.appendChild(element.childNodes[0]);
-
-	}
-
-	return fragment;
+	return element.childNodes;
 
 }

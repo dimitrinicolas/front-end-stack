@@ -11,6 +11,9 @@ module.exports = function(grunt) {
 					"scripts/intro.js",
 					"scripts/main.js",
 
+					"scripts/Events/main.js",
+					"scripts/Events/**/*.js",
+					
 					"scripts/Core/**/*.js",
 
 					"scripts/Element/main.js",

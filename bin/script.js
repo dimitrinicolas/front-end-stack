@@ -16,6 +16,175 @@ var Application = {
 };
 
 /**
+ * Events/main.js
+ *
+ * Add event to an element
+ */
+
+Application.Events = {
+
+	list: {}
+
+};
+
+Application.Events.add = function(name, fn) {
+
+	Application.Events.list[name] = fn;
+
+};
+
+function on(element, event, callback, binding) {
+
+	if (element.length) {
+
+		for (var i = 0; i < element.length; i++) {
+
+			on(element[i], event, callback, binding);
+
+		}
+
+		return;
+
+	}
+
+	if (element.nodeName === "#document-fragment") {
+
+		on(element.childNodes, event, callback, binding)
+
+		return;
+
+	}
+
+	if (typeof Application.Events.list[event] === "function") {
+
+		Application.Events.list[event](element, function() {
+
+			return function(event) {
+
+				callback(event, binding);
+
+			};
+
+		}(callback, binding));
+
+	}
+
+	else {
+
+		if (typeof element.addEventListener !== "undefined") {
+
+			element.addEventListener(event, function() {
+
+				return function(event) {
+
+					callback(event, binding);
+
+				}
+
+			}(callback, binding), false);
+
+		}
+
+		else {
+
+			element.attachEvent("on" + event, function() {
+
+				return function(event) {
+
+					callback(event, binding);
+
+				}
+
+			}(callback, binding));
+			
+		}
+
+	}
+
+	return element;
+
+}
+
+/**
+ * Events/CLICK.js
+ *
+ * CLICK event
+ */
+
+Application.Events.on_tap_events_list = [];
+
+Application.Events.add("CLICK", function(element, callback) {
+
+	var event_listener = new Application.Events.on_tap_object(element, callback);
+
+	Application.Events.on_tap_events_list.push(event_listener);
+
+});
+
+Application.Events.on_tap_object = function(element, callback) {
+
+	this.callback = callback;
+	this.element = element;
+
+	this.touchstart = function(event_listener) {
+
+		return function(event) {
+
+			event_listener.moved = false;
+
+			event_listener.startX = event.touches[0].clientX;
+			event_listener.startY = event.touches[0].clientY;
+
+		}
+
+	}(this);
+
+	this.touchmove = function(event_listener) {
+
+		return function(event) {
+
+			if (Math.abs(event.touches[0].clientX - event_listener.startX) > 10 || Math.abs(event.touches[0].clientY - event_listener.startY) > 10) {
+			    
+			    event_listener.moved = true;
+
+			}
+
+		}
+
+	}(this);
+
+	this.touchend = function(event_listener) {
+
+		return function(event) {
+
+			if (!event_listener.moved) {
+
+				event_listener.callback(event);
+
+			}
+
+		}
+
+	}(this);
+
+	on(this.element, "touchstart", this.touchstart);
+	on(this.element, "touchmove", this.touchmove);
+	on(this.element, "touchend", this.touchend);
+	on(this.element, "touchcancel", this.touchend);
+
+	on(this.element, "click", function(event, event_listener) {
+
+	    if (!("ontouchstart" in window)) {
+
+	        event_listener.callback(event);
+
+	    }
+
+	}, this);
+
+};
+
+/**
  * Core/$.js
  *
  * DOM Content Loaded function
@@ -191,7 +360,7 @@ marmottajax.put = function(parameters) {
 
 };
 
-marmottajax.delete = function(parameters) {
+marmottajax.delete_ = function(parameters) {
 
     if (parameters = marmottajax.normalize(parameters)) {
 
@@ -329,123 +498,6 @@ marmottajax.request = function(options) {
 };
 
 /**
- * Core/on.js
- *
- * Add event to an element
- */
-
-function on(element, event, callback) {
-
-	if (event === "CLICK") {
-
-		Application.onTap(element, callback);
-
-	}
-
-	else {
-
-		if (typeof element.addEventListener !== "undefined") {
-
-			element.addEventListener(event, callback, false);
-
-		}
-
-		else {
-
-			element.attachEvent(event, callback);
-			
-		}
-
-	}
-
-	return element;
-
-}
-
-/**
- * Core/tap.js
- *
- * Tap event
- */
-
-Application.onTapEventsList = [];
-
-Application.onTap = function(element, callback) {
-
-	var eventListener = new Application.onTapObject(element, callback);
-	
-	Application.onTapEventsList.push(eventListener);
-
-};
-
-Application.onTapObject = function(element, callback) {
-
-	this.callback = callback;
-	this.element = element;
-
-	this.touchstart = function(eventListener) {
-
-		return function(event) {
-
-			eventListener.moved = false;
-
-			eventListener.startX = event.touches[0].clientX;
-			eventListener.startY = event.touches[0].clientY;
-
-		}
-
-	}(this);
-
-	this.touchmove = function(eventListener) {
-
-		return function(event) {
-
-			if (Math.abs(event.touches[0].clientX - eventListener.startX) > 10 || Math.abs(event.touches[0].clientY - eventListener.startY) > 10) {
-			    
-			    eventListener.moved = true;
-
-			}
-
-		}
-
-	}(this);
-
-	this.touchend = function(eventListener) {
-
-		return function(event) {
-
-			if (!eventListener.moved) {
-
-				eventListener.callback(event);
-
-			}
-
-		}
-
-	}(this);
-
-	on(this.element, "touchstart", this.touchstart);
-	on(this.element, "touchmove", this.touchmove);
-	on(this.element, "touchend", this.touchend);
-	on(this.element, "touchcancel", this.touchend);
-
-	on(this.element, "click", function(eventListener) {
-
-		return function(event) {
-
-	        if (!("ontouchstart" in window)) {
-
-	            eventListener.callback(event);
-
-	        }
-
-	    };
-
-	}(this));
-
-};
-
-/**
  * Element/main.js
  *
  * Element model
@@ -465,16 +517,70 @@ function Element(name, settings) {
 
 	}
 
-	element.add = element.appendChild;
 	element.childs = element.childNodes;
 	element.parent = element.parentNode;
 	element.clone = element.cloneNode;
 
+	element.add = function(element) {
+
+		return function(child) {
+
+			if (child.nodeName === "#document-fragment") {
+
+				var array = [],
+					childs = child.childNodes,
+					length = childs.length;
+
+				for (var i = 0; i < length; i++) {
+
+					element.appendChild(childs[0]);
+
+					array.push(element.childNodes[element.childNodes.length - 1]);
+
+				}
+
+				return array;
+
+			}
+
+			else if (child.length) {
+
+				for (var i = 0; i < child.length; i++) {
+					
+					var array = [],
+						length = child.length;
+
+					for (var i = 0; i < length; i++) {
+
+						element.appendChild(child[0]);
+
+						array.push(element.childNodes[element.childNodes.length - 1]);
+
+					}
+
+					return array;
+
+				}
+
+			}
+
+			else {
+
+				element.appendChild(child);
+
+				return El(child);
+
+			}
+			
+		}
+
+	}(element);
+
 	element.on = function(element) {
 
-		return function(event, callback) {
+		return function(event, callback, binding) {
 
-			on(element, event, callback);
+			on(element, event, callback, binding);
 
 		}
 
@@ -484,7 +590,7 @@ function Element(name, settings) {
 
 		var inner_element = document.createElement("div");
 
-		inner_element.setAttribute("tag-name", "_inner_")
+		inner_element.setAttribute("tag-name", "_inner_");
 
 		element.appendChild(inner_element);
 
@@ -718,18 +824,21 @@ var DOM = Component.generate = Component.gen = function(html, parameters) {
 	var element = document.createElement("div");
 	element.innerHTML = html;
 
-	var no_more_conpoment = false,
+	var no_more_conponent = false,
+		element_generated = false;
 		loops = 0;
 
-	while (!no_more_conpoment) {
+	while (!no_more_conponent) {
+
+		element_generated = false;
 
 		loops ++;
 
-		if (loops > 1024) {
+		if (loops > 10) {
 
 			console.error("Une boucle de création de component a été détéctée");
 
-			no_more_conpoment = true;
+			no_more_conponent = true;
 
 		}
 		
@@ -739,7 +848,13 @@ var DOM = Component.generate = Component.gen = function(html, parameters) {
 
 			var child = childs[i];
 
-			var tag_name = child.getAttribute("tag-name") || child.nodeName.replace("/", "").toLowerCase();
+			var tag_name = "";
+			
+			if (child.getAttribute) {
+
+				tag_name = child.getAttribute("tag-name") || "";
+
+			}
 
 			if (Application.components[tag_name]) {
 
@@ -760,8 +875,12 @@ var DOM = Component.generate = Component.gen = function(html, parameters) {
 
 				}
 
+				element_created.removeAttribute("tag-name");
+
 				child.parentNode.insertBefore(component, child);
 				child.parentNode.removeChild(child);
+
+				element_generated = true;
 
 				break;
 
@@ -769,19 +888,15 @@ var DOM = Component.generate = Component.gen = function(html, parameters) {
 
 		}
 
-		no_more_conpoment = true;
+		if (!element_generated) {
+
+			no_more_conponent = true;
+
+		}
 
 	}
 
-	var fragment = document.createDocumentFragment();
-
-	while (element.childNodes.length) {
-
-		fragment.appendChild(element.childNodes[0]);
-
-	}
-
-	return fragment;
+	return element.childNodes;
 
 }
 
@@ -843,13 +958,13 @@ c_btn.render = function(component, attributes) {
 
 $(function() {
 
-	El(document.body).add(DOM('<btn id="yolo">yolo</btn>'));
+	var btns = El(document.body).add(DOM('<btn>yolo</btn>'));
 
-	El("#yolo").on("CLICK", function() {
+	on(btns, "CLICK", function(event, btns) {
 
-		console.log('test');
+		console.log(btns);
 
-	});
+	}, btns);
 
 });
 
