@@ -27,11 +27,17 @@ Element.create = function(name, settings) {
 
 	}
 
-	var class_name = /([a-z-_]+)(\.([a-z-_]+))/i.exec(name);
+	var class_names = name.replace(/#([a-z-_]+)/i, "").replace(/\w+/, "").split(".");
 
-	if (class_name) {
+	if (class_names.length > 1) {
 
-		element.className = class_name[3];
+		element.className = "";
+
+		for (var i = 1; i < class_names.length; i++) {
+
+			element.className += " " + class_names[i];
+
+		}
 
 	}
 

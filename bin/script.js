@@ -634,11 +634,17 @@ Element.create = function(name, settings) {
 
 	}
 
-	var class_name = /([a-z-_]+)(\.([a-z-_]+))/i.exec(name);
+	var class_names = name.replace(/#([a-z-_]+)/i, "").replace(/\w+/, "").split(".");
 
-	if (class_name) {
+	if (class_names.length > 1) {
 
-		element.className = class_name[3];
+		element.className = "";
+
+		for (var i = 1; i < class_names.length; i++) {
+
+			element.className += " " + class_names[i];
+
+		}
 
 	}
 
@@ -926,15 +932,18 @@ Component.inner = function(element) {
 
 var c_btn = new Component("btn");
 
-c_btn.render = function(component, attributes) {
+c_btn.render = function(component, $) {
 
-	var btn = component.add(new Element("button.btn"));
+	$.type = $.type === "raised" ? "raised" : "flat";
+
+	var btn = component.add(new Element("div.btn.btn--" + $.type));
+	btn.tabIndex = 0;
 
 	component.inner(btn);
 
-	if (attributes.click) {
+	if ($.click) {
 
-		on(btn, "CLICK", attributes.click);
+		on(btn, "CLICK", $.click, btn);
 
 	}
 
@@ -944,9 +953,15 @@ c_btn.render = function(component, attributes) {
 
 <btn>@{inner}</btn>
 
-@return
+======== FLAT BUTTON {default} ========
 
-<button class="btn">@{inner}</button>
+<button class="btn btn-flat">@{inner}</button>
+
+@event "CLICK" => ${click}
+
+======== RAISED BUTTON ========
+
+<button class="btn btn-raised">@{inner}</button>
 
 @event "CLICK" => ${click} */
 
@@ -958,13 +973,15 @@ c_btn.render = function(component, attributes) {
 
 $(function() {
 
-	var btns = El(document.body).add(DOM('<btn>yolo</btn>'));
+	var btn = El(document.body).add(DOM('<btn click="${onclick}">flat</btn><btn type="raised">raised</btn>', {
 
-	on(btns, "CLICK", function(event, btns) {
+		onclick: function(event, btn) {
 
-		console.log(btns);
+			console.log(btn);
 
-	}, btns);
+		}
+
+	}));
 
 });
 

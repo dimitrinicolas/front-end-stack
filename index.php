@@ -14,8 +14,6 @@
 
     <body>
 
-        mrmt.
-
         <script src="bin/script.js"></script>
 
     </body>

@@ -1,0 +1,12 @@
+
+/* OUTLINE
+   ============================= */
+
+@mixin outline() {
+
+    outline: #4285f4 solid 2px;
+	outline-offset: 2px;
+
+	@include prefix(outline-radius, 3px);
+            
+}

@@ -1,0 +1,23 @@
+
+/* FLAT BTN
+   ============================= */
+
+.btn--flat {
+   	
+   	@include transition(#{"background .2s"});
+
+}
+
+.btn--flat:hover {
+
+   	background: #f4f4f4;
+
+   	@include transition(#{"background .3s"});
+
+}
+
+.btn--flat:focus {
+
+	@include outline;
+
+}

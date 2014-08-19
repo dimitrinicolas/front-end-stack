@@ -4,6 +4,20 @@
 
 .btn {
 	
-	/* yolo */
+	display: inline-block;
+	width: 160px;
+	height: 35px;
+	margin: 10px;
+
+	background: transparent;
+	cursor: pointer;
+	border: none;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 35px;
+
+	@include font-title(16px);
+	@include border-radius(3px);
+	@include user-select;
 
 }

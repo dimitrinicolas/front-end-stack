@@ -6,19 +6,37 @@
 
 @font-face {
 
-	font-family: "Raleway";
+	font-family: "RobotoDraft";
 	font-style: normal;
-	font-weight: 300;
-	src: local("Raleway Light"), local("Raleway-Light"), url(../assets/fonts/raleway-light.woff) format("woff");
+	font-weight: 400;
+	src: local("RobotoDraft"), url(../assets/fonts/roboto-regular.woff) format("woff");
 
 }
 
 @font-face {
 
-	font-family: "Raleway";
+	font-family: "RobotoDraft";
 	font-style: normal;
-	font-weight: 800;
-	src: local("Raleway ExtraBold"), local("Raleway-ExtraBold"), url(../assets/fonts/raleway-extra-bold.woff) format("woff");
+	font-weight: 300;
+	src: local("RobotoDraft Light"), local("RobotoDraft-Light"), url(../assets/fonts/roboto-light.woff) format("woff");
+
+}
+
+@font-face {
+
+	font-family: "RobotoDraft";
+	font-style: normal;
+	font-weight: 500;
+	src: local("RobotoDraft Medium"), local("RobotoDraft-Medium"), url(../assets/fonts/roboto-medium.woff) format("woff");
+
+}
+
+@font-face {
+
+	font-family: "RobotoDraft";
+	font-style: normal;
+	font-weight: 700;
+	src: local("RobotoDraft Bold"), local("RobotoDraft-Bold"), url(../assets/fonts/roboto-bold.woff) format("woff");
 
 }
 

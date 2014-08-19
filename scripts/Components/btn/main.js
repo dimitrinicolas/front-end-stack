@@ -7,15 +7,18 @@
 
 var c_btn = new Component("btn");
 
-c_btn.render = function(component, attributes) {
+c_btn.render = function(component, $) {
 
-	var btn = component.add(new Element("button.btn"));
+	$.type = $.type === "raised" ? "raised" : "flat";
+
+	var btn = component.add(new Element("div.btn.btn--" + $.type));
+	btn.tabIndex = 0;
 
 	component.inner(btn);
 
-	if (attributes.click) {
+	if ($.click) {
 
-		on(btn, "CLICK", attributes.click);
+		on(btn, "CLICK", $.click, btn);
 
 	}
 
@@ -25,8 +28,14 @@ c_btn.render = function(component, attributes) {
 
 <btn>@{inner}</btn>
 
-@return
+======== FLAT BUTTON {default} ========
 
-<button class="btn">@{inner}</button>
+<button class="btn btn-flat">@{inner}</button>
+
+@event "CLICK" => ${click}
+
+======== RAISED BUTTON ========
+
+<button class="btn btn-raised">@{inner}</button>
 
 @event "CLICK" => ${click} */

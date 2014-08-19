@@ -8,15 +8,27 @@
 
 }
 
-@mixin font-bold {
-
-	font-weight: 800;
-
-}
-
 @mixin font-light {
 
 	font-weight: 300;
+
+}
+
+@mixin font-regular {
+
+	font-weight: 500;
+
+}
+
+@mixin font-bold {
+
+	font-weight: 700;
+
+}
+
+@mixin font-medium {
+
+	font-weight: 500;
 
 }
 
@@ -31,7 +43,5 @@
 
 	font-family: $font-family-title;
 	font-size: $size;
-
-	@include font-light;
 
 }

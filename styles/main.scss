@@ -13,9 +13,11 @@
 @import "mixins/box-shadow";
 @import "mixins/box-sizing";
 @import "mixins/fonts";
+@import "mixins/outline";
 @import "mixins/prefix";
 @import "mixins/transition";
 @import "mixins/user-select";
+@import "mixins/z-depht";
 
 /* EXTENDS
    ----------------------------- */
@@ -42,4 +44,6 @@
 /* COMPONENTS
    ----------------------------- */
 
-@import "components/btn/btn";
+	@import "components/btn/btn";
+	@import "components/btn/flat";
+	@import "components/btn/raised";

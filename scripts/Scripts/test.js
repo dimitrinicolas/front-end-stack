@@ -7,12 +7,14 @@
 
 $(function() {
 
-	var btns = El(document.body).add(DOM('<btn>yolo</btn>'));
+	var btn = El(document.body).add(DOM('<btn click="${onclick}">flat</btn><btn type="raised">raised</btn>', {
 
-	on(btns, "CLICK", function(event, btns) {
+		onclick: function(event, btn) {
 
-		console.log(btns);
+			console.log(btn);
 
-	}, btns);
+		}
+
+	}));
 
 });

@@ -1,0 +1,40 @@
+
+/* RAISED BTN
+   ============================= */
+
+.btn--raised {
+	
+	background: #dfdfdf;
+
+	@include transition(#{".15s"});
+
+	@include z-depht(1);
+	
+}
+
+.btn--raised:hover,
+.btn--raised:focus {
+
+	outline: none;
+
+	@include transition(#{".25s"});
+
+	@include z-depht(2);
+
+}
+
+.btn--raised:hover {
+
+	background: #e6e6e6;
+
+}
+
+.btn--raised:active {
+
+	background: #dfdfdf;
+
+	@include transition(#{".2s"});
+
+	@include z-depht(1);
+
+}

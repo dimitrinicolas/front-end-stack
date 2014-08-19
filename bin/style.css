@@ -13,11 +13,15 @@
    ============================= */
 /* FONTS PRESETS
    ============================= */
+/* OUTLINE
+   ============================= */
 /* PREFIXER
    ============================= */
 /* TRANSITIONS
    ============================= */
 /* USER SELECT
+   ============================= */
+/* Z DEPHT
    ============================= */
 /* EXTENDS
    ----------------------------- */
@@ -123,15 +127,25 @@ input[type="search"] {
 /* FONTS LOADER
    ============================= */
 @font-face {
-  font-family: "Raleway";
+  font-family: "RobotoDraft";
+  font-style: normal;
+  font-weight: 400;
+  src: local("RobotoDraft"), url(../assets/fonts/roboto-regular.woff) format("woff"); }
+@font-face {
+  font-family: "RobotoDraft";
   font-style: normal;
   font-weight: 300;
-  src: local("Raleway Light"), local("Raleway-Light"), url(../assets/fonts/raleway-light.woff) format("woff"); }
+  src: local("RobotoDraft Light"), local("RobotoDraft-Light"), url(../assets/fonts/roboto-light.woff) format("woff"); }
 @font-face {
-  font-family: "Raleway";
+  font-family: "RobotoDraft";
   font-style: normal;
-  font-weight: 800;
-  src: local("Raleway ExtraBold"), local("Raleway-ExtraBold"), url(../assets/fonts/raleway-extra-bold.woff) format("woff"); }
+  font-weight: 500;
+  src: local("RobotoDraft Medium"), local("RobotoDraft-Medium"), url(../assets/fonts/roboto-medium.woff) format("woff"); }
+@font-face {
+  font-family: "RobotoDraft";
+  font-style: normal;
+  font-weight: 700;
+  src: local("RobotoDraft Bold"), local("RobotoDraft-Bold"), url(../assets/fonts/roboto-bold.woff) format("woff"); }
 @font-face {
   font-family: "Merriweather";
   font-style: normal;
@@ -164,4 +178,77 @@ body {
 /* BTN
    ============================= */
 .btn {
-  /* yolo */ }
+  display: inline-block;
+  width: 160px;
+  height: 35px;
+  margin: 10px;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 35px;
+  font-family: "RobotoDraft", sans-serif;
+  font-size: 16px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none; }
+
+/* FLAT BTN
+   ============================= */
+.btn--flat {
+  -webkit-transition: background .2s;
+  -moz-transition: background .2s;
+  transition: background .2s; }
+
+.btn--flat:hover {
+  background: #f4f4f4;
+  -webkit-transition: background .3s;
+  -moz-transition: background .3s;
+  transition: background .3s; }
+
+.btn--flat:focus {
+  outline: #4285f4 solid 2px;
+  outline-offset: 2px;
+  -webkit-outline-radius: 3px;
+  -moz-outline-radius: 3px;
+  outline-radius: 3px; }
+
+/* RAISED BTN
+   ============================= */
+.btn--raised {
+  background: #dfdfdf;
+  -webkit-transition: .15s;
+  -moz-transition: .15s;
+  transition: .15s;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=1.5); }
+
+.btn--raised:hover,
+.btn--raised:focus {
+  outline: none;
+  -webkit-transition: .25s;
+  -moz-transition: .25s;
+  transition: .25s;
+  -webkit-box-shadow: 0 6px 17px 0 rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0 6px 17px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 6px 17px 0 rgba(0, 0, 0, 0.16);
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=3); }
+
+.btn--raised:hover {
+  background: #e6e6e6; }
+
+.btn--raised:active {
+  background: #dfdfdf;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  transition: .2s;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=1.5); }
