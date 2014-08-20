@@ -88,6 +88,31 @@ function Element(name, settings) {
 
 	}(element);
 
+	element.offset = function(element) {
+
+		return function() {
+
+			var offsets = {
+
+				x: 0,
+				y: 0
+
+			}
+
+			while (element) {
+
+			    offsets.x += (element.offsetLeft - (element == document.body ? 0 : element.scrollLeft) + element.clientLeft);
+			    offsets.y += (element.offsetTop - (element == document.body ? 0 : element.scrollTop) + element.clientTop);
+			    element = element.offsetParent;
+
+			}
+
+			return offsets;
+
+		}
+
+	}(element);
+
 	element.inner = function(element) {
 
 		var inner_element = document.createElement("div");

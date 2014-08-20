@@ -2,9 +2,9 @@
 /* OUTLINE
    ============================= */
 
-@mixin outline() {
+@mixin outline($color: $blue) {
 
-    outline: #4285f4 solid 2px;
+    outline: $color solid 2px;
 	outline-offset: 2px;
 
 	@include prefix(outline-radius, 3px);

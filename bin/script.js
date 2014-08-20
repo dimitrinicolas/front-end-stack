@@ -586,6 +586,31 @@ function Element(name, settings) {
 
 	}(element);
 
+	element.offset = function(element) {
+
+		return function() {
+
+			var offsets = {
+
+				x: 0,
+				y: 0
+
+			}
+
+			while (element) {
+
+			    offsets.x += (element.offsetLeft - (element == document.body ? 0 : element.scrollLeft) + element.clientLeft);
+			    offsets.y += (element.offsetTop - (element == document.body ? 0 : element.scrollTop) + element.clientTop);
+			    element = element.offsetParent;
+
+			}
+
+			return offsets;
+
+		}
+
+	}(element);
+
 	element.inner = function(element) {
 
 		var inner_element = document.createElement("div");
@@ -767,9 +792,11 @@ Component.prototype.create = function(values) {
 
 			if (child.getAttribute("tag-name") === "_inner_") {
 
-				for (var i = 0; i < values._CHILDNODES_.length; i++) {
+				var length = values._CHILDNODES_.length;
 
-					child.parentNode.insertBefore(values._CHILDNODES_[i], child);
+				for (var i = 0; i < length; i++) {
+
+					child.parentNode.insertBefore(values._CHILDNODES_[0], child);
 					
 				}
 
@@ -825,7 +852,9 @@ var DOM = Component.generate = Component.gen = function(html, parameters) {
 
 	html = html.replace(/^\s+|\s+$/g, "");
 
-	html = html.replace(/<(\w+?)( (.+?))?>/g,'<div tag-name="$1"$2>').replace(/<\/(.+?)>/g,'</div>');
+	html = html.replace(/<(\w*)( (.+?))?\/>/g,'<$1$2></$1>');
+
+	html = html.replace(/<(\w*)( (.+?))?>/g,'<div tag-name="$1"$2>').replace(/<\/(.+?)>/g,'</div>');
 
 	var element = document.createElement("div");
 	element.innerHTML = html;
@@ -927,7 +956,7 @@ Component.inner = function(element) {
 /**
  * Components/btn/main.js
  *
- * Button component model
+ * Button component
  */
 
 var c_btn = new Component("btn");
@@ -936,7 +965,15 @@ c_btn.render = function(component, $) {
 
 	$.type = $.type === "raised" ? "raised" : "flat";
 
-	var btn = component.add(new Element("div.btn.btn--" + $.type));
+	var color = "";
+
+	if ($.color) {
+
+		color = ".btn--" + $.color;
+
+	}
+
+	var btn = component.add(new Element("div.btn.btn--" + $.type + color));
 	btn.tabIndex = 0;
 
 	component.inner(btn);
@@ -947,23 +984,67 @@ c_btn.render = function(component, $) {
 
 	}
 
+	if (!$["no-ripple"]) {
+
+		El(btn).add(DOM('<ripple parent="${parent}"/>', {
+
+			parent: btn
+
+		}));
+
+	}
+
 };
 
 /* TEMPLATE
 
-<btn>@{inner}</btn>
+<btn type="flat|raised" color? click? no-ripple?>@{inner}</btn> */
 
-======== FLAT BUTTON {default} ========
+/**
+ * Components/ripple/main.js
+ *
+ * Ripple component
+ */
 
-<button class="btn btn-flat">@{inner}</button>
+var c_ripple = new Component("ripple");
 
-@event "CLICK" => ${click}
+c_ripple.render = function(component, $) {
 
-======== RAISED BUTTON ========
+	var ripple = component.add(new Element("div.ripple"));
 
-<button class="btn btn-raised">@{inner}</button>
+	component.inner(ripple);
 
-@event "CLICK" => ${click} */
+	// ripple.className += " animate";
+
+	if ($.parent) {
+
+		on($.parent, "CLICK", function(event, elements) {
+
+			var ripple = elements.ripple,
+				parent = elements.parent;
+
+			var circle = ripple.add(new El("div.ripple__circle.ripple__circle--animate"));
+
+			var parent_offset = El(parent).offset();
+
+			circle.style.left = event.pageX - parent_offset.x + "px";
+			circle.style.top = event.pageY - parent_offset.y + "px";
+
+
+		}, {
+
+			ripple: ripple,
+			parent: $.parent
+
+		});
+
+	}
+
+};
+
+/* TEMPLATE
+
+<ripple parent="${parent-node}"/> */
 
 /**
  * Scripts/test.js
@@ -973,15 +1054,8 @@ c_btn.render = function(component, $) {
 
 $(function() {
 
-	var btn = El(document.body).add(DOM('<btn click="${onclick}">flat</btn><btn type="raised">raised</btn>', {
-
-		onclick: function(event, btn) {
-
-			console.log(btn);
-
-		}
-
-	}));
+	El(document.body).add(DOM('<btn color="purple">flat</btn>'
+		                    + '<btn type="raised">raised</btn>'));
 
 });
 

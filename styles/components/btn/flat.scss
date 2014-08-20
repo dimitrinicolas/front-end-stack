@@ -3,21 +3,45 @@
    ============================= */
 
 .btn--flat {
+
+	overflow: hidden;
    	
-   	@include transition(#{"background .2s"});
+   	@include transition(#{"outline-color .15s"});
 
-}
-
-.btn--flat:hover {
-
-   	background: #f4f4f4;
-
-   	@include transition(#{"background .3s"});
+	@include outline(transparent);
 
 }
 
 .btn--flat:focus {
 
 	@include outline;
+
+}
+
+@each $name, $color in $colors {
+
+	.btn--flat.btn--#{$name} {
+
+		color: $color;
+
+	}
+
+	.btn--flat.btn--#{$name} .ripple {
+
+		background: $color;
+
+	}
+
+	.btn--flat.btn--#{$name}:focus {
+
+		@include outline($color);
+
+	}
+
+}
+
+.btn--flat:focus:active {
+
+	@include outline(transparent);
 
 }

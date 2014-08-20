@@ -2,7 +2,7 @@
 /**
  * Components/btn/main.js
  *
- * Button component model
+ * Button component
  */
 
 var c_btn = new Component("btn");
@@ -11,7 +11,15 @@ c_btn.render = function(component, $) {
 
 	$.type = $.type === "raised" ? "raised" : "flat";
 
-	var btn = component.add(new Element("div.btn.btn--" + $.type));
+	var color = "";
+
+	if ($.color) {
+
+		color = ".btn--" + $.color;
+
+	}
+
+	var btn = component.add(new Element("div.btn.btn--" + $.type + color));
 	btn.tabIndex = 0;
 
 	component.inner(btn);
@@ -22,20 +30,18 @@ c_btn.render = function(component, $) {
 
 	}
 
+	if (!$["no-ripple"]) {
+
+		El(btn).add(DOM('<ripple parent="${parent}"/>', {
+
+			parent: btn
+
+		}));
+
+	}
+
 };
 
 /* TEMPLATE
 
-<btn>@{inner}</btn>
-
-======== FLAT BUTTON {default} ========
-
-<button class="btn btn-flat">@{inner}</button>
-
-@event "CLICK" => ${click}
-
-======== RAISED BUTTON ========
-
-<button class="btn btn-raised">@{inner}</button>
-
-@event "CLICK" => ${click} */
+<btn type="flat|raised" color? click? no-ripple?>@{inner}</btn> */

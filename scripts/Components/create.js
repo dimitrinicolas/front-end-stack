@@ -26,9 +26,11 @@ Component.prototype.create = function(values) {
 
 			if (child.getAttribute("tag-name") === "_inner_") {
 
-				for (var i = 0; i < values._CHILDNODES_.length; i++) {
+				var length = values._CHILDNODES_.length;
 
-					child.parentNode.insertBefore(values._CHILDNODES_[i], child);
+				for (var i = 0; i < length; i++) {
+
+					child.parentNode.insertBefore(values._CHILDNODES_[0], child);
 					
 				}
 

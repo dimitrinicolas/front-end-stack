@@ -3,6 +3,8 @@
    ============================= */
 
 .btn {
+
+	position: relative;
 	
 	display: inline-block;
 	width: 160px;
@@ -15,6 +17,8 @@
 	text-transform: uppercase;
 	text-align: center;
 	line-height: 35px;
+
+	overflow: hidden;
 
 	@include font-title(16px);
 	@include border-radius(3px);
