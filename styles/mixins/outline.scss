@@ -2,10 +2,21 @@
 /* OUTLINE
    ============================= */
 
-@mixin outline($color: $blue) {
+@mixin outline($color: $blue, $offset: 2px) {
 
     outline: $color solid 2px;
-	outline-offset: 2px;
+
+	@if $color != transparent {
+
+		outline-offset: $offset;
+		
+	}
+
+	@else {
+		
+		outline-offset: 0;
+
+	}
 
 	@include prefix(outline-radius, 3px);
             

@@ -7,15 +7,16 @@
 	width: 100px;
 	height: 0;
 	margin: -50px 0 0 -50px;
+	opacity: 0.4;
 
-	@include prefix(animation, #{"ripple 0.6s ease-out"});
+	@include prefix(animation, #{"ripple 1s ease-out"});
 
 }
 
 @-webkit-keyframes ripple {
 
 	from {
-
+	
 		height: 100px;
 
 	}
@@ -25,7 +26,7 @@
 		height: 100px;
 		opacity: 0;
 
-		@include prefix(transform, #{"scale(3)"});
+		@include prefix(transform, #{"scale(6)"});
 
 	}
 
@@ -34,7 +35,7 @@
 @-moz-keyframes ripple {
 
 	from {
-
+	
 		height: 100px;
 
 	}
@@ -43,8 +44,8 @@
 
 		height: 100px;
 		opacity: 0;
-
-		@include prefix(transform, #{"scale(3)"});
+		
+		@include prefix(transform, #{"scale(6)"});
 
 	}
 
@@ -53,7 +54,7 @@
 @-ms-keyframes ripple {
 
 	from {
-
+	
 		height: 100px;
 
 	}
@@ -63,7 +64,7 @@
 		height: 100px;
 		opacity: 0;
 
-		@include prefix(transform, #{"scale(3)"});
+		@include prefix(transform, #{"scale(6)"});
 
 	}
 
@@ -72,7 +73,7 @@
 @-o-keyframes ripple {
 
 	from {
-
+	
 		height: 100px;
 
 	}
@@ -82,7 +83,7 @@
 		height: 100px;
 		opacity: 0;
 
-		@include prefix(transform, #{"scale(3)"});
+		@include prefix(transform, #{"scale(6)"});
 
 	}
 
@@ -91,7 +92,7 @@
 @keyframes ripple {
 
 	from {
-
+	
 		height: 100px;
 
 	}
@@ -101,7 +102,7 @@
 		height: 100px;
 		opacity: 0;
 
-		@include prefix(transform, #{"scale(3)"});
+		@include prefix(transform, #{"scale(6)"});
 
 	}
 

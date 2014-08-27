@@ -11,21 +11,17 @@ module.exports = function(grunt) {
 					"scripts/intro.js",
 					"scripts/main.js",
 
-					"scripts/Events/main.js",
-					"scripts/Events/**/*.js",
-					
-					"scripts/Core/**/*.js",
+					"scripts/vendor/**/*.js",
 
-					"scripts/Element/main.js",
-					"scripts/Element/**/*.js",
+					"scripts/core/**/*.js",
 
-					"scripts/Components/main.js",
-					"scripts/Components/*.js",
-					"scripts/Components/*/main.js",
-					"scripts/Components/**/*.js",
+					"scripts/components/main.js",
+					"scripts/components/*.js",
+					"scripts/components/*/main.js",
+					"scripts/components/**/*.js",
 
-					"scripts/Emitters/*/main.js",
-					"scripts/Emitters/**/*.js",
+					"scripts/scripts/*/main.js",
+					"scripts/scripts/**/*.js",
 
 					"scripts/**/*.js",
 					"scripts/outro.js"

@@ -6,7 +6,7 @@
 
 	overflow: hidden;
    	
-   	@include transition(#{"outline-color .15s"});
+   	@include transition(#{"outline 0.1s, outline-offset 0.1s"});
 
 	@include outline(transparent);
 
@@ -21,14 +21,14 @@
 @each $name, $color in $colors {
 
 	.btn--flat.btn--#{$name} {
-
+	
 		color: $color;
 
 	}
 
 	.btn--flat.btn--#{$name} .ripple {
 
-		background: $color;
+		background-color: $color;
 
 	}
 
@@ -38,10 +38,24 @@
 
 	}
 
+	.btn--flat.btn--outline-#{$name}:focus {
+
+		@include outline($color);
+
+	}
+
+	.btn--flat.btn--ripple-#{$name} .ripple {
+
+		background-color: $color;
+
+	}
+
 }
 
-.btn--flat:focus:active {
+.btn--flat.disabled {
 
-	@include outline(transparent);
+	color: $grey;
+	background: $light-grey;
+	outline: none!important;
 
 }
