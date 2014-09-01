@@ -4,31 +4,64 @@ module.exports = function(grunt) {
 
 		"concat": {
 
-			dist: {
+			scripts: {
 
 				src: [
 				
-					"scripts/intro.js",
-					"scripts/main.js",
+					"scripts/intro.*",
+					"scripts/main.*",
 
-					"scripts/vendor/**/*.js",
+					"scripts/vendor/**/*.*",
 
-					"scripts/core/**/*.js",
+					"scripts/core/**/*.*",
 
-					"scripts/components/main.js",
-					"scripts/components/*.js",
-					"scripts/components/*/main.js",
-					"scripts/components/**/*.js",
+					"scripts/components/main.*",
+					"scripts/components/*.*",
+					"scripts/components/*/main.*",
+					"scripts/components/**/*.*",
 
-					"scripts/scripts/*/main.js",
-					"scripts/scripts/**/*.js",
+					"scripts/scripts/*/main.*",
+					"scripts/scripts/**/*.*",
 
-					"scripts/**/*.js",
-					"scripts/outro.js"
+					"scripts/**/*.*",
+					"scripts/outro.*"
 
 				],
 
-				dest: "bin/script.js",
+				dest: "bin/script.jsx"
+
+			},
+
+			server: {
+
+				src: [
+				
+					"server/sources/core/node-modules.js",
+					"server/sources/core/main.js",
+					"server/sources/core/**/*.js",
+					
+					"server/sources/modules/*/main.js",
+					"server/sources/modules/*/**/*.js",
+					
+					"server/sources/actions/intro.js",
+					"server/sources/actions/*/**/*.js",
+					"server/sources/actions/outro.js",
+					
+					"server/sources/outro.js"
+
+				],
+
+				dest: "server/bin/server.js"
+
+			}
+
+		},
+
+		"react": {
+
+			dist: {
+
+				files: { "bin/script.js": "bin/script.jsx" }
 
 			}
 
@@ -44,11 +77,21 @@ module.exports = function(grunt) {
 
 		},
 
+		"nodemon": {
+
+			dev: {
+
+				script: "server/bin/server.js"
+
+			}
+
+		},
+
 		"sass": {
 
 			dist: {
 
-				files: { "bin/style.css": "styles/main.scss" }
+				files: { "bin/styles.css": "styles/main.scss" }
 
 			}
 
@@ -58,7 +101,19 @@ module.exports = function(grunt) {
 
 			dist: {
 
-				files: { "bin/style.min.css": [ "bin/style.css" ] }
+				files: { "bin/styles.min.css": [ "bin/styles.css" ] }
+
+			}
+
+		},
+
+		"concurrent": {
+
+			auto: ["auto-node", "auto-server", "auto-scripts", "auto-styles"],
+
+			options: {
+
+				logConcurrentOutput: true
 
 			}
 
@@ -66,44 +121,84 @@ module.exports = function(grunt) {
 
 		"watch": {
 
-			dist: {
+			server: {
 
-  				files: [
+				files: [
 
-  					"Gruntfile.js",
-  					"scripts/**/*.js",
-  					"styles/**/*.scss"
+					"Gruntfile.js",
+					"server/sources/**/*.js"
 
-  				],
+				],
 
-  				tasks: [
+				tasks: [ "server" ],
 
-  					"scripts",
-  					"styles"
+				options: { event: ["all"], }
 
-  				],
+			},
 
-  				options: { event: [ "all" ], }
+			scripts: {
 
-  			}
-  			
+				files: [
+
+					"Gruntfile.js",
+					"scripts/**/*.jsx"
+
+				],
+
+				tasks: [ "scripts" ],
+
+				options: { event: [ "all" ], }
+
+			},
+			
+			styles: {
+
+				files: [
+
+					"Gruntfile.js",
+					"styles/**/*.scss"
+
+				],
+
+				tasks: [ "styles" ],
+
+				options: { event: [ "all" ], }
+
+			}
+			  			
+
 		}
 
 	});
 
+	// NODE PACKAGES
+
+	grunt.loadNpmTasks("grunt-nodemon");
+
 	grunt.loadNpmTasks("grunt-contrib-concat");
+	grunt.loadNpmTasks("grunt-react");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 
 	grunt.loadNpmTasks("grunt-contrib-sass");
 	grunt.loadNpmTasks("grunt-contrib-cssmin");
 
+	grunt.loadNpmTasks("grunt-concurrent");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 
-	grunt.registerTask("default", ["scripts", "styles"]);
+	// GRUNT TASKS
 
-	grunt.registerTask("scripts", ["concat:dist", "uglify:dist"]);
+	grunt.registerTask("default", ["server", "scripts", "styles"]);
+
+	grunt.registerTask("server", ["concat:server"]);
+	grunt.registerTask("scripts", ["concat:scripts", "react:dist", "uglify:dist"]);
 	grunt.registerTask("styles", ["sass:dist", "cssmin:dist"]);
 
-	grunt.registerTask("auto", ["watch:dist"]);
+	grunt.registerTask("auto", ["concurrent:auto"]);
+	grunt.registerTask("auto-node", ["nodemon:dev"]);
+	grunt.registerTask("auto-server", ["watch:server"]);
+	grunt.registerTask("auto-scripts", ["watch:scripts"]);
+	grunt.registerTask("auto-styles", ["watch:styles"]);
+
+	grunt.registerTask("dev", ["auto"]);
 
 }

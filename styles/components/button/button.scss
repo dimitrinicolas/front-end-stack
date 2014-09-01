@@ -1,8 +1,8 @@
 
-/* BTN
+/* BUTTON
    ============================= */
 
-.btn {
+.button {
 
 	position: relative;
 	
@@ -26,7 +26,7 @@
 
 }
 
-.btn.disabled {
+.button.is-disabled {
 
 	cursor: default;
 

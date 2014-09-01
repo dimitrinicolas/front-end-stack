@@ -1,6 +1,6 @@
 
 /**
- * core/isset.js
+ * core/isset.jsx
  *
  * Test if a variable exist
  */

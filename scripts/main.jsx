@@ -1,6 +1,6 @@
 
 /**
- * main.js
+ * main.jsx
  *
  * Fichier JavaScript principal.
  */

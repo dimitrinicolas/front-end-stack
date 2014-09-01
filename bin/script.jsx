@@ -386,7 +386,7 @@ console.log(socket);
  * Button component
  */
 
-var Button = React.createClass({displayName: 'Button',
+var Button = React.createClass({
 
 	render: function() {
 
@@ -419,9 +419,9 @@ var Button = React.createClass({displayName: 'Button',
 		}
 
 		return (
-			React.DOM.div({className: className, tabIndex: isset(this.props.disable) ? "1" : "0", onClick: this.props.click}, 
-				this.props.children
-			)
+			<div className={className} tabIndex={isset(this.props.disable) ? "1" : "0"} onClick={this.props.click}>
+				{this.props.children}
+			</div>
 		);
 
 	}
@@ -434,7 +434,7 @@ var Button = React.createClass({displayName: 'Button',
  * Ripple component
  */
 
-var Ripple = React.createClass({displayName: 'Ripple',
+var Ripple = React.createClass({
 
 	componentDidMount: function() {
 
@@ -456,7 +456,7 @@ var Ripple = React.createClass({displayName: 'Ripple',
 
 			React.renderComponent(
 
-				RippleCircle({x: "50", y: "50"}),
+				<RippleCircle x="50" y="50" />,
 				this.getDOMNode()
 
 			);
@@ -468,16 +468,16 @@ var Ripple = React.createClass({displayName: 'Ripple',
 	render: function() {
 
 		return (
-			React.DOM.div({className: "ripple", onClick: this.handleClick}, 
-				this.props.children
-			)
+			<div className="ripple" onClick={this.handleClick}>
+				{this.props.children}
+			</div>
 		);
 
 	}
 
 });
 
-var RippleCircle = React.createClass({displayName: 'RippleCircle',
+var RippleCircle = React.createClass({
 
 	render: function() {
 
@@ -489,7 +489,7 @@ var RippleCircle = React.createClass({displayName: 'RippleCircle',
 		};
 
 		return (
-			React.DOM.div({className: "ripple__circle ripple__circle--animate", style: style})
+			<div className="ripple__circle ripple__circle--animate" style={style}></div>
 		);
 
 	}
@@ -506,10 +506,10 @@ $(function() {
 
 	React.renderComponent(
 
-		React.DOM.div(null, 
-			Button({color: "red"}, "Yolo"), 
-			Button({type: "raised", color: "orange"}, "Yolo")
-		),
+		<div>
+			<Button color="red">Yolo</Button>
+			<Button type="raised" color="orange">Yolo</Button>
+		</div>,
 		document.body
 
 	);

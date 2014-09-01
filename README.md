@@ -44,5 +44,5 @@ grunt
 Pour éviter de devoir lancer la compilation à chaque modification, on peut utiliser cette commande :
 
 ```shell
-grunt auto
+grunt dev
 ```

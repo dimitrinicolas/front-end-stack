@@ -1,10 +1,24 @@
 {
+  "name": "MarmWork",
+  "description": "Start quickly a modern project with MarmWork. Use React and NodeJs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dimitrinicolas/marmwork.git"
+  },
   "devDependencies": {
     "grunt": "~0.4.4",
+    "grunt-concurrent": "^0.5.0",
     "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-sass": "~0.7.3",
     "grunt-contrib-cssmin": "~0.9.0",
-    "grunt-contrib-watch": "~0.6.1"
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-nodemon": "^0.3.0",
+    "grunt-react": "^0.9.0",
+    "ip": "~0.3.0",
+    "mysql": "~2.3.2",
+    "sha1": "~1.1.0",
+    "socket.io": "~1.0.4",
+    "useragent": "~2.0.8"
   }
 }
