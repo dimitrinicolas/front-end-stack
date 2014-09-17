@@ -91,7 +91,7 @@ module.exports = function(grunt) {
 
 			dist: {
 
-				files: { "bin/styles.css": "styles/main.scss" }
+				files: { "bin/style.css": "style/main.scss" }
 
 			}
 
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
 
 			dist: {
 
-				files: { "bin/styles.min.css": [ "bin/styles.css" ] }
+				files: { "bin/style.min.css": [ "bin/style.css" ] }
 
 			}
 
@@ -109,7 +109,7 @@ module.exports = function(grunt) {
 
 		"concurrent": {
 
-			auto: ["auto-node", "auto-server", "auto-scripts", "auto-styles"],
+			auto: ["auto-node", "auto-server", "auto-scripts", "auto-style"],
 
 			options: {
 
@@ -151,16 +151,16 @@ module.exports = function(grunt) {
 
 			},
 			
-			styles: {
+			style: {
 
 				files: [
 
 					"Gruntfile.js",
-					"styles/**/*.scss"
+					"style/**/*.scss"
 
 				],
 
-				tasks: [ "styles" ],
+				tasks: [ "style" ],
 
 				options: { event: [ "all" ], }
 
@@ -187,17 +187,17 @@ module.exports = function(grunt) {
 
 	// GRUNT TASKS
 
-	grunt.registerTask("default", ["server", "scripts", "styles"]);
+	grunt.registerTask("default", ["server", "scripts", "style"]);
 
 	grunt.registerTask("server", ["concat:server"]);
 	grunt.registerTask("scripts", ["concat:scripts", "react:dist", "uglify:dist"]);
-	grunt.registerTask("styles", ["sass:dist", "cssmin:dist"]);
+	grunt.registerTask("style", ["sass:dist", "cssmin:dist"]);
 
 	grunt.registerTask("auto", ["concurrent:auto"]);
 	grunt.registerTask("auto-node", ["nodemon:dev"]);
 	grunt.registerTask("auto-server", ["watch:server"]);
 	grunt.registerTask("auto-scripts", ["watch:scripts"]);
-	grunt.registerTask("auto-styles", ["watch:styles"]);
+	grunt.registerTask("auto-style", ["watch:style"]);
 
 	grunt.registerTask("dev", ["auto"]);
 

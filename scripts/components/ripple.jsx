@@ -39,9 +39,11 @@ var Ripple = React.createClass({
 	render: function() {
 
 		return (
+			
 			<div className="ripple" onClick={this.handleClick}>
 				{this.props.children}
 			</div>
+
 		);
 
 	}
@@ -60,7 +62,9 @@ var RippleCircle = React.createClass({
 		};
 
 		return (
+
 			<div className="ripple__circle ripple__circle--animate" style={style}></div>
+
 		);
 
 	}

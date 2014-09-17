@@ -1,12 +1,20 @@
 
 /**
- * core/socket.js
+ * core/socket.jsx
  *
  * Socket var define
  */
 
-var socket = io.connect('http://localhost:3000');
+if (typeof io === "undefined") {
 
-Application.socket = socket;
+	console.error("Le serveur WebSocket n'est pas lancé.");
 
-console.log(socket);
+}
+
+else {
+
+	var socket = io.connect('http://localhost:3000');
+
+	Application.socket = socket;
+
+}

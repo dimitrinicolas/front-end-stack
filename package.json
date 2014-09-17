@@ -1,9 +1,17 @@
 {
-  "name": "MarmWork",
+  "name": "marmwork",
   "description": "Start quickly a modern project with MarmWork. Use React and NodeJs",
+  "author": "Dimitri Nicolas",
+  "scripts": {
+    "build": "grunt",
+    "dev": "grunt dev"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dimitrinicolas/marmwork.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dimitrinicolas/marmwork/issues"
   },
   "devDependencies": {
     "grunt": "~0.4.4",

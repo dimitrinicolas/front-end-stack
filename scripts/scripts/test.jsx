@@ -5,13 +5,13 @@
  * Test Script
  */
 
-$(function() {
+onload(function() {
 
 	React.renderComponent(
 
 		<div>
-			<Button color="red">Yolo</Button>
-			<Button type="raised" color="orange">Yolo</Button>
+			<Button color="red">Flat button</Button>
+			<Button type="raised" color="orange">Raised button</Button>
 		</div>,
 		document.body
 

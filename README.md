@@ -1,19 +1,33 @@
 # MarmWork
 
-> Commencer un projet facilement en Sass et JavaScript avec MarmWork.
+> Commencer un projet facilement en Sass, JavaScript et nodeJs avec MarmWork.
+
+![MarmWork](marmwork.jpg "marmwork")
 
 ## Dépendances
-Require NodeJs, Ruby et Grunt
+Require NodeJs, Ruby (avec Sass) et Grunt
 
 MarmWork nécessite plusieurs dépendances indispensables :
 
 ###NodeJs
 
-Si NodeJs n'es pas installé sur votre ordinateur : [nodejs.org](http://nodejs.org/)
+Si NodeJs n'es pas installé sur votre ordinateur sous Windows et Mac : [nodejs.org](http://nodejs.org/)
+
+Pour GNU/Linux on installe NodeJs comme ceci : 
+
+```shell
+apt-get install nodejs
+```
 
 ###Ruby
 
 Si Ruby n'est pas installé sur votre ordinateur sous Windows : [rubyinstaller.org](http://rubyinstaller.org/) Attention ! Il faut absolument cocher la case "Add Ruby executables to your PATH".
+
+Si Ruby n'est pas installé sur GNU/Linux : 
+
+```shell
+apt-get install ruby
+```
 
 *Ruby est normalement déjà installé sur Mac et Linux*
 

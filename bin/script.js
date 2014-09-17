@@ -216,72 +216,12 @@ marmottajax.request = function(options) {
 /**
  * core/$.jsx
  *
- * DOM Content Loaded function
+ * DOM Selectors
  */
 
-Application.domLoadEventListeners = [];
+var $ = function(swag) {
 
-function $(callback) {
-
-	if (typeof callback === "function") {
-
-		Application.domLoadEventListeners.push(callback);
-
-	}
-
-}
-
-Application.domContentLoaded = false;
-
-Application.onDomContentLoaded = function(event) {
-
-	if (!Application.domContentLoaded) {
-
-		Application.domContentLoaded = true;
-
-		for (var i = 0; i < Application.domLoadEventListeners.length; i++) {
-
-			var fn = Application.domLoadEventListeners[i]
-
-			if (typeof fn === "function") {
-
-				fn();
-
-			}
-			
-		}
-
-	}
-
-};
-
-if (typeof document.addEventListener !== undefined) {
-
-	document.addEventListener("DOMContentLoaded", Application.onDomContentLoaded, false);
-
-}
-
-else {
-
-	document.attachEvent("onDOMContentLoaded", Application.onDomContentLoaded);
-
-}
-
-if (typeof window.addEventListener !== undefined) {
-
-	window.addEventListener("load", Application.onDomContentLoaded, false);
-
-}
-
-else {
-
-	window.attachEvent("onload", Application.onDomContentLoaded);
-
-}
-
-window.onload = function() {
-
-    Application.onDomContentLoaded();
+	return document.querySelectorAll(swag)
 
 };
 
@@ -369,16 +309,96 @@ function on(element, event, fn) {
 }
 
 /**
- * core/socket.js
+ * core/onload.jsx
+ *
+ * DOM Content Loaded function
+ */
+
+Application.domLoadEventListeners = [];
+
+function onload(callback) {
+
+	if (typeof callback === "function") {
+
+		Application.domLoadEventListeners.push(callback);
+
+	}
+
+}
+
+Application.domContentLoaded = false;
+
+Application.onDomContentLoaded = function(event) {
+
+	if (!Application.domContentLoaded) {
+
+		Application.domContentLoaded = true;
+
+		for (var i = 0; i < Application.domLoadEventListeners.length; i++) {
+
+			var fn = Application.domLoadEventListeners[i]
+
+			if (typeof fn === "function") {
+
+				fn();
+
+			}
+			
+		}
+
+	}
+
+};
+
+if (typeof document.addEventListener !== undefined) {
+
+	document.addEventListener("DOMContentLoaded", Application.onDomContentLoaded, false);
+
+}
+
+else {
+
+	document.attachEvent("onDOMContentLoaded", Application.onDomContentLoaded);
+
+}
+
+if (typeof window.addEventListener !== undefined) {
+
+	window.addEventListener("load", Application.onDomContentLoaded, false);
+
+}
+
+else {
+
+	window.attachEvent("onload", Application.onDomContentLoaded);
+
+}
+
+window.onload = function() {
+
+    Application.onDomContentLoaded();
+
+};
+
+/**
+ * core/socket.jsx
  *
  * Socket var define
  */
 
-var socket = io.connect('http://localhost:3000');
+if (typeof io === "undefined") {
 
-Application.socket = socket;
+	console.error("Le serveur WebSocket n'est pas lancé.");
 
-console.log(socket);
+}
+
+else {
+
+	var socket = io.connect('http://localhost:3000');
+
+	Application.socket = socket;
+
+}
 
 /**
  * components/btn.jsx
@@ -419,9 +439,11 @@ var Button = React.createClass({displayName: 'Button',
 		}
 
 		return (
+			
 			React.DOM.div({className: className, tabIndex: isset(this.props.disable) ? "1" : "0", onClick: this.props.click}, 
 				this.props.children
 			)
+
 		);
 
 	}
@@ -468,9 +490,11 @@ var Ripple = React.createClass({displayName: 'Ripple',
 	render: function() {
 
 		return (
+			
 			React.DOM.div({className: "ripple", onClick: this.handleClick}, 
 				this.props.children
 			)
+
 		);
 
 	}
@@ -489,7 +513,9 @@ var RippleCircle = React.createClass({displayName: 'RippleCircle',
 		};
 
 		return (
+
 			React.DOM.div({className: "ripple__circle ripple__circle--animate", style: style})
+
 		);
 
 	}
@@ -502,13 +528,13 @@ var RippleCircle = React.createClass({displayName: 'RippleCircle',
  * Test Script
  */
 
-$(function() {
+onload(function() {
 
 	React.renderComponent(
 
 		React.DOM.div(null, 
-			Button({color: "red"}, "Yolo"), 
-			Button({type: "raised", color: "orange"}, "Yolo")
+			Button({color: "red"}, "Flat button"), 
+			Button({type: "raised", color: "orange"}, "Raised button")
 		),
 		document.body
 
