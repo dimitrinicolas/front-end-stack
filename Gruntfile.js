@@ -200,5 +200,6 @@ module.exports = function(grunt) {
 	grunt.registerTask("auto-style", ["watch:style"]);
 
 	grunt.registerTask("dev", ["auto"]);
+	grunt.registerTask("d", ["auto"]);
 
 }

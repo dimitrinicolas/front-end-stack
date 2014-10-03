@@ -4,6 +4,8 @@
 
 ![MarmWork](marmwork.jpg "marmwork")
 
+Checkout the [no nodejs server version](https://github.com/dimitrinicolas/marmwork/tree/no-nodejs)
+
 ## Dépendances
 Require NodeJs, Ruby (avec Sass) et Grunt
 

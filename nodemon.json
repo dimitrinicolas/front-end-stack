@@ -5,8 +5,7 @@
         "assets",
         "bin",
         "scripts",
-        "styles",
-        "server/sources"
+        "styles"
 
     ]
 

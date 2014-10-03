@@ -13,6 +13,7 @@ onload(function() {
 			<Button color="red">Flat button</Button>
 			<Button type="raised" color="orange">Raised button</Button>
 		</div>,
+		
 		document.body
 
 	);

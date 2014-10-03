@@ -7,7 +7,7 @@
 
 function on(element, event, fn) {
 
-	if (typeof element.nodeName !== "string" || typeof event !== "string" || typeof fn !== "function") {
+	if (!(typeof element.nodeName === "string" || element === window || element === document) || typeof event !== "string" || typeof fn !== "function") {
 
 		console.error("Invalid arguments `on`", {
 
@@ -24,13 +24,11 @@ function on(element, event, fn) {
 	var that = {
 
 		element: element,
-		event: event,
+		event: event.split(" ").join(""),
 		fn: fn,
 		_bind: element
 
 	};
-
-
 
 	that.bind = function(bind) {
 
