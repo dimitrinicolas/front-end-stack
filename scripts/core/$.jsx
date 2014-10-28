@@ -7,6 +7,6 @@
 
 var $ = function(swag) {
 
-	return document.querySelectorAll(swag)
+	return document.querySelectorAll(swag);
 
 };

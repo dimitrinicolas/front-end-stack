@@ -56,7 +56,7 @@ function on(element, event, fn) {
 
 			return function(event) {
 
-				that.fn.call(that.bind, event);
+				that.fn.call(that._bind, event);
 
 			};
 

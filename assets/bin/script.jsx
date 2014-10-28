@@ -221,7 +221,7 @@ marmottajax.request = function(options) {
 
 var $ = function(swag) {
 
-	return document.querySelectorAll(swag)
+	return document.querySelectorAll(swag);
 
 };
 
@@ -245,7 +245,7 @@ function isset(variable) {
 
 function on(element, event, fn) {
 
-	if (typeof element.nodeName !== "string" || typeof event !== "string" || typeof fn !== "function") {
+	if (!(typeof element.nodeName === "string" || element === window || element === document) || typeof event !== "string" || typeof fn !== "function") {
 
 		console.error("Invalid arguments `on`", {
 
@@ -262,13 +262,11 @@ function on(element, event, fn) {
 	var that = {
 
 		element: element,
-		event: event,
+		event: event.split(" ").join(""),
 		fn: fn,
 		_bind: element
 
 	};
-
-
 
 	that.bind = function(bind) {
 
@@ -296,7 +294,7 @@ function on(element, event, fn) {
 
 			return function(event) {
 
-				that.fn.call(that.bind, event);
+				that.fn.call(that._bind, event);
 
 			};
 
@@ -350,7 +348,7 @@ Application.onDomContentLoaded = function(event) {
 
 };
 
-if (typeof document.addEventListener !== undefined) {
+if (typeof document.addEventListener !== "undefined") {
 
 	document.addEventListener("DOMContentLoaded", Application.onDomContentLoaded, false);
 
@@ -362,7 +360,7 @@ else {
 
 }
 
-if (typeof window.addEventListener !== undefined) {
+if (typeof window.addEventListener !== "undefined") {
 
 	window.addEventListener("load", Application.onDomContentLoaded, false);
 
@@ -451,78 +449,6 @@ var Button = React.createClass({
 });
 
 /**
- * components/ripple.jsx
- *
- * Ripple component
- */
-
-var Ripple = React.createClass({
-
-	componentDidMount: function() {
-
-		this.getDOMNode().parentNode.addEventListener("click", this.handleClick, false);
-
-	},
-
-	handleClick: function() {
-		
-		if ((" " + this.getDOMNode().parentNode.className + " ").search("is-disabled") < 0) {
-
-			/*var parentOffset = El(parent).offset();
-			
-			var clickX = event.changedTouches ? event.changedTouches[0].pageX : event.pageX,
-				clickY = event.changedTouches ? event.changedTouches[0].pageY : event.pageY;
-			
-			circle.style.left = clickX - parentOffset.x + "px";
-			circle.style.top = clickY - parentOffset.y + "px";*/
-
-			React.renderComponent(
-
-				<RippleCircle x="50" y="50" />,
-				this.getDOMNode()
-
-			);
-
-		}
-
-	},
-
-	render: function() {
-
-		return (
-			
-			<div className="ripple" onClick={this.handleClick}>
-				{this.props.children}
-			</div>
-
-		);
-
-	}
-
-});
-
-var RippleCircle = React.createClass({
-
-	render: function() {
-
-		var style = {
-
-			top: this.props.y,
-			left: this.props.x
-
-		};
-
-		return (
-
-			<div className="ripple__circle ripple__circle--animate" style={style}></div>
-
-		);
-
-	}
-
-});
-
-/**
  * scripts/test.jsx
  *
  * Test Script
@@ -536,6 +462,7 @@ onload(function() {
 			<Button color="red">Flat button</Button>
 			<Button type="raised" color="orange">Raised button</Button>
 		</div>,
+		
 		document.body
 
 	);

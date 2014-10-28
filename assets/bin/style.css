@@ -3,8 +3,21 @@
  *
  * MAIN STYLESHEET
  */
+/* VARIABLES
+   ----------------------------- */
+/* COLORS
+   ============================= */
+/* SIZES
+   ============================= */
+/* OTHER
+   ============================= */
 /* MIXINS
    ----------------------------- */
+/**
+ * mixins/animation.scss
+ * 
+ * ANIMATION
+ */
 /* BORDER RADIUS
    ============================= */
 /* BOX SHADOW
@@ -13,6 +26,21 @@
    ============================= */
 /* FONTS PRESETS
    ============================= */
+/**
+ * mixins/keyframes.scss
+ * 
+ * KEYFRAMES
+ */
+/**
+ * mixins/medias.scss
+ * 
+ * MEDIAS QUERIES MIXINS
+ */
+/**
+ * mixins/opacity.scss
+ * 
+ * OPACITY
+ */
 /* OUTLINE
    ============================= */
 /* PREFIXER
@@ -32,14 +60,6 @@
 /* COVERER
    ============================= */
 /* PRESERVE 3D
-   ============================= */
-/* VARIABLES
-   ----------------------------- */
-/* COLORS
-   ============================= */
-/* SIZES
-   ============================= */
-/* OTHER
    ============================= */
 /* BASE
    ----------------------------- */
@@ -136,37 +156,37 @@ input[type="search"] {
   font-family: "RobotoDraft";
   font-style: normal;
   font-weight: 400;
-  src: local("RobotoDraft"), url(../assets/fonts/roboto-regular.woff) format("woff"); }
+  src: local("RobotoDraft"), url(../fonts/roboto-regular.woff) format("woff"); }
 @font-face {
   font-family: "RobotoDraft";
   font-style: normal;
   font-weight: 300;
-  src: local("RobotoDraft Light"), local("RobotoDraft-Light"), url(../assets/fonts/roboto-light.woff) format("woff"); }
+  src: local("RobotoDraft Light"), local("RobotoDraft-Light"), url(../fonts/roboto-light.woff) format("woff"); }
 @font-face {
   font-family: "RobotoDraft";
   font-style: normal;
   font-weight: 500;
-  src: local("RobotoDraft Medium"), local("RobotoDraft-Medium"), url(../assets/fonts/roboto-medium.woff) format("woff"); }
+  src: local("RobotoDraft Medium"), local("RobotoDraft-Medium"), url(../fonts/roboto-medium.woff) format("woff"); }
 @font-face {
   font-family: "RobotoDraft";
   font-style: normal;
   font-weight: 700;
-  src: local("RobotoDraft Bold"), local("RobotoDraft-Bold"), url(../assets/fonts/roboto-bold.woff) format("woff"); }
+  src: local("RobotoDraft Bold"), local("RobotoDraft-Bold"), url(../fonts/roboto-bold.woff) format("woff"); }
 @font-face {
   font-family: "Merriweather";
   font-style: normal;
   font-weight: 400;
-  src: local("Merriweather"), url(../assets/fonts/merriweather-regular.woff) format("woff"); }
+  src: local("Merriweather"), url(../fonts/merriweather-regular.woff) format("woff"); }
 @font-face {
   font-family: "Merriweather";
   font-style: normal;
   font-weight: 700;
-  src: local("Merriweather Bold"), local("Merriweather-Bold"), url(../assets/fonts/merriweather-bold.woff) format("woff"); }
+  src: local("Merriweather Bold"), local("Merriweather-Bold"), url(../fonts/merriweather-bold.woff) format("woff"); }
 @font-face {
   font-family: "Merriweather";
   font-style: italic;
   font-weight: 400;
-  src: local("Merriweather Italic"), local("Merriweather-Italic"), url(../assets/fonts/merriweather-italic.woff) format("woff"); }
+  src: local("Merriweather Italic"), local("Merriweather-Italic"), url(../fonts/merriweather-italic.woff) format("woff"); }
 /* DEFAULT STYLE OF THE BODY
    ============================= */
 html,
@@ -1058,107 +1078,3 @@ body {
   -o-box-shadow: none;
   box-shadow: none;
   filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=0); }
-
-/* RIPPLE
-   ============================= */
-.ripple {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
-  color: #c6c6c6; }
-
-/* RIPPLE CIRCLE
-   ============================= */
-.ripple__circle {
-  position: relative;
-  display: block;
-  width: 0;
-  height: 0;
-  background: inherit;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0); }
-
-/* ANIMATED RIPPLE CIRCLE
-   ============================= */
-.ripple__circle--animate {
-  width: 100px;
-  height: 0;
-  margin: -50px 0 0 -50px;
-  opacity: 0.4;
-  -webkit-animation: ripple 1s ease-out;
-  -moz-animation: ripple 1s ease-out;
-  -ms-animation: ripple 1s ease-out;
-  -o-animation: ripple 1s ease-out;
-  animation: ripple 1s ease-out; }
-
-@-webkit-keyframes ripple {
-  from {
-    height: 100px; }
-
-  to {
-    height: 100px;
-    opacity: 0;
-    -webkit-transform: scale(6);
-    -moz-transform: scale(6);
-    -ms-transform: scale(6);
-    -o-transform: scale(6);
-    transform: scale(6); } }
-@-moz-keyframes ripple {
-  from {
-    height: 100px; }
-
-  to {
-    height: 100px;
-    opacity: 0;
-    -webkit-transform: scale(6);
-    -moz-transform: scale(6);
-    -ms-transform: scale(6);
-    -o-transform: scale(6);
-    transform: scale(6); } }
-@-ms-keyframes ripple {
-  from {
-    height: 100px; }
-
-  to {
-    height: 100px;
-    opacity: 0;
-    -webkit-transform: scale(6);
-    -moz-transform: scale(6);
-    -ms-transform: scale(6);
-    -o-transform: scale(6);
-    transform: scale(6); } }
-@-o-keyframes ripple {
-  from {
-    height: 100px; }
-
-  to {
-    height: 100px;
-    opacity: 0;
-    -webkit-transform: scale(6);
-    -moz-transform: scale(6);
-    -ms-transform: scale(6);
-    -o-transform: scale(6);
-    transform: scale(6); } }
-@keyframes ripple {
-  from {
-    height: 100px; }
-
-  to {
-    height: 100px;
-    opacity: 0;
-    -webkit-transform: scale(6);
-    -moz-transform: scale(6);
-    -ms-transform: scale(6);
-    -o-transform: scale(6);
-    transform: scale(6); } }

@@ -41,7 +41,7 @@ Application.onDomContentLoaded = function(event) {
 
 };
 
-if (typeof document.addEventListener !== undefined) {
+if (typeof document.addEventListener !== "undefined") {
 
 	document.addEventListener("DOMContentLoaded", Application.onDomContentLoaded, false);
 
@@ -53,7 +53,7 @@ else {
 
 }
 
-if (typeof window.addEventListener !== undefined) {
+if (typeof window.addEventListener !== "undefined") {
 
 	window.addEventListener("load", Application.onDomContentLoaded, false);
 

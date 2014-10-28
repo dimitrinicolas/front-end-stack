@@ -1,0 +1,66 @@
+
+/**
+ * mixins/medias.scss
+ * 
+ * MEDIAS QUERIES MIXINS
+ */
+
+@mixin lt(){
+
+	@media (max-width: $lt) {
+
+		@content;
+
+	}
+
+}
+
+@mixin xs(){
+
+	@media (max-width: $xs) {
+
+		@content;
+
+	}
+
+}
+
+@mixin sm(){
+
+	@media (max-width: $sm) {
+
+		@content;
+
+	}
+
+}
+
+@mixin md(){
+
+	@media (max-width: $md) {
+
+		@content;
+
+	}
+
+}
+
+@mixin lg(){
+
+	@media (max-width: $lg) {
+
+		@content;
+
+	}
+
+}
+
+@mixin xl(){
+
+	@media (max-width: $xl) {
+
+		@content;
+
+	}
+
+}

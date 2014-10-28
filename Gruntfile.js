@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 
 				],
 
-				dest: "bin/script.jsx"
+				dest: "assets/bin/script.jsx"
 
 			},
 
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
 
 			dist: {
 
-				files: { "bin/script.js": "bin/script.jsx" }
+				files: { "assets/bin/script.js": "assets/bin/script.jsx" }
 
 			}
 
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 
 			dist: {
 
-				files: { "bin/script.min.js": [ "bin/script.js" ] }
+				files: { "assets/bin/script.min.js": [ "assets/bin/script.js" ] }
 
 			}
 
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
 
 			dist: {
 
-				files: { "bin/style.css": "style/main.scss" }
+				files: { "assets/bin/style.css": "style/main.scss" }
 
 			}
 
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
 
 			dist: {
 
-				files: { "bin/style.min.css": [ "bin/style.css" ] }
+				files: { "assets/bin/style.min.css": [ "assets/bin/style.css" ] }
 
 			}
 

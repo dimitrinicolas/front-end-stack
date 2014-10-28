@@ -6,13 +6,24 @@
  */
 
 
+/* VARIABLES
+   ----------------------------- */
+
+@import "variables/colors";
+@import "variables/sizes";
+@import "variables/others";
+
 /* MIXINS
    ----------------------------- */
 
+@import "mixins/animation";
 @import "mixins/border-radius";
 @import "mixins/box-shadow";
 @import "mixins/box-sizing";
 @import "mixins/fonts";
+@import "mixins/keyframes";
+@import "mixins/medias";
+@import "mixins/opacity";
 @import "mixins/outline";
 @import "mixins/prefix";
 @import "mixins/transition";
@@ -27,13 +38,6 @@
 @import "extends/coverer";
 @import "extends/preserve-3d";
 
-/* VARIABLES
-   ----------------------------- */
-
-@import "variables/colors";
-@import "variables/sizes";
-@import "variables/others";
-
 /* BASE
    ----------------------------- */
 
@@ -47,7 +51,3 @@
 	@import "components/button/button";
 	@import "components/button/flat";
 	@import "components/button/raised";
-
-	@import "components/ripple/ripple";
-	@import "components/ripple/circle";
-	@import "components/ripple/animate";
