@@ -456,7 +456,7 @@ var Button = React.createClass({
 
 onload(function() {
 
-	React.renderComponent(
+	React.render(
 
 		<div>
 			<Button color="red">Flat button</Button>

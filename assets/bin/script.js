@@ -438,7 +438,7 @@ var Button = React.createClass({displayName: 'Button',
 
 		return (
 			
-			React.DOM.div({className: className, tabIndex: isset(this.props.disable) ? "1" : "0", onClick: this.props.click}, 
+			React.createElement("div", {className: className, tabIndex: isset(this.props.disable) ? "1" : "0", onClick: this.props.click}, 
 				this.props.children
 			)
 
@@ -456,11 +456,11 @@ var Button = React.createClass({displayName: 'Button',
 
 onload(function() {
 
-	React.renderComponent(
+	React.render(
 
-		React.DOM.div(null, 
-			Button({color: "red"}, "Flat button"), 
-			Button({type: "raised", color: "orange"}, "Raised button")
+		React.createElement("div", null, 
+			React.createElement(Button, {color: "red"}, "Flat button"), 
+			React.createElement(Button, {type: "raised", color: "orange"}, "Raised button")
 		),
 		
 		document.body
