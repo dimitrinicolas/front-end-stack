@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 			scripts: {
 
 				src: [
-				
+
 					"scripts/intro.*",
 					"scripts/main.*",
 
@@ -35,18 +35,18 @@ module.exports = function(grunt) {
 			server: {
 
 				src: [
-				
+
 					"server/sources/core/node-modules.js",
 					"server/sources/core/main.js",
 					"server/sources/core/**/*.js",
-					
+
 					"server/sources/modules/*/main.js",
 					"server/sources/modules/*/**/*.js",
-					
+
 					"server/sources/actions/intro.js",
 					"server/sources/actions/*/**/*.js",
 					"server/sources/actions/outro.js",
-					
+
 					"server/sources/outro.js"
 
 				],
@@ -150,7 +150,7 @@ module.exports = function(grunt) {
 				options: { event: [ "all" ], }
 
 			},
-			
+
 			style: {
 
 				files: [
@@ -165,7 +165,7 @@ module.exports = function(grunt) {
 				options: { event: [ "all" ], }
 
 			}
-			  			
+
 
 		}
 
@@ -179,7 +179,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-react");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 
-	grunt.loadNpmTasks("grunt-contrib-sass");
+	grunt.loadNpmTasks("grunt-sass");
 	grunt.loadNpmTasks("grunt-contrib-cssmin");
 
 	grunt.loadNpmTasks("grunt-concurrent");

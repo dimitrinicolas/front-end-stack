@@ -1,8 +1,8 @@
 
-/* FLAT BUTTON
+/* FLAT BTN
    ============================= */
 
-.button--flat {
+.btn--flat {
 
 	overflow: hidden;
    	
@@ -12,47 +12,50 @@
 
 }
 
-.button--flat:focus {
+.btn--flat:focus {
 
 	@include outline;
 
 }
 
-@each $name, $color in $colors {
+@each $array in $colors {
 
-	.button--flat.button--#{$name} {
+	$_color-name: nth($array, 1);
+	$_color-value: nth($array, 2);
+
+	.btn--flat.btn--#{$_color-name} {
 	
-		color: $color;
+		color: $_color-value;
 
 	}
 
-	.button--flat.button--#{$name} .ripple {
+	.btn--flat.btn--#{$_color-name} .ripple {
 
-		color: $color;
-
-	}
-
-	.button--flat.button--#{$name}:focus {
-
-		@include outline($color);
+		background-color: $_color-value;
 
 	}
 
-	.button--flat.button--outline-#{$name}:focus {
+	.btn--flat.btn--#{$_color-name}:focus {
 
-		@include outline($color);
+		@include outline($_color-value);
 
 	}
 
-	.button--flat.button--ripple-#{$name} .ripple {
+	.btn--flat.btn--outline-#{$_color-name}:focus {
 
-		color: $color;
+		@include outline($_color-value);
+
+	}
+
+	.btn--flat.btn--ripple-#{$_color-name} .ripple {
+
+		background-color: $_color-value;
 
 	}
 
 }
 
-.button--flat.is-disabled {
+.btn--flat.disabled {
 
 	color: $grey;
 	background: $light-grey;

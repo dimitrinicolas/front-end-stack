@@ -7,7 +7,7 @@
 Checkout the [no nodejs server version](https://github.com/dimitrinicolas/marmwork/tree/no-nodejs)
 
 ## Dépendances
-Require NodeJs, Ruby (avec Sass) et Grunt
+Require NodeJs et Grunt
 
 MarmWork nécessite plusieurs dépendances indispensables :
 
@@ -21,30 +21,14 @@ Pour GNU/Linux on installe NodeJs comme ceci :
 apt-get install nodejs
 ```
 
-###Ruby
-
-Si Ruby n'est pas installé sur votre ordinateur sous Windows : [rubyinstaller.org](http://rubyinstaller.org/) Attention ! Il faut absolument cocher la case "Add Ruby executables to your PATH".
-
-Si Ruby n'est pas installé sur GNU/Linux : 
-
-```shell
-apt-get install ruby
-```
-
-*Ruby est normalement déjà installé sur Mac et Linux*
-
-###Sass
-
-Il faut maintenant installer Sass dans votre dossier, pour cela, ouvrez l'invite de commande dans votre dossier et lancez cette commande :
-
-```shell
-gem install sass
-```
-
 ###Grunt et ses plugins
 
-Pour installer Grunt et ses plugins, il sufit de lancer cette commande encore une fois dans la racine de votre dossier :
+Pour installer Grunt et ses plugins, il sufit de lancer ces deux commandes dans la racine de votre dossier :
 
+```shell
+npm install -g grunt-cli
+```
+puis
 ```shell
 npm install
 ```
