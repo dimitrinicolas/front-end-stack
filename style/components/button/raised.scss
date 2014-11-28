@@ -1,8 +1,11 @@
 
-/* RAISED BTN
-   ============================= */
+/**
+ * components/button/raised.scss
+ * 
+ * Raised button
+ */
 
-.btn--raised {
+.button--raised {
 	
 	background-color: #e2e2e2;
 
@@ -12,8 +15,8 @@
 	
 }
 
-.btn--raised:hover,
-.btn--raised:focus {
+.button--raised:hover,
+.button--raised:focus {
 
 	outline: none;
 
@@ -23,13 +26,13 @@
 
 }
 
-.btn--raised:hover {
+.button--raised:hover {
 
 	background-color: lighten(#e2e2e2, 2);
 
 }
 
-.btn--raised:active {
+.button--raised:active {
 
 	background-color: #e2e2e2;
 
@@ -44,7 +47,7 @@
 	$_color-name: nth($array, 1);
 	$_color-value: nth($array, 2);
 
-	.btn--raised.btn--#{$_color-name} {
+	.button--raised.button--#{$_color-name} {
 
 		background-color: $_color-value;
 
@@ -52,13 +55,13 @@
 
 	@if $_color-name != yellow {
 
-		.btn--raised.btn--#{$_color-name} {
+		.button--raised.button--#{$_color-name} {
 
 			color: white;
 
 		}
 
-		.btn--raised.btn--#{$_color-name} .ripple {
+		.button--raised.button--#{$_color-name} .ripple {
 
 			background-color: white;
 
@@ -68,7 +71,7 @@
 
 }
 
-.btn--raised.disabled {
+.button--raised.disabled {
 	
 	color: $grey;
 	background-color: $light-grey;
@@ -77,7 +80,7 @@
 
 }
 
-.btn--raised.disabled:hover {
+.button--raised.disabled:hover {
 	
 	@include z-depht(0);
 

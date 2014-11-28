@@ -18,7 +18,7 @@ var Application = {
 };
 
 /*
- *  Marmottajax 1.0.4
+ *  Marmottajax 1.1.0
  *  Envoyer et recevoir des informations simplement en JavaScript
  */
 
@@ -30,7 +30,7 @@ var marmottajax = function(options) {
 
 marmottajax.normalize = function(parameters) {
 
-    return parameters ? typeof parameters === "string" ? { url: parameters } : parameters : null;
+    return parameters ? (typeof parameters === "string" ? { url: parameters } : parameters) : false;
 
 };
 
@@ -92,13 +92,13 @@ marmottajax.request = function(options) {
 
     if (!options) { return false; }
 
-    if (typeof options === "string") {
+    if (typeof options == "string") {
 
         options = { url: options };
 
     }
 
-    if (options.method === "POST" || options.method === "PUT" || options.method === "DELETE") {
+    if (options.method === "POST" || options.method === "PUT" || options.method == "DELETE") {
 
         var post = "?";
 
@@ -124,7 +124,45 @@ marmottajax.request = function(options) {
 
     }
 
-    this.xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+    this.xhr = null;
+
+    if (window.XMLHttpRequest) {
+
+        this.xhr = new XMLHttpRequest();
+
+    }
+ 
+    if (window.ActiveXObject) {
+
+        var names = [
+
+            "Msxml2.XMLHTTP.6.0",
+            "Msxml2.XMLHTTP.3.0",
+            "Msxml2.XMLHTTP",
+            "Microsoft.XMLHTTP"
+
+        ];
+
+        for (var i in names) {
+
+            try {
+
+                this.xhr = new ActiveXObject(names[i]);
+                break;
+
+            }
+
+            catch(e) { }
+
+        }
+
+    }
+    
+    if (!this.xhr) {
+
+        throw "xhr not supported";
+
+    }
 
     this.xhr.options = options;
 
@@ -163,6 +201,18 @@ marmottajax.request = function(options) {
 
         }
 
+    }
+
+    this.xhr.returnSuccess = function(result) {
+
+        this.call("then", result);
+
+    };
+
+    this.xhr.returnError = function(message) {
+
+        this.call("error", message);
+
     };
 
     this.xhr.onreadystatechange = function() {
@@ -181,7 +231,7 @@ marmottajax.request = function(options) {
 
                 catch (error) {
 
-                    this.call("error", "invalid json");
+                    this.returnError("invalid json");
 
                     return false;
 
@@ -189,19 +239,19 @@ marmottajax.request = function(options) {
 
             }
 
-            this.call("then", result);
+            this.returnSuccess(result);
 
         }
 
         else if (this.readyState === 4 && this.status == 404) {
 
-            this.call("error", "404");
+            this.returnError("404");
 
         }
 
         else if (this.readyState === 4) {
 
-            this.call("error", "unknow");
+            this.returnError("unknow");
 
         }
 
@@ -399,7 +449,7 @@ else {
 }
 
 /**
- * components/btn.jsx
+ * components/button.jsx
  *
  * Button component
  */

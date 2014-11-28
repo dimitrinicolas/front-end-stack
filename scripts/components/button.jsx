@@ -1,6 +1,6 @@
 
 /**
- * components/btn.jsx
+ * components/button.jsx
  *
  * Button component
  */
