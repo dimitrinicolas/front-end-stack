@@ -5,8 +5,8 @@
  * Animation
  */
 
-@mixin animation($str) {
+@mixin animation($arguments...) {
 
-	@include prefix(animation, #{$str});
+	@include prefix(animation, $arguments);
 
 }

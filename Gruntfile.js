@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 			scripts: {
 
 				src: [
-
+				
 					"scripts/intro.*",
 					"scripts/main.*",
 
@@ -15,9 +15,6 @@ module.exports = function(grunt) {
 
 					"scripts/core/**/*.*",
 
-					"scripts/components/main.*",
-					"scripts/components/*.*",
-					"scripts/components/*/main.*",
 					"scripts/components/**/*.*",
 
 					"scripts/scripts/*/main.*",
@@ -29,29 +26,6 @@ module.exports = function(grunt) {
 				],
 
 				dest: "assets/bin/script.jsx"
-
-			},
-
-			server: {
-
-				src: [
-
-					"server/sources/core/node-modules.js",
-					"server/sources/core/main.js",
-					"server/sources/core/**/*.js",
-
-					"server/sources/modules/*/main.js",
-					"server/sources/modules/*/**/*.js",
-
-					"server/sources/actions/intro.js",
-					"server/sources/actions/*/**/*.js",
-					"server/sources/actions/outro.js",
-
-					"server/sources/outro.js"
-
-				],
-
-				dest: "server/bin/server.js"
 
 			}
 
@@ -72,16 +46,6 @@ module.exports = function(grunt) {
 			dist: {
 
 				files: { "assets/bin/script.min.js": [ "assets/bin/script.js" ] }
-
-			}
-
-		},
-
-		"nodemon": {
-
-			dev: {
-
-				script: "server/bin/server.js"
 
 			}
 
@@ -109,7 +73,7 @@ module.exports = function(grunt) {
 
 		"concurrent": {
 
-			auto: ["auto-node", "auto-server", "auto-scripts", "auto-style"],
+			auto: ["auto-scripts", "auto-style"],
 
 			options: {
 
@@ -121,27 +85,12 @@ module.exports = function(grunt) {
 
 		"watch": {
 
-			server: {
-
-				files: [
-
-					"Gruntfile.js",
-					"server/sources/**/*.js"
-
-				],
-
-				tasks: [ "server" ],
-
-				options: { event: ["all"], }
-
-			},
-
 			scripts: {
 
 				files: [
 
 					"Gruntfile.js",
-					"scripts/**/*.jsx"
+					"scripts/**/*.*"
 
 				],
 
@@ -150,7 +99,7 @@ module.exports = function(grunt) {
 				options: { event: [ "all" ], }
 
 			},
-
+			
 			style: {
 
 				files: [
@@ -165,15 +114,13 @@ module.exports = function(grunt) {
 				options: { event: [ "all" ], }
 
 			}
-
+			  			
 
 		}
 
 	});
 
 	// NODE PACKAGES
-
-	grunt.loadNpmTasks("grunt-nodemon");
 
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-react");
@@ -187,15 +134,12 @@ module.exports = function(grunt) {
 
 	// GRUNT TASKS
 
-	grunt.registerTask("default", ["server", "scripts", "style"]);
+	grunt.registerTask("default", ["scripts", "style"]);
 
-	grunt.registerTask("server", ["concat:server"]);
 	grunt.registerTask("scripts", ["concat:scripts", "react:dist", "uglify:dist"]);
 	grunt.registerTask("style", ["sass:dist", "cssmin:dist"]);
 
 	grunt.registerTask("auto", ["concurrent:auto"]);
-	grunt.registerTask("auto-node", ["nodemon:dev"]);
-	grunt.registerTask("auto-server", ["watch:server"]);
 	grunt.registerTask("auto-scripts", ["watch:scripts"]);
 	grunt.registerTask("auto-style", ["watch:style"]);
 

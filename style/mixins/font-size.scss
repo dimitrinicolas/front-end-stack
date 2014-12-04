@@ -1,0 +1,13 @@
+
+/**
+ * mixins/font-size.scss
+ * 
+ * Font size
+ */
+
+@mixin font-size($size) {
+
+	font-size: $size;
+	font-size: $size / $font-size * 1rem;
+
+}

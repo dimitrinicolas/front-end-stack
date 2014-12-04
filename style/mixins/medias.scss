@@ -5,7 +5,7 @@
  * Medias queries
  */
 
-@mixin lt(){
+@mixin lt {
 
 	@media (max-width: $lt) {
 
@@ -15,7 +15,7 @@
 
 }
 
-@mixin xs(){
+@mixin xs {
 
 	@media (max-width: $xs) {
 
@@ -25,7 +25,7 @@
 
 }
 
-@mixin sm(){
+@mixin sm {
 
 	@media (max-width: $sm) {
 
@@ -35,7 +35,7 @@
 
 }
 
-@mixin md(){
+@mixin md {
 
 	@media (max-width: $md) {
 
@@ -45,7 +45,7 @@
 
 }
 
-@mixin lg(){
+@mixin lg {
 
 	@media (max-width: $lg) {
 
@@ -55,7 +55,7 @@
 
 }
 
-@mixin xl(){
+@mixin xl {
 
 	@media (max-width: $xl) {
 

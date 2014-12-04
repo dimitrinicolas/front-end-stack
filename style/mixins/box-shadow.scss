@@ -5,7 +5,7 @@
  * Box shadow
  */
 
-@mixin box-shadow($arguments) {
+@mixin box-shadow($arguments...) {
 
 	@include prefix(box-shadow, $arguments);
 	

@@ -38,13 +38,15 @@
 @mixin font-paragraph($size: 16px) {
 
 	font-family: $font-family-paragraph;
-	font-size: $size;
+
+	@include font-size($size);
 
 }
 
 @mixin font-title($size: 28px) {
 
 	font-family: $font-family-title;
-	font-size: $size;
+
+	@include font-size($size);
 
 }

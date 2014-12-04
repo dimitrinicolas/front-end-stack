@@ -5,12 +5,22 @@
  * Prefix
  */
 
-@mixin prefix($property, $value) {
+@mixin prefix($property, $value...) {
 
-    -webkit-#{$property}: $value;
-       -moz-#{$property}: $value;
-        -ms-#{$property}: $value;
-         -o-#{$property}: $value;
-            #{$property}: $value;
-            
+	-webkit-#{$property}: $value;
+	   -moz-#{$property}: $value;
+	    -ms-#{$property}: $value;
+	     -o-#{$property}: $value;
+	        #{$property}: $value;
+
+}
+
+@mixin prefix-suffix($property, $value...) {
+
+	-webkit-#{$property}: -webkit-#{$value};
+	   -moz-#{$property}:    -moz-#{$value};
+	    -ms-#{$property}:     -ms-#{$value};
+	     -o-#{$property}:      -o-#{$value};
+	        #{$property}:         #{$value};
+
 }

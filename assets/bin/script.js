@@ -17,249 +17,494 @@ var Application = {
 
 };
 
-/*
- *  Marmottajax 1.1.0
- *  Envoyer et recevoir des informations simplement en JavaScript
+/**
+ * main.js
+ *
+ * Main librairy file
  */
 
-var marmottajax = function(options) {
+var Ajax = function() {
 
-    return marmottajax.get(options);
+	if (typeof this.self !== "undefined") {
 
-};
+		return new Ajax(Ajax.normalizeData(arguments));
 
-marmottajax.normalize = function(parameters) {
+	}
 
-    return parameters ? (typeof parameters === "string" ? { url: parameters } : parameters) : false;
+	var data = Ajax.normalizeData(arguments);
 
-};
+	if (data === null) {
 
-marmottajax.json = function(parameters) {
+		throw "Les arguments passées à la fonction Ajax sont invalides.";
 
-    if (parameters = marmottajax.normalize(parameters)) {
+	}
 
-        parameters.json = true;
+	this.url = data.url;
+	this.method = data.method;
+	this.json = data.json;
+	this.watch = data.watch;
+	this.parameters = data.parameters;
 
-        return new marmottajax.request(parameters);
+	if (this.method === "post" || this.method === "put" || this.method === "update" || this.method === "delete") {
 
-    }
+		this.postData = "?";
 
-};
+		for (var key in this.parameters) {
 
-marmottajax.get = function(options) {
+			this.postData += this.parameters.hasOwnProperty(key) ? "&" + key + "=" + this.parameters[key] : "";
 
-    return new marmottajax.request(options);
+		}
 
-};
+	}
 
-marmottajax.post = function(parameters) {
+	else {
 
-    if (parameters = marmottajax.normalize(parameters)) {
+		this.url += this.url.indexOf("?") < 0 ? "?" : "";
 
-        parameters.method = "POST";
+		for (var key in this.parameters) {
 
-        return new marmottajax.request(parameters);
+		    this.url += this.parameters.hasOwnProperty(key) ? "&" + key + "=" + this.parameters[key] : "";
 
-    }
+		}
 
-};
+	}
 
-marmottajax.put = function(parameters) {
+	this.setXhr();
 
-    if (parameters = marmottajax.normalize(parameters)) {
-
-        parameters.method = "PUT";
-
-        return new marmottajax.request(parameters);
-
-    }
+	this.setWatcher();
 
 };
 
-marmottajax.delete_ = function(parameters) {
+/**
+ * constants.js
+ *
+ * Constants variables
+ */
 
-    if (parameters = marmottajax.normalize(parameters)) {
+Ajax.defaultData = {
 
-        parameters.method = "DELETE";
+	method: "get",
+	json: false,
+	watch: -1,
 
-        return new marmottajax.request(parameters);
-
-    }
+	parameters: {}
 
 };
 
-marmottajax.request = function(options) {
+Ajax.validMethods = ["get", "post", "put", "update", "delete"];
 
-    if (!options) { return false; }
+/**
+ * normalize-data.js
+ *
+ * Normalize data in Ajax request
+ */
 
-    if (typeof options == "string") {
+Ajax.normalizeData = function(data) {
 
-        options = { url: options };
+	with (data) {
 
-    }
+	/**
+	 * Search data in arguments
+	 */
 
-    if (options.method === "POST" || options.method === "PUT" || options.method == "DELETE") {
+	if (data.length === 0) {
 
-        var post = "?";
+		return null;
 
-        for (var key in options.options) {
+	}
 
-            post += options.options.hasOwnProperty(key) ? "&" + key + "=" + options.options[key] : "";
+	var result = {};
 
-        }
+	if (data.length === 1 && typeof data[0] === "object") {
 
-    }
+		result = data[0];
 
-    else {
+	}
 
-        options.method = "GET";
+	else if (data.length === 1 && typeof data[0] === "string") {
 
-        options.url += options.url.indexOf("?") < 0 ? "?" : "";
+		result = {
 
-        for (var key in options.options) {
+			url: data[0]
 
-            options.url += options.options.hasOwnProperty(key) ? "&" + key + "=" + options.options[key] : "";
+		};
 
-        }
+	}
 
-    }
+	else if (data.length === 2 && typeof data[0] === "string" && typeof data[1] === "object") {
 
-    this.xhr = null;
+		data[1].url = data[0];
 
-    if (window.XMLHttpRequest) {
+		result = data[1];
 
-        this.xhr = new XMLHttpRequest();
+	}
 
-    }
- 
-    if (window.ActiveXObject) {
+	}
 
-        var names = [
+	/**
+	 * Normalize data in arguments
+	 */
 
-            "Msxml2.XMLHTTP.6.0",
-            "Msxml2.XMLHTTP.3.0",
-            "Msxml2.XMLHTTP",
-            "Microsoft.XMLHTTP"
+	if (!(typeof result.method === "string" && Ajax.validMethods.indexOf(result.method.toLowerCase()) != -1)) {
 
-        ];
+		result.method = Ajax.defaultData.method;
 
-        for (var i in names) {
+	}
 
-            try {
+	else {
 
-                this.xhr = new ActiveXObject(names[i]);
-                break;
+		result.method = result.method.toLowerCase();
 
-            }
+	}
 
-            catch(e) { }
+	if (typeof result.json !== "boolean") {
 
-        }
+		result.json = Ajax.defaultData.json;
 
-    }
-    
-    if (!this.xhr) {
+	}
 
-        throw "xhr not supported";
+	if (typeof result.watch !== "number") {
 
-    }
+		result.watch = Ajax.defaultData.watch;
 
-    this.xhr.options = options;
+	}
 
-    this.xhr.callbacks = {
+	if (typeof result.parameters !== "object") {
 
-        then: [],
-        error: []
+		result.parameters = Ajax.defaultData.parameters;
 
-    };
+	}
 
-    this.then = function(callback) {
+	return result;
 
-        this.xhr.callbacks.then.push(callback);
+};
 
-        return this;
+/**
+ * set-xhr.js
+ *
+ * Set Watcher 
+ */
 
-    };
+Ajax.prototype.setWatcher = function() {
 
-    this.error = function(callback) {
+	if (this.watch !== -1) {
 
-        this.xhr.callbacks.error.push(callback);
+		this.watchIntervalFunction = function() {
 
-        return this;
+			if (this.xhr.readyState === 4 && this.xhr.status === 200) {
 
-    };
+				this.updateXhr();
 
-    this.xhr.call = function(categorie, result) {
+			}
 
-        for (var i = 0; i < this.callbacks[categorie].length; i++) {
+			this.watcherTimeout();
 
-            if (typeof(this.callbacks[categorie][i]) === "function") {
+		};
 
-                this.callbacks[categorie][i](result);
+		this.watcherTimeout();
 
-            }
+		this.stop = function() {
 
-        }
+			this.changeTime(-1);
 
-    }
+		};
 
-    this.xhr.returnSuccess = function(result) {
+		this.changeTime = function(newTime) {
 
-        this.call("then", result);
+			clearTimeout(this.changeTimeout);
 
-    };
+			this.watch = typeof newTime === "number" ? newTime : this.watch;
 
-    this.xhr.returnError = function(message) {
+			this.watcherTimeout();
 
-        this.call("error", message);
+		};
 
-    };
+	}
 
-    this.xhr.onreadystatechange = function() {
+};
 
-        if (this.readyState === 4 && this.status == 200) {
+/**
+ * set-xhr.js
+ *
+ * Set XMLHttpRequest 
+ */
 
-            var result = this.responseText;
+Ajax.prototype.setXhr = function() {
 
-            if (this.options.json) {
+	this.xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
 
-                try {
+	this.xhr.lastResult = null;
 
-                    result = JSON.parse(result);
+	this.xhr.json = this.json;
+	this.xhr.binding = null;
 
-                }
+	this.bind = function(binding) {
 
-                catch (error) {
+		this.xhr.binding = binding;
 
-                    this.returnError("invalid json");
+		return this;
 
-                    return false;
+	};
 
-                }
+	this.cancel = function(callback) {
 
-            }
+		this.xhr.abort();
 
-            this.returnSuccess(result);
+		return this;
 
-        }
+	};
 
-        else if (this.readyState === 4 && this.status == 404) {
+	this.xhr.callbacks = {
 
-            this.returnError("404");
+		then: [],
+		change: [],
+		error: []
 
-        }
+	};
 
-        else if (this.readyState === 4) {
+	for (name in this.xhr.callbacks) {
 
-            this.returnError("unknow");
+		if (this.xhr.callbacks.hasOwnProperty(name)) {
 
-        }
+			this[name] = function(name) {
 
-    };
+				return function(callback) {
 
-    this.xhr.open(options.method, options.url, true);
-    this.xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    this.xhr.send(typeof post != "undefined" ? post : null);
+					this.xhr.callbacks[name].push(callback);
+
+					return this;
+
+				};
+
+			}(name);
+
+		}
+
+	}
+
+	this.xhr.call = function(categorie, result) {
+
+		for (var i = 0; i < this.callbacks[categorie].length; i++) {
+
+			if (typeof(this.callbacks[categorie][i]) === "function") {
+
+				if (this.binding) {
+
+					this.callbacks[categorie][i].call(this.binding, result);
+
+				}
+
+				else {
+
+					this.callbacks[categorie][i](result);
+
+				}
+
+			}
+
+		}
+
+	};
+
+	this.xhr.onreadystatechange = function() {
+
+		if (this.readyState === 4 && this.status == 200) {
+
+			var result = this.responseText;
+
+			if (this.json) {
+
+				try {
+
+					result = JSON.parse(result);
+
+				}
+
+				catch (error) {
+
+					this.call("error", "invalid json");
+
+					return false;
+
+				}
+
+			}
+
+			this.lastResult = result;
+
+			this.call("then", result);
+
+		}
+
+		else if (this.readyState === 4 && this.status == 404) {
+
+			this.call("error", "404");
+
+		}
+
+		else if (this.readyState === 4) {
+
+			this.call("error", "unknow");
+
+		}
+
+	};
+
+	this.xhr.open(this.method, this.url, true);
+	this.xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	this.xhr.send(typeof this.postData != "undefined" ? this.postData : null);
+
+};
+
+/**
+ * update-xhr.js
+ *
+ * Update XMLHttpRequest result 
+ */
+
+Ajax.prototype.updateXhr = function() {
+
+	var data = {
+
+		lastResult: this.xhr.lastResult,
+
+		json: this.xhr.json,
+		binding: this.xhr.binding,
+
+		callbacks: {
+
+			then: this.xhr.callbacks.then,
+			change: this.xhr.callbacks.change,
+			error: this.xhr.callbacks.error
+
+		}
+
+	};
+
+	this.xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+	this.xhr.lastResult = data.lastResult;
+
+	this.xhr.json = data.json;
+	this.xhr.binding = data.binding;
+
+	this.xhr.callbacks = {
+
+		then: data.callbacks.then,
+		change: data.callbacks.change,
+		error: data.callbacks.error
+
+	};
+
+	this.xhr.call = function(categorie, result) {
+
+		for (var i = 0; i < this.callbacks[categorie].length; i++) {
+
+			if (typeof(this.callbacks[categorie][i]) === "function") {
+
+				if (this.binding) {
+
+					this.callbacks[categorie][i].call(this.binding, result);
+
+				}
+
+				else {
+
+					this.callbacks[categorie][i](result);
+
+				}
+
+			}
+
+		}
+
+	};
+
+	this.xhr.onreadystatechange = function() {
+
+		if (this.readyState === 4 && this.status == 200) {
+
+			var result = this.responseText;
+
+			if (this.json) {
+
+				try {
+
+					result = JSON.parse(result);
+
+				}
+
+				catch (error) {
+
+					this.call("error", "invalid json");
+
+					return false;
+
+				}
+
+			}
+
+			isDifferent = this.lastResult != result;
+
+			try {
+
+				isDifferent = (typeof this.lastResult !== "string" ? JSON.stringify(this.lastResult) : this.lastResult) != (typeof result !== "string" ? JSON.stringify(result) : result);
+
+			}
+
+			catch (error) {}
+
+			if (isDifferent) {
+
+				this.call("change", result);
+
+			}
+
+			this.lastResult = result;
+
+		}
+
+		else if (this.readyState === 4 && this.status == 404) {
+
+			this.call("error", "404");
+
+		}
+
+		else if (this.readyState === 4) {
+
+			this.call("error", "unknow");
+
+		}
+
+	};
+
+	this.xhr.open(this.method, this.url, true);
+	this.xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	this.xhr.send(typeof postData != "undefined" ? postData : null);
+
+};
+
+/**
+ * set-xhr.js
+ *
+ * Set Watcher 
+ */
+
+Ajax.prototype.watcherTimeout = function() {
+
+	if (this.watch !== -1) {
+
+		this.changeTimeout = setTimeout(function(that) {
+
+			return function() {
+
+				that.watchIntervalFunction();
+
+			};
+
+		}(this), this.watch);
+
+	}
 
 };
 
@@ -429,24 +674,18 @@ window.onload = function() {
 };
 
 /**
- * core/socket.jsx
- *
- * Socket var define
+ * core/variables.jsx
+ * 
+ * Variables
  */
 
-if (typeof io === "undefined") {
-
-	console.error("Le serveur WebSocket n'est pas lancé.");
-
-}
-
-else {
-
-	var socket = io.connect('http://localhost:3000');
-
-	Application.socket = socket;
-
-}
+var I =    1,
+	V =    5,
+	X =   10,
+	L =   50,
+	C =  100,
+	D =  500,
+	M = 1000;
 
 /**
  * components/button.jsx

@@ -1,10 +1,8 @@
 # MarmWork
 
-> Commencer un projet facilement en Sass, JavaScript et nodeJs avec MarmWork.
+> Commencer un projet facilement en Sass et JavaScript avec MarmWork.
 
 ![MarmWork](marmwork.jpg "marmwork")
-
-Checkout the [no nodejs server version](https://github.com/dimitrinicolas/marmwork/tree/no-nodejs)
 
 ## Dépendances
 Require NodeJs et Grunt

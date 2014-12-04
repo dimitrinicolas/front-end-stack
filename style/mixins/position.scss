@@ -1,0 +1,30 @@
+
+/**
+ * mixins/position.scss
+ * 
+ * Position
+ */
+
+@mixin position($type, $top, $right, $bottom, $left: null) {
+
+	@if ($left != null) {
+
+		position: $type;
+
+		top: 	  $top;
+		right: 	  $right;
+		bottom:   $bottom;
+		left: 	  $left;
+
+	}
+
+	@else {
+
+		top: 	$type;
+		right: 	$top;
+		bottom: $right;
+		left: 	$bottom;
+
+	}
+
+}
