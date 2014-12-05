@@ -9,10 +9,16 @@ onload(function() {
 
 	React.render(
 
-		<div>
-			<Button color="red">Flat button</Button>
-			<Button type="raised" color="orange">Raised button</Button>
-		</div>,
+		<Container> 
+
+			<Grid>
+
+				<Col i="3"><Button color="red">Flat button</Button></Col>
+				<Col i="3"><Button type="raised" color="red">Raised button</Button></Col>
+
+			</Grid>
+
+		</Container>,
 		
 		document.body
 

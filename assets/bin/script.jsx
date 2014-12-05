@@ -738,6 +738,68 @@ var Button = React.createClass({
 });
 
 /**
+ * components/container.jsx
+ *
+ * Container component
+ */
+
+var Container = React.createClass({
+
+	render: function() {
+		
+		return (
+			
+			<div className="container">
+				{this.props.children}
+			</div>
+
+		);
+
+	}
+
+});
+
+/**
+ * components/grid.jsx
+ *
+ * Grid component
+ */
+
+var Grid = React.createClass({
+
+	render: function() {
+		
+		return (
+			
+			<div className="grid">
+				{this.props.children}
+			</div>
+
+		);
+
+	}
+
+});
+
+var Col = React.createClass({
+
+	render: function() {
+
+		var className = "col-" + (this.props.i || 12);
+		
+		return (
+			
+			<div className={className}>
+				{this.props.children}
+			</div>
+
+		);
+
+	}
+
+});
+
+/**
  * scripts/test.jsx
  *
  * Test Script
@@ -747,10 +809,16 @@ onload(function() {
 
 	React.render(
 
-		<div>
-			<Button color="red">Flat button</Button>
-			<Button type="raised" color="orange">Raised button</Button>
-		</div>,
+		<Container> 
+
+			<Grid>
+
+				<Col i="3"><Button color="red">Flat button</Button></Col>
+				<Col i="3"><Button type="raised" color="red">Raised button</Button></Col>
+
+			</Grid>
+
+		</Container>,
 		
 		document.body
 

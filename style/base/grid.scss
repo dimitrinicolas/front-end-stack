@@ -1,0 +1,38 @@
+
+/**
+ * base/grid.scss
+ * 
+ * Grid
+ */
+
+.grid {
+
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+
+}
+
+%grid__col {
+	
+	float: left;
+
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+
+}
+
+@for $i from 1 through 12 {
+
+	.col-#{$i} { 
+
+		display: inline-block;
+		width: 100% / 12 * $i;
+
+		@extend %grid__col;
+		
+	}
+
+}
