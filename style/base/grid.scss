@@ -28,7 +28,6 @@
 
 	.col-#{$i} { 
 
-		display: inline-block;
 		width: 100% / 12 * $i;
 
 		@extend %grid__col;

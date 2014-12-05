@@ -253,9 +253,9 @@ html, body {
   font-size: 1rem; }
 
 /**
- * base/container.scss
+ * base/layouts.scss
  * 
- * Container
+ * Layouts
  */
 .container {
   width: 100%;
@@ -280,51 +280,39 @@ html, body {
   padding: 0; }
 
 .col-1 {
-  display: inline-block;
   width: 8.3333333333%; }
 
 .col-2 {
-  display: inline-block;
   width: 16.6666666667%; }
 
 .col-3 {
-  display: inline-block;
   width: 25%; }
 
 .col-4 {
-  display: inline-block;
   width: 33.3333333333%; }
 
 .col-5 {
-  display: inline-block;
   width: 41.6666666667%; }
 
 .col-6 {
-  display: inline-block;
   width: 50%; }
 
 .col-7 {
-  display: inline-block;
   width: 58.3333333333%; }
 
 .col-8 {
-  display: inline-block;
   width: 66.6666666667%; }
 
 .col-9 {
-  display: inline-block;
   width: 75%; }
 
 .col-10 {
-  display: inline-block;
   width: 83.3333333333%; }
 
 .col-11 {
-  display: inline-block;
   width: 91.6666666667%; }
 
 .col-12 {
-  display: inline-block;
   width: 100%; }
 
 /* COMPONENTS

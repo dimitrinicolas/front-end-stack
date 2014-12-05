@@ -1,6 +1,6 @@
 {
   "name": "marmwork",
-  "description": "Start quickly a modern project with MarmWork. Use React and NodeJs",
+  "description": "Start quickly a modern project with MarmWork using React & BEM synthaxe.",
   "author": "Dimitri Nicolas",
   "scripts": {
     "build": "grunt",
@@ -23,5 +23,6 @@
     "grunt-nodemon": "^0.3.0",
     "grunt-react": "^0.10.0",
     "grunt-sass": "^0.17.0"
-  }
+  },
+  "componentManagerStyle": "style/main.scss"
 }
