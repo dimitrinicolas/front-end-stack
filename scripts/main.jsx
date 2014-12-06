@@ -5,8 +5,4 @@
  * Fichier JavaScript principal.
  */
 
-var Application = {
-
-	name: "MarmWork"
-
-};
+var Application = {};

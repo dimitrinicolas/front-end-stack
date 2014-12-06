@@ -1,10 +1,10 @@
-# MarmWork
+#MarmWork
 
 Commencer un projet rapidement en Sass et JavaScript avec MarmWork.
 
 ![MarmWork](marmwork.jpg "marmwork")
 
-## Dépendances
+##Dépendances
 
 MarmWork nécessite plusieurs dépendances indispensables :
 
@@ -25,11 +25,3 @@ Pour éviter de devoir lancer la compilation à chaque modification, on peut uti
 ```shell
 grunt dev
 ```
-
-###Comment utiliser le gestionnaire de components
-
-Installer le gestionnaire globalement avec la commande `npm install -g cm` à la racine du projet
-
-Pour créer un nouveau modèle de component, on lance la commande `cm create header`
-
-Si ce component comporte des sous éléments, on les rajoute à la suite de son nom : `cm create header logo nav`. Cela va créer et organiser les classes `header`, `header__logo` et `header__nav`.
