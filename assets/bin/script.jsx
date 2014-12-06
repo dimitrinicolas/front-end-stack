@@ -11,11 +11,7 @@ var window = win,
  * Fichier JavaScript principal.
  */
 
-var Application = {
-
-	name: "MarmWork"
-
-};
+var Application = {};
 
 /**
  * main.js
