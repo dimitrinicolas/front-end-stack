@@ -809,7 +809,7 @@ onload(function() {
 
 			<Grid>
 
-				<Col i="3"><Button color="red">Flat button</Button></Col>
+				<Col i="3"><Button color="red">Cancel</Button></Col>
 				<Col i="3"><Button type="raised" color="red">Raised button</Button></Col>
 
 			</Grid>
