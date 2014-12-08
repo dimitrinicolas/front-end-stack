@@ -9,6 +9,7 @@ Commencer un projet rapidement en Sass et JavaScript avec MarmWork.
 MarmWork nécessite plusieurs dépendances indispensables :
 
  - Installer NodeJs : [nodejs.org](http://nodejs.org/)
+ - Installer Gulp : `npm i -g gulp`
  - Installer les modules : `npm install`
 
 ##Lancer les processus de compilations
