@@ -28,7 +28,11 @@ var browserSync = require("browser-sync");
 gulp.task("style", function () {
 
 	return gulp.src("style/main.scss")
-		.pipe(sass())
+		.pipe(sass({
+
+			errLogToConsole: true
+
+		}))
 		.pipe(rename("style.css"))
 		.pipe(gulp.dest("assets/bin/"))
 
@@ -63,7 +67,11 @@ gulp.task("scripts", function () {
 		.pipe(concat("script.js"))
 		.pipe(gulp.dest("assets/bin/"))
 
-		.pipe(react())
+		.pipe(react({
+
+			errLogToConsole: true
+
+		}))
 		.pipe(gulp.dest("assets/bin/"))
 
 		.pipe(uglify())
