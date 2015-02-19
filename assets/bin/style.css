@@ -252,73 +252,15 @@ html, body {
   font-size: 16px;
   font-size: 1rem; }
 
-/**
- * base/layouts.scss
- * 
- * Layouts
- */
-.container {
-  width: 100%;
-  max-width: 992px;
-  margin: auto; }
-
-/**
- * base/grid.scss
- * 
- * Grid
- */
-.grid {
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 0; }
-
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
-  float: left;
-  display: inline-block;
-  margin: 0;
-  padding: 0; }
-
-.col-1 {
-  width: 8.33333%; }
-
-.col-2 {
-  width: 16.66667%; }
-
-.col-3 {
-  width: 25%; }
-
-.col-4 {
-  width: 33.33333%; }
-
-.col-5 {
-  width: 41.66667%; }
-
-.col-6 {
-  width: 50%; }
-
-.col-7 {
-  width: 58.33333%; }
-
-.col-8 {
-  width: 66.66667%; }
-
-.col-9 {
-  width: 75%; }
-
-.col-10 {
-  width: 83.33333%; }
-
-.col-11 {
-  width: 91.66667%; }
-
-.col-12 {
-  width: 100%; }
-
 /* COMPONENTS
    ----------------------------- */
 /**
- * components/button/button.scss
+ * app/app.scss
+ * 
+ * App
+ */
+/**
+ * button/button.scss
  * 
  * Button
  */
@@ -353,7 +295,7 @@ html, body {
   cursor: default; }
 
 /**
- * components/button/flat.scss
+ * button/flat.scss
  * 
  * Flat button
  */
@@ -954,7 +896,7 @@ html, body {
   outline: none !important; }
 
 /**
- * components/button/raised.scss
+ * button/raised.scss
  * 
  * Raised button
  */
@@ -1114,12 +1056,6 @@ html, body {
 .button--raised.button--yellow {
   background-color: #ffeb3b; }
 
-.button--raised.button--yellow {
-  color: white; }
-
-.button--raised.button--yellow .ripple {
-  background-color: white; }
-
 .button--raised.button--amber {
   background-color: #ffc107; }
 
@@ -1209,3 +1145,66 @@ html, body {
   -o-box-shadow: none;
   box-shadow: none;
   filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=0); }
+
+/**
+ * grid/grid.scss
+ * 
+ * Grid
+ */
+.grid {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+  float: left;
+  display: inline-block;
+  margin: 0;
+  padding: 0; }
+
+.col-1 {
+  width: 8.33333%; }
+
+.col-2 {
+  width: 16.66667%; }
+
+.col-3 {
+  width: 25%; }
+
+.col-4 {
+  width: 33.33333%; }
+
+.col-5 {
+  width: 41.66667%; }
+
+.col-6 {
+  width: 50%; }
+
+.col-7 {
+  width: 58.33333%; }
+
+.col-8 {
+  width: 66.66667%; }
+
+.col-9 {
+  width: 75%; }
+
+.col-10 {
+  width: 83.33333%; }
+
+.col-11 {
+  width: 91.66667%; }
+
+.col-12 {
+  width: 100%; }
+
+/**
+ * container/container.scss
+ * 
+ * Container layout
+ */
+.container {
+  width: 100%;
+  max-width: 992px;
+  margin: auto; }
