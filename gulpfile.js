@@ -23,7 +23,8 @@ else {
 
 var marmwork = require("./marmwork/compiler.js");
 
-var rename = require("gulp-rename");
+var watch = require("gulp-watch"),
+	rename = require("gulp-rename");
 
 var sass = require("gulp-sass"),
 	minify = require("gulp-minify-css");
@@ -198,8 +199,16 @@ gulp.task("default", ["scripts", "style", "browser-sync"], function() {
 
 	// gulp.watch(["source/scripts/**/*.*", "source/components/**/*.jsx", "source/components/**/*.js", "!source/components/*/model.*"], ["react-models"]);
 
-	gulp.watch(["source/scripts/**/*.*", "source/components/**/*.jsx", "source/components/**/*.js", "!source/components/*/model.*"], ["scripts"]);
+	watch(["source/scripts/**/*.*", "source/components/**/*.jsx", "source/components/**/*.js", "!source/components/*/model.*"], function() {
 
-	gulp.watch("source/style/**/*.scss", ["style"]);
+		gulp.start("scripts");
+
+	});
+
+	watch("source/style/**/*.scss", function() {
+
+		gulp.start("style");
+
+	});
 
 });

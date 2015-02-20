@@ -13,6 +13,8 @@
     "url": "https://github.com/dimitrinicolas/marmwork/issues"
   },
   "devDependencies": {
+    "babel-core": "^4.3.0",
+    "babel-loader": "^4.0.0",
     "browser-sync": "^2.1.4",
     "gulp": "^3.8.11",
     "gulp-browserify": "^0.5.1",
