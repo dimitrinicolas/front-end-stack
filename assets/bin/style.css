@@ -260,6 +260,16 @@ html, body {
  * App
  */
 /**
+ * container/container.scss
+ * 
+ * Container layout
+ */
+.container {
+  width: 100%;
+  max-width: 992px;
+  margin: auto; }
+
+/**
  * button/button.scss
  * 
  * Button
@@ -1198,13 +1208,3 @@ html, body {
 
 .col-12 {
   width: 100%; }
-
-/**
- * container/container.scss
- * 
- * Container layout
- */
-.container {
-  width: 100%;
-  max-width: 992px;
-  margin: auto; }

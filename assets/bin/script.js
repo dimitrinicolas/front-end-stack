@@ -92,9 +92,9 @@
 
 	var React = _interopRequire(__webpack_require__(1));
 
-	var Container = _interopRequire(__webpack_require__(4));
+	var Container = _interopRequire(__webpack_require__(5));
 
-	var Grid = _interopRequire(__webpack_require__(5));
+	var Grid = _interopRequire(__webpack_require__(4));
 
 	var Col = _interopRequire(__webpack_require__(3));
 
@@ -145,33 +145,6 @@
 
 	
 	/**
-	 * container/container.js
-	 *
-	 * Container component
-	 */
-
-	"use strict";
-
-	var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
-
-	var React = _interopRequire(__webpack_require__(1));
-
-	var Container = React.createClass({ displayName: "Container",
-
-		render: function () {
-			return React.createElement("div", { className: "container" }, this.props.children);
-		}
-
-	});
-
-	module.exports = Container;
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	/**
 	 * grid/Grid.js
 	 *
 	 * Grid component
@@ -192,6 +165,33 @@
 	});
 
 	module.exports = Grid;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * container/container.js
+	 *
+	 * Container component
+	 */
+
+	"use strict";
+
+	var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
+
+	var React = _interopRequire(__webpack_require__(1));
+
+	var Container = React.createClass({ displayName: "Container",
+
+		render: function () {
+			return React.createElement("div", { className: "container" }, this.props.children);
+		}
+
+	});
+
+	module.exports = Container;
 
 /***/ },
 /* 6 */

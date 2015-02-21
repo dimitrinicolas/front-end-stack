@@ -195,9 +195,7 @@ gulp.task("browser-sync", function() {
 
 });
 
-gulp.task("default", ["scripts", "style", "browser-sync"], function() {
-
-	// gulp.watch(["source/scripts/**/*.*", "source/components/**/*.jsx", "source/components/**/*.js", "!source/components/*/model.*"], ["react-models"]);
+gulp.task("default", ["scripts", "style"/*, "browser-sync"*/], function() {
 
 	watch(["source/scripts/**/*.*", "source/components/**/*.jsx", "source/components/**/*.js", "!source/components/*/model.*"], function() {
 
@@ -205,9 +203,15 @@ gulp.task("default", ["scripts", "style", "browser-sync"], function() {
 
 	});
 
-	watch("source/style/**/*.scss", function() {
+	watch(["source/style/**/*.scss", "source/components/**/*.scss"], function() {
 
 		gulp.start("style");
+
+	});
+
+	marmwork.init({
+
+		componentsFolder: "source/components"
 
 	});
 
