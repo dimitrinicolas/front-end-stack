@@ -38,10 +38,6 @@ var browserSync = require("browser-sync");
 
 gulp.task("style", function () {
 
-	gulp.src("source/components/**/*.scss")
-		.pipe(cmi.style("source/style/main.compiled.scss", "source/style/main.scss"))
-		.pipe(gulp.dest(""))
-
 	return gulp.src("source/style/main.compiled.scss")
 		.pipe(sass({
 
@@ -116,16 +112,6 @@ gulp.task("scripts", function () {
 
 });
 
-gulp.task("cmi", function() {
-
-	cmi.init({
-
-		componentsFolder: "source/components"
-
-	});
-
-});
-
 gulp.task("browser-sync", function() {
 
 	if (devjson.browserSyncProxy && devjson.browserSyncProxyPort) {
@@ -152,6 +138,23 @@ gulp.task("browser-sync", function() {
 
 });
 
+gulp.task("cmi", function() {
+
+	cmi.init({
+
+		componentsFolder: "source/components",
+
+		componentsImport: {
+
+			from: "source/style/main.scss",
+			to: "source/style/main.compiled.scss"
+
+		}
+
+	});
+
+});
+
 gulp.task("default", ["scripts", "style", "cmi", "browser-sync"], function() {
 
 	watch(["source/scripts/**/*.*", "source/components/**/*.jsx", "source/components/**/*.js", "!source/components/*/model.*"], function() {
@@ -160,7 +163,7 @@ gulp.task("default", ["scripts", "style", "cmi", "browser-sync"], function() {
 
 	});
 
-	watch(["source/style/**/*.scss", "source/components/**/*.scss"], function() {
+	watch("source/style/main.compiled.scss", function() {
 
 		gulp.start("style");
 

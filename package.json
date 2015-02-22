@@ -16,7 +16,7 @@
     "babel-core": "^4.3.0",
     "babel-loader": "^4.0.0",
     "browser-sync": "^2.1.4",
-    "cmi": "^1.0.1",
+    "cmi": "^1.0.2",
     "gulp": "^3.8.11",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.5.0",
