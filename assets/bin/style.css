@@ -260,16 +260,6 @@ html, body {
  * App
  */
 /**
- * container/container.scss
- * 
- * Container layout
- */
-.container {
-  width: 100%;
-  max-width: 992px;
-  margin: auto; }
-
-/**
  * button/button.scss
  * 
  * Button
@@ -1155,6 +1145,16 @@ html, body {
   -o-box-shadow: none;
   box-shadow: none;
   filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=0); }
+
+/**
+ * container/container.scss
+ * 
+ * Container layout
+ */
+.container {
+  width: 100%;
+  max-width: 992px;
+  margin: auto; }
 
 /**
  * grid/grid.scss

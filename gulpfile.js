@@ -21,7 +21,7 @@ else {
 
 }
 
-var marmwork = require("./marmwork/compiler.js");
+var cmi = require("cmi");
 
 var watch = require("gulp-watch"),
 	rename = require("gulp-rename");
@@ -39,7 +39,7 @@ var browserSync = require("browser-sync");
 gulp.task("style", function () {
 
 	gulp.src("source/components/**/*.scss")
-		.pipe(marmwork.style("source/style/main.compiled.scss", "source/style/main.scss"))
+		.pipe(cmi.style("source/style/main.compiled.scss", "source/style/main.scss"))
 		.pipe(gulp.dest(""))
 
 	return gulp.src("source/style/main.compiled.scss")
@@ -56,60 +56,6 @@ gulp.task("style", function () {
 		.pipe(gulp.dest("assets/bin/"))
 
 		.pipe(browserSync.reload({ stream: true }));
-
-});
-
-gulp.task("react-models", function () {
-
-	// gulp.src([ "source/components/*/model.*" ])
-	// 	.pipe(react({
-
-	// 		errLogToConsole: true
-
-	// 	}))
-	// 	.pipe(gulp.dest("source/components/"));
-
-	// gulp.src([
-
-	// 		"source/scripts/main.jsx",
-
-	// 		"source/scripts/librairies/**/*.*",
-
-	// 		"source/scripts/core/**/*.*",
-
-	// 		"source/components/**/*.jsx",
-	// 		"source/components/**/*.js",
-	// 		"!source/components/*/model.*",
-
-	// 		"!source/scripts/source/scripts/**/*.*",
-
-	// 		"source/scripts/**/*.*",
-	// 		"!source/scripts/intro.jsx",
-	// 		"!source/scripts/outro.jsx"
-
-	// 	])
-	// 	.pipe(concat("components.js"))
-	// 	.pipe(gulp.dest("marmwork/bin/"))
-
-	// 	.pipe(react({
-
-	// 		errLogToConsole: true
-
-	// 	}))
-	// 	.pipe(gulp.dest("marmwork/bin/"))
-
-	// 	.pipe(uglify())
-	// 	.pipe(rename("components.min.js"))
-	// 	.pipe(gulp.dest("marmwork/bin/"));
-
-	// gulp.src("source/components/*/model.js")
-	// 	.pipe(marmwork.models("marmwork/bin/components.js"))
-	// 	.pipe(gulp.dest(""))
-
-	// return gulp.src(["marmwork/bin/components.js"])
-	// 	.pipe(uglify())
-	// 	.pipe(rename("components.min.js"))
-	// 	.pipe(gulp.dest("marmwork/bin/"));
 
 });
 
@@ -170,6 +116,16 @@ gulp.task("scripts", function () {
 
 });
 
+gulp.task("cmi", function() {
+
+	cmi.init({
+
+		componentsFolder: "source/components"
+
+	});
+
+});
+
 gulp.task("browser-sync", function() {
 
 	if (devjson.browserSyncProxy && devjson.browserSyncProxyPort) {
@@ -177,7 +133,8 @@ gulp.task("browser-sync", function() {
 		browserSync({
 
 			proxy: devjson.browserSyncProxy,
-			port: devjson.browserSyncProxyPort
+			port: devjson.browserSyncProxyPort,
+			logLevel: "info"
 
 		}, function(error, bs) {
 
@@ -195,7 +152,7 @@ gulp.task("browser-sync", function() {
 
 });
 
-gulp.task("default", ["scripts", "style"/*, "browser-sync"*/], function() {
+gulp.task("default", ["scripts", "style", "cmi", "browser-sync"], function() {
 
 	watch(["source/scripts/**/*.*", "source/components/**/*.jsx", "source/components/**/*.js", "!source/components/*/model.*"], function() {
 
@@ -206,12 +163,6 @@ gulp.task("default", ["scripts", "style"/*, "browser-sync"*/], function() {
 	watch(["source/style/**/*.scss", "source/components/**/*.scss"], function() {
 
 		gulp.start("style");
-
-	});
-
-	marmwork.init({
-
-		componentsFolder: "source/components"
 
 	});
 
