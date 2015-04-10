@@ -7,11 +7,11 @@
 
 "use strict";
 
-import React from "react";
+var React = require("react");
 
 var Col = React.createClass({
 
-	render: function() {
+	render() {
 
 		var className = "col-" + (this.props.i || 12);
 		

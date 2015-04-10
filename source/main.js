@@ -7,9 +7,9 @@
 
 "use strict";
 
-import React from "react";
+var React = require("react");
 
-import App from "./components/App";
+var App = require("./components/App");
 
 function onload() {
 
@@ -21,7 +21,7 @@ function onload() {
 
 	);
 
-};
+}
 
 if (window.addEventListener) {
 

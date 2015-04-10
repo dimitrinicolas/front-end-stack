@@ -20,12 +20,11 @@
 	text-transform: uppercase;
 	text-align: center;
 	line-height: 35px;
-
 	overflow: hidden;
-
+	user-select: none;
+	border-radius: 3px;
+	
 	@include font-title(16px);
-	@include border-radius(3px);
-	@include user-select;
 
 }
 

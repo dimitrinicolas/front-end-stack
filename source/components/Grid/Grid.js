@@ -7,12 +7,11 @@
 
 "use strict";
 
-import React from "react";
+var React = require("react");
 
 var Grid = React.createClass({
 
-	render: function() {
-		
+	render() {
 		return (
 			
 			<div className="grid">
@@ -20,7 +19,6 @@ var Grid = React.createClass({
 			</div>
 
 		);
-
 	}
 
 });

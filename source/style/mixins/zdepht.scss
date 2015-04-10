@@ -23,7 +23,7 @@ $z-depth: (
 
 	@if ($depth == 0) {
 
-		@include box-shadow(none);
+		box-shadow: none;
 	
 		filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=0);
 
@@ -31,7 +31,7 @@ $z-depth: (
 
 	@else {
 
-		@include box-shadow(nth($z-depth, $depth));
+		box-shadow: nth($z-depth, $depth);
 
 		filter: progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=#{$depth * 1.5});
 

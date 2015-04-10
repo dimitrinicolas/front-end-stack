@@ -7,17 +7,16 @@
 
 "use strict";
 
-import React from "react";
+var React = require("react");
 
-import Container from "./../Container";
-import Grid from "./../Grid";
-import Col from "./../Grid/Col";
-import Button from "./../Button";
+var Container = require("./../Container");
+var Grid = require("./../Grid");
+var Col = require("./../Grid/Col");
+var Button = require("./../Button");
 
 var App = React.createClass({
 
-	render: function() {
-
+	render() {
 		return (
 			
 			<div className="app">
@@ -36,7 +35,6 @@ var App = React.createClass({
 			</div>
 
 		);
-
 	}
 
 });

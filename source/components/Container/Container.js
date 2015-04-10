@@ -7,12 +7,11 @@
 
 "use strict";
 
-import React from "react";
+var React = require("react");
 
 var Container = React.createClass({
 
-	render: function() {
-		
+	render() {
 		return (
 			
 			<div className="container">
@@ -20,7 +19,6 @@ var Container = React.createClass({
 			</div>
 
 		);
-
 	}
 
 });

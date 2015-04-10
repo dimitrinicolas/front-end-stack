@@ -8,8 +8,7 @@
 .button--raised {
 	
 	background-color: #e2e2e2;
-
-	@include transition(#{".15s"});
+	transition: .15s;
 
 	@include z-depht(1);
 	
@@ -19,8 +18,7 @@
 .button--raised:focus {
 
 	outline: none;
-
-	@include transition(#{".25s"});
+	transition: .25s;
 
 	@include z-depht(2);
 
@@ -35,8 +33,7 @@
 .button--raised:active {
 
 	background-color: #e2e2e2;
-
-	@include transition(#{".2s"});
+	transition: .2s;
 
 	@include z-depht(1);
 

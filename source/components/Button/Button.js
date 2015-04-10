@@ -7,13 +7,13 @@
 
 "use strict";
 
-import React from "react";
+var React = require("react");
 
-import isset from "./../../core/isset";
+var isset = require("./../../core/isset");
 
 var Button = React.createClass({
 
-	render: function() {
+	render() {
 
 		var className = "button";
 

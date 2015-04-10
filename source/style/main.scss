@@ -16,10 +16,6 @@
 /* MIXINS
    ----------------------------- */
 
-@import "mixins/animation";
-@import "mixins/border-radius";
-@import "mixins/box-shadow";
-@import "mixins/box-sizing";
 @import "mixins/font-size";
 @import "mixins/fonts";
 @import "mixins/keyframes";
@@ -27,9 +23,6 @@
 @import "mixins/opacity";
 @import "mixins/outline";
 @import "mixins/position";
-@import "mixins/prefix";
-@import "mixins/transition";
-@import "mixins/user-select";
 @import "mixins/zdepht";
 
 /* EXTENDS
@@ -38,7 +31,6 @@
 @import "extends/background-cover";
 @import "extends/center";
 @import "extends/coverer";
-@import "extends/preserve-3d";
 
 /* BASE
    ----------------------------- */

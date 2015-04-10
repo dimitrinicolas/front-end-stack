@@ -8,8 +8,7 @@
 .button--flat {
 
 	overflow: hidden;
-
-	@include transition(#{"outline 0.1s, outline-offset 0.1s"});
+	transition: outline 0.1s, outline-offset 0.1s;
 
 	@include outline(transparent);
 
@@ -62,6 +61,9 @@
 
 	color: $grey;
 	background: $light-grey;
+
+	/*csslint outline-none:false, important:false */
 	outline: none!important;
+	/*csslint outline-none:true, important:true */
 
 }
