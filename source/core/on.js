@@ -1,10 +1,3 @@
-
-/**
- * core/on.js
- *
- * Add event to element
- */
-
 "use strict";
 
 function on(element, event, fn) {

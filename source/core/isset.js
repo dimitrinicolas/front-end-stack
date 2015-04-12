@@ -1,10 +1,3 @@
-
-/**
- * core/isset.js
- *
- * Test if a variable exist
- */
-
 "use strict";
 
 function isset(variable) {

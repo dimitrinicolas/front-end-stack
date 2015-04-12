@@ -1,10 +1,3 @@
-
-/**
- * button/flat.scss
- * 
- * Flat button
- */
-
 .button--flat {
 
 	overflow: hidden;
@@ -26,38 +19,20 @@
 	$_color-value: nth($array, 2);
 
 	.button--flat.button--#{$_color-name} {
-	
+
 		color: $_color-value;
-
-	}
-
-	.button--flat.button--#{$_color-name} .ripple {
-
-		background-color: $_color-value;
 
 	}
 
 	.button--flat.button--#{$_color-name}:focus {
 
-		@include outline($_color-value);
-
-	}
-
-	.button--flat.button--outline-#{$_color-name}:focus {
-
-		@include outline($_color-value);
-
-	}
-
-	.button--flat.button--ripple-#{$_color-name} .ripple {
-
-		background-color: $_color-value;
+		@include outline-color($_color-value);
 
 	}
 
 }
 
-.button--flat.disabled {
+.button--flat.is-disabled {
 
 	color: $grey;
 	background: $light-grey;

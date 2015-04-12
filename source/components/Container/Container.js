@@ -1,10 +1,3 @@
-
-/**
- * container/container.js
- *
- * Container component
- */
-
 "use strict";
 
 var React = require("react");

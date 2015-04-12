@@ -1,10 +1,3 @@
-
-/**
- * button/button.scss
- * 
- * Button
- */
-
 .button {
 
 	position: relative;
@@ -14,16 +7,17 @@
 	height: 35px;
 	margin: 10px;
 
-	background-color: transparent;
-	cursor: pointer;
-	border: none;
 	text-transform: uppercase;
 	text-align: center;
 	line-height: 35px;
-	overflow: hidden;
+	
+	background: transparent;
+	cursor: pointer;
+	border: none;
 	user-select: none;
 	border-radius: 3px;
-	
+	overflow: hidden;
+
 	@include font-title(16px);
 
 }

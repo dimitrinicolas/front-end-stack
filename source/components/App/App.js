@@ -1,17 +1,8 @@
-
-/**
- * app/App.js
- *
- * Application
- */
-
 "use strict";
 
 var React = require("react");
 
 var Container = require("./../Container");
-var Grid = require("./../Grid");
-var Col = require("./../Grid/Col");
 var Button = require("./../Button");
 
 var App = React.createClass({
@@ -23,12 +14,9 @@ var App = React.createClass({
 				
 				<Container> 
 
-					<Grid>
-
-						<Col i="3"><Button color="red">Cancel</Button></Col>
-						<Col i="3"><Button type="raised" color="red">Raised button</Button></Col>
-
-					</Grid>
+					<Button color="red">Flat</Button>
+					<Button type="raised" color="red">Raised button</Button>
+					<Button disable>Disabled</Button>
 
 				</Container>
 

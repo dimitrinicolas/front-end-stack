@@ -1,11 +1,4 @@
 
-/**
- * main.scss
- *
- * Main Stylesheet
- */
-
-
 /* VARIABLES
    ----------------------------- */
 
@@ -16,6 +9,7 @@
 /* MIXINS
    ----------------------------- */
 
+@import "mixins/background-cover";
 @import "mixins/font-size";
 @import "mixins/fonts";
 @import "mixins/keyframes";
@@ -24,13 +18,6 @@
 @import "mixins/outline";
 @import "mixins/position";
 @import "mixins/zdepht";
-
-/* EXTENDS
-   ----------------------------- */
-
-@import "extends/background-cover";
-@import "extends/center";
-@import "extends/coverer";
 
 /* BASE
    ----------------------------- */

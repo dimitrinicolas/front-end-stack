@@ -1,13 +1,7 @@
-
-/**
- * button/Button.js
- *
- * Button component
- */
-
 "use strict";
 
 var React = require("react");
+var cx = React.addons.classSet;
 
 var isset = require("./../../core/isset");
 
@@ -15,32 +9,18 @@ var Button = React.createClass({
 
 	render() {
 
-		var className = "button";
+		var props = this.props;
 
-		className += " button--" + (this.props.type === "raised" ? "raised" : "flat");
+		var typeModifier = props.type === "raised" ? "button--raised" : "button--flat",
+			colorModifier = props.color ? "button--" + props.color : null,
+			disableModifier = isset(props.disable) ? "is-disabled" : null;
 
-		if (this.props.color) {
-
-			className += " button--" + this.props.color;
-
-		}
-
-		if (this.props.outline) {
-
-			className += " button--outline-" + this.props.outline;
-
-		}
-
-		if (isset(this.props.disable)) {
-
-			className += " is-disabled";
-
-		}
+		var classes = cx("button", typeModifier, colorModifier, disableModifier);
 
 		return (
 			
-			<div className={className} tabIndex={isset(this.props.disable) ? "1" : "0"} onClick={this.props.click}>
-				{this.props.children}
+			<div className={classes} tabIndex={isset(props.disable) ? "0" : "1"} onClick={props.click}>
+				{props.children}
 			</div>
 
 		);

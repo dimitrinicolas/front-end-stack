@@ -1,10 +1,3 @@
-
-/**
- * core/$.js
- *
- * DOM Selectors
- */
-
 "use strict";
 
 var $ = function(swag) {

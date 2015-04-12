@@ -1,10 +1,3 @@
-
-/**
- * mixins/medias.scss
- * 
- * Medias queries
- */
-
 @mixin lt {
 
 	@media (max-width: $lt) {

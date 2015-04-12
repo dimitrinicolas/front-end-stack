@@ -1,10 +1,3 @@
-
-/**
- * main.js
- *
- * Fichier JavaScript principal.
- */
-
 "use strict";
 
 var React = require("react");
@@ -13,13 +6,7 @@ var App = require("./components/App");
 
 function onload() {
 
-	React.render(
-
-		<App />,
-		
-		document.body
-
-	);
+	// React.render(<App />, document.body);
 
 }
 

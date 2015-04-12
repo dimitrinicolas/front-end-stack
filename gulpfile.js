@@ -33,7 +33,12 @@ var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var react = require("gulp-react");
 var webpack = require("webpack");
+var gwebpack = require("gulp-webpack");
 var jshint = require("gulp-jshint");
+
+var sourcemaps = require("gulp-sourcemaps");
+var size = require("gulp-size");
+var replace = require("gulp-replace");
 
 var browserSync = require("browser-sync");
 
@@ -47,7 +52,10 @@ var cssLintRuleBlackList = [
 
 gulp.task("style", function () {
 
-	return gulp.src("source/style/main.compiled.scss")
+	gulp.src("source/style/main.compiled.scss")
+
+		.pipe(sourcemaps.init())
+
 		.pipe(sass({
 
 			errLogToConsole: true
@@ -100,7 +108,28 @@ gulp.task("style", function () {
 
 		}))
 
+		.pipe(rename("style.css"))
+		.pipe(gulp.dest("assets/bin/"))
+
+		.pipe(size({ title: "style    " }))
 		.pipe(minify())
+		.pipe(sourcemaps.write())
+		.pipe(rename("style.map.css"))
+		.pipe(gulp.dest("assets/bin/"))
+
+		.pipe(browserSync.reload({ stream: true }));
+
+	gulp.start("style-minify");
+
+});
+
+gulp.task("style-minify", function () {
+
+	return gulp.src("assets/bin/style.map.css")
+
+		.pipe(replace(/(\r?\n|\r)\/\*# sourceMappingURL.+\*\//g, ""))
+		.pipe(size({ title: "style min" }))
+
 		.pipe(rename("style.min.css"))
 		.pipe(gulp.dest("assets/bin/"))
 
@@ -119,8 +148,13 @@ gulp.task("librairies", function () {
 			"assets/bin/librairies/**/*.js"
 
 		])
+
 		.pipe(concat("librairies.js"))
+
+		.pipe(size({ title: "librairies    " }))
 		.pipe(uglify())
+		.pipe(size({ title: "librairies min" }))
+
 		.pipe(rename("librairies.min.js"))
 		.pipe(gulp.dest("assets/bin/"))
 
@@ -204,9 +238,13 @@ gulp.task("scripts", function () {
 
 			}))
 
+			.pipe(size({ title: "scripts    " }))
 			.pipe(uglify())
+			.pipe(size({ title: "scripts min" }))
+
 			.pipe(rename("script.min.js"))
 			.pipe(gulp.dest("assets/bin/"))
+
 			.pipe(browserSync.reload({ stream: true }));
 
 	});
@@ -221,7 +259,8 @@ gulp.task("browser-sync", function() {
 
 			proxy: devjson.browserSyncProxy,
 			port: devjson.browserSyncProxyPort,
-			logLevel: "info"
+			logLevel: "info",
+			logFileChanges: false
 
 		}, function(error, bs) {
 
@@ -256,17 +295,17 @@ gulp.task("cmi", function() {
 
 });
 
-gulp.task("default", ["librairies", "scripts", "style", "cmi", "browser-sync"], function() {
+gulp.task("default", ["browser-sync", "cmi", "librairies", "scripts", "style"], function() {
 
 	gulp.watch("assets/bin/librairies/**/*.js", ["librairies"]);
 	
-	watch(["source/core/**/*.*", "source/components/**/*.jsx", "source/components/**/*.js", "!source/components/*/model.*"], function() {
+	watch(["source/**/*.js"], function() {
 
 		gulp.start("scripts");
 
 	});
 
-	watch(["source/style/main.compiled.scss", "source/style/*/**.scss"], function() {
+	watch(["source/style/main.compiled.scss", "source/style/**/*.scss"], function() {
 
 		gulp.start("style");
 
