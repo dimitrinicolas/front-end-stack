@@ -8,6 +8,6 @@ body {
 
 	line-height: 1.3;
 
-	@include font-paragraph;
+	@mixin font-paragraph 16px;
 
 }

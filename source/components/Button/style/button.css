@@ -3,8 +3,7 @@
 	position: relative;
 	
 	display: inline-block;
-	width: 160px;
-	height: 35px;
+	size: 160px 35px;
 	margin: 10px;
 
 	text-transform: uppercase;
@@ -18,7 +17,7 @@
 	border-radius: 3px;
 	overflow: hidden;
 
-	@include font-title(16px);
+	@mixin font-title 16px;
 
 }
 

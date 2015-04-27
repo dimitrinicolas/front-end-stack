@@ -1,0 +1,37 @@
+.button--raised {
+
+	color: white;
+
+	background: $blue;
+	transition: .15s;
+	
+}
+
+.button--raised:hover,
+.button--raised:focus {
+
+	background: $blue;
+	transition: .25s;
+
+}
+
+.button--raised:hover {
+
+	background: color($blue lightness(10%)); ;
+
+}
+
+.button--raised:active {
+
+	background: $blue;
+	transition: .2s;
+
+}
+
+.button--raised.is-disabled {
+	
+	color: $grey;
+	
+	background: $light-grey;
+
+}

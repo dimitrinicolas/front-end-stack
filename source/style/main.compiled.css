@@ -29,8 +29,8 @@
 /* COMPONENTS
    ----------------------------- */
 
-@import "../components/App/style/app.scss"; 
-@import "../components/Button/style/button.scss"; 
-@import "../components/Button/style/flat.scss"; 
-@import "../components/Button/style/raised.scss"; 
-@import "../components/Container/style/container.scss"; 
+@import "../components/App/style/app.css"; 
+@import "../components/Container/style/container.css"; 
+@import "../components/Button/style/button.css"; 
+@import "../components/Button/style/flat.css"; 
+@import "../components/Button/style/raised.css"; 

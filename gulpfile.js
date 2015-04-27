@@ -24,16 +24,14 @@ var cmi = require("cmi");
 var watch = require("gulp-watch");
 var rename = require("gulp-rename");
 
-var sass = require("gulp-sass");
+var postcss = require("gulp-postcss");
 var minify = require("gulp-minify-css");
-var autoprefixer = require("gulp-autoprefixer");
 var csslint = require("gulp-csslint");
 
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var react = require("gulp-react");
 var webpack = require("webpack");
-var gwebpack = require("gulp-webpack");
 var jshint = require("gulp-jshint");
 
 var sourcemaps = require("gulp-sourcemaps");
@@ -52,17 +50,34 @@ var cssLintRuleBlackList = [
 
 gulp.task("style", function () {
 
-	gulp.src("source/style/main.compiled.scss")
+	var processors = [
+
+		require("postcss-import"),
+		require("postcss-mixins")({ mixinsDir: "source/style/mixins/" }),
+		require("postcss-simple-extend"),
+		require("postcss-nested"),
+		require("postcss-for"),
+		require("postcss-color-function"),
+		require("postcss-simple-vars"),
+		require("postcss-calc")({ preserve: false }),
+		require("postcss-size"),
+		require("postcss-will-change"),
+		require("postcss-color-rgba-fallback"),
+		require("postcss-image-set"),
+		require("autoprefixer-core")({ browsers: ["last 1 version"] }),
+		require("postcss-opacity"),
+		require("postcss-pxtorem")({ replace: false }),
+		require("postcss-merge-rules")
+
+	];
+
+	gulp.src("source/style/main.compiled.css")
 
 		.pipe(sourcemaps.init())
 
-		.pipe(sass({
+		.pipe(postcss(processors))
 
-			errLogToConsole: true
-
-		}))
 		.pipe(rename("style.css"))
-		.pipe(autoprefixer("last 2 versions", "> 1%", "Explorer 7", "Android 2"))
 		.pipe(gulp.dest("assets/bin/"))
 
 		.pipe(csslint())
@@ -107,9 +122,6 @@ gulp.task("style", function () {
 			}
 
 		}))
-
-		.pipe(rename("style.css"))
-		.pipe(gulp.dest("assets/bin/"))
 
 		.pipe(size({ title: "style    " }))
 		.pipe(minify())
@@ -286,8 +298,8 @@ gulp.task("cmi", function() {
 
 		componentsImport: {
 
-			from: "source/style/main.scss",
-			to: "source/style/main.compiled.scss"
+			from: "source/style/main.css",
+			to: "source/style/main.compiled.css"
 
 		}
 
@@ -305,7 +317,7 @@ gulp.task("default", ["browser-sync", "cmi", "librairies", "scripts", "style"], 
 
 	});
 
-	watch(["source/style/main.compiled.scss", "source/style/**/*.scss"], function() {
+	watch(["source/**/*.css", "!source/style/main.css"], function() {
 
 		gulp.start("style");
 

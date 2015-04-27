@@ -1,5 +1,6 @@
 
-// Material design colors
+/* Material design colors
+   ======================== */
 
 $red:         #f44336;
 $pink:        #e91e63;
@@ -38,8 +39,3 @@ $colors: (
 	  (dark-grey $dark-grey)
 
 );
-
-// Bound variables
-
-$_color-name: 0;
-$_color-value: 0;

@@ -1,0 +1,10 @@
+@define-mixin position $type $top $right $bottom $left {
+
+	position: $type;
+
+	top: 	  $top;
+	right: 	  $right;
+	bottom:   $bottom;
+	left: 	  $left;
+
+}

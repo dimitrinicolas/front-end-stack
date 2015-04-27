@@ -1,0 +1,19 @@
+.button--flat {
+
+	color: $blue;
+
+	overflow: hidden;
+
+}
+
+.button--flat.is-disabled {
+
+	color: $grey;
+	
+	background: $light-grey;
+
+	/*csslint outline-none:false, important:false */
+	outline: none!important;
+	/*csslint outline-none:true, important:true */
+
+}
