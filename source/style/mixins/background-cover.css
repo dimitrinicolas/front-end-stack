@@ -1,6 +1,0 @@
-@define-mixin background-cover {
-
-	background-position: center;
-	background-size: cover;
-	
-}

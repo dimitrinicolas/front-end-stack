@@ -46,11 +46,28 @@
 
 	"use strict";
 
-	var React = __webpack_require__(1);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	var App = __webpack_require__(2);
+	var _react = __webpack_require__(1);
 
-	function onload() {}
+	var _react2 = _interopRequireDefault(_react);
+
+	var _componentsButton = __webpack_require__(2);
+
+	var _componentsButton2 = _interopRequireDefault(_componentsButton);
+
+	function onload() {
+
+		_react2["default"].render(_react2["default"].createElement(
+			"div",
+			null,
+			_react2["default"].createElement(
+				_componentsButton2["default"],
+				{ type: "raised" },
+				"Button"
+			)
+		), document.body);
+	}
 
 	if (window.addEventListener) {
 
@@ -60,11 +77,9 @@
 		window.attachEvent("onload", onload);
 	}
 
-	// React.render(<App />, document.body);
-
 /***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	module.exports = React;
 
@@ -75,50 +90,12 @@
 	"use strict";
 
 	var React = __webpack_require__(1);
-
-	var Container = __webpack_require__(3);
-	var Button = __webpack_require__(4);
-
-	var App = React.createClass({ displayName: "App",
-
-		render: function render() {
-			return React.createElement("div", { className: "app" }, React.createElement(Container, null, React.createElement(Button, { color: "red" }, "Flat"), React.createElement(Button, { type: "raised", color: "red" }, "Raised button"), React.createElement(Button, { disable: true }, "Disabled")));
-		}
-
-	});
-
-	module.exports = App;
-
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-
-	var Container = React.createClass({ displayName: "Container",
-
-		render: function render() {
-			return React.createElement("div", { className: "container" }, this.props.children);
-		}
-
-	});
-
-	module.exports = Container;
-
-/***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
 	var cx = React.addons.classSet;
 
-	var isset = __webpack_require__(5);
+	var isset = __webpack_require__(3);
 
-	var Button = React.createClass({ displayName: "Button",
+	var Button = React.createClass({
+		displayName: "Button",
 
 		render: function render() {
 
@@ -130,7 +107,11 @@
 
 			var classes = cx("button", typeModifier, colorModifier, disableModifier);
 
-			return React.createElement("div", { className: classes, tabIndex: isset(props.disable) ? "0" : "1", onClick: props.click }, props.children);
+			return React.createElement(
+				"div",
+				{ className: classes, tabIndex: isset(props.disable) ? "0" : "1", onClick: props.click },
+				props.children
+			);
 		}
 
 	});
@@ -138,8 +119,8 @@
 	module.exports = Button;
 
 /***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/* 3 */
+/***/ function(module, exports) {
 
 	"use strict";
 

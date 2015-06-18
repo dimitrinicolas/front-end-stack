@@ -1,12 +1,18 @@
 "use strict";
 
-var React = require("react");
+import React from "react";
 
-var App = require("./components/App");
+import Button from "./components/Button";
 
 function onload() {
 
-	// React.render(<App />, document.body);
+	React.render((
+
+		<div>
+			<Button type="raised">Button</Button>
+		</div>
+
+	), document.body);
 
 }
 

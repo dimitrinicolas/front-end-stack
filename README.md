@@ -12,10 +12,8 @@ MarmWork nécessite plusieurs dépendances indispensables :
 
 ##Lancer les processus de compilations
 
-Pour lancer les processus de compilation du Sass et du JavaScript, il suffit de lancer cette commande dans le dossier :
+Pour lancer les processus de compilation du code, il suffit de lancer cette commande dans le dossier :
 
 ```shell
 gulp
 ```
-
-Cela va également lancer un serveur proxy Browser Sync, vous pouvez définir votre adresse de développement local dans le fichier `dev.json`.

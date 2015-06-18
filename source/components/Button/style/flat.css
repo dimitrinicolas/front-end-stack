@@ -1,8 +1,24 @@
 .button--flat {
 
-	color: $blue;
+	color: $primary;
 
 	overflow: hidden;
+	transition: .15s;
+
+}
+
+.button--flat:hover,
+.button--flat:focus {
+
+	color: color($primary lightness(+15%));
+	transition: .25s;
+
+}
+
+.button--flat:active {
+
+	color: $primary;
+	transition: .2s;
 
 }
 
@@ -10,10 +26,8 @@
 
 	color: $grey;
 	
-	background: $light-grey;
+	bg: $light-grey;
 
-	/*csslint outline-none:false, important:false */
 	outline: none!important;
-	/*csslint outline-none:true, important:true */
 
 }

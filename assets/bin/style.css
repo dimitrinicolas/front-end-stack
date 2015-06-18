@@ -1,20 +1,4 @@
 
-/* VARIABLES
-   ----------------------------- */
-
-/* Material design colors
-   ======================== */
-/* Breakpoints
-   ======================== */
-
-/* Sizes
-   ======================== */
-/* Fonts
-   ======================== */
-
-/* MIXINS
-   ----------------------------- */
-
 /* BASE
    ----------------------------- */
 
@@ -45,7 +29,18 @@ time, mark, audio, video {
 
 }
 
-html { line-height: 1; }
+html {
+
+	line-height: 1;
+	box-sizing: border-box;
+
+}
+
+*, *:before, *:after {
+
+	box-sizing: inherit;
+
+}
 
 ol, ul { list-style: none; }
 
@@ -83,7 +78,9 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
 
-	appearance: none;
+	-webkit-appearance: none;
+
+	        appearance: none;
 
 }
 
@@ -147,37 +144,50 @@ html,
 body {
 
 	width: 100%;
+
 	height: 100%;
 	margin: 0;
 	padding: 0;
 
+}
+
+body {
+
 	line-height: 1.3;
 
 	font-family: "Merriweather", serif;
-
-	font-size: 16px;
-
-	font-size: 1rem;
 
 }
 
 /* COMPONENTS
    ----------------------------- */
 
-.app {
+@components;
+body,.button {
 
-	color: black;
+	font-size: 16px;
 
-} 
+	font-size: 1rem;
+
+}
 .button {
 
 	position: relative;
+
+	top: auto;
+
+	right: auto;
+
+	bottom: auto;
+
+	left: auto;
 	
 	display: inline-block;
 	width: 160px;
 	height: 35px;
 	margin: 10px;
 
+	font-family: "RobotoDraft", sans-serif;
 	text-transform: uppercase;
 	text-align: center;
 	line-height: 35px;
@@ -193,12 +203,6 @@ body {
 	border-radius: 3px;
 	overflow: hidden;
 
-	font-family: "RobotoDraft", sans-serif;
-
-	font-size: 16px;
-
-	font-size: 1rem;
-
 }
 
 .button.is-disabled {
@@ -211,6 +215,22 @@ body {
 	color: #2196f3;
 
 	overflow: hidden;
+	transition: .15s;
+
+}
+
+.button--flat:hover,
+.button--flat:focus {
+
+	color: rgb(105, 183, 247);
+	transition: .25s;
+
+}
+
+.button--flat:active {
+
+	color: #2196f3;
+	transition: .2s;
 
 }
 
@@ -220,9 +240,7 @@ body {
 	
 	background: #eaeaea;
 
-	/*csslint outline-none:false, important:false */
 	outline: none!important;
-	/*csslint outline-none:true, important:true */
 
 } 
 .button--raised {
@@ -237,14 +255,8 @@ body {
 .button--raised:hover,
 .button--raised:focus {
 
-	background: #2196f3;
+	background: rgb(81, 171, 246);
 	transition: .25s;
-
-}
-
-.button--raised:hover {
-
-	background: color(#2196f3 lightness(10%)); ;
 
 }
 
@@ -258,7 +270,7 @@ body {
 .button--raised.is-disabled {
 	
 	color: #9e9e9e;
-	
+
 	background: #eaeaea;
 
 } 
@@ -267,34 +279,6 @@ body {
 	width: 100%;
 	max-width: 992px;
 	margin: auto;
+	padding: 16px;
 
-}
-
-div {
-
-	font-family: "Merriweather", serif;
-
-	font-size: 64px;
-
-	font-size: 4rem;
-	position: absolute;
-	top: 1px;
-	right: 2px;
-	bottom: 3px;
-	left: 4px;
-
-}
-
-@media (max-width:  360px) {
-
-	div {
-
-		font-family: "Merriweather", serif;
-
-		font-size: 16px;
-
-		font-size: 1rem;
-
-	}
-
-}
+} 

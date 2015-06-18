@@ -1,24 +1,4 @@
 
-/* VARIABLES
-   ----------------------------- */
-
-@import "variables/colors";
-@import "variables/sizes";
-@import "variables/others";
-
-/* MIXINS
-   ----------------------------- */
-
-@import "mixins/background-cover";
-@import "mixins/font-size";
-@import "mixins/fonts";
-@import "mixins/keyframes";
-@import "mixins/medias";
-@import "mixins/opacity";
-@import "mixins/outline";
-@import "mixins/position";
-@import "mixins/zdepht";
-
 /* BASE
    ----------------------------- */
 
@@ -29,4 +9,5 @@
 /* COMPONENTS
    ----------------------------- */
 
+@components;
 {{components}}

@@ -25,7 +25,18 @@ time, mark, audio, video {
 
 }
 
-html { line-height: 1; }
+html {
+
+	line-height: 1;
+	box-sizing: border-box;
+
+}
+
+*, *:before, *:after {
+
+	box-sizing: inherit;
+
+}
 
 ol, ul { list-style: none; }
 
