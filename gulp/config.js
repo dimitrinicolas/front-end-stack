@@ -3,7 +3,7 @@
 module.exports = {
 
 	browserSync: true,
-	browserSyncProxy: "localhost:1337",
-	browserSyncProxyPort: "1337"
+	browserSyncProxy: "localhost:8000",
+	browserSyncProxyPort: "8000"
 
 };

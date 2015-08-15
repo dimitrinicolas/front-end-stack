@@ -10,7 +10,7 @@
    ----------------------------- */
 
 @components;
-@import "../components/Button/style/button.css"; 
-@import "../components/Button/style/flat.css"; 
-@import "../components/Button/style/raised.css"; 
-@import "../components/Container/style/container.css"; 
+@import "../components/Button/button.css"; 
+@import "../components/Button/flat.css"; 
+@import "../components/Button/raised.css"; 
+@import "../components/Container/container.css"; 

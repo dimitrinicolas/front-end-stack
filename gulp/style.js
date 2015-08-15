@@ -50,8 +50,6 @@ gulp.task("style", function () {
 
 		.pipe(minify())
 		.pipe(rename("style.min.css"))
-		.pipe(gulp.dest("assets/bin/"))
-
-		.pipe(browserSync.reload({ stream: true }));
+		.pipe(gulp.dest("assets/bin/"));
 
 });
