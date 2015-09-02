@@ -1,6 +1,6 @@
 .button {
 
-	relative: auto;
+	position: relative auto;
 	
 	d: ib;
 	size: 160px 35px;

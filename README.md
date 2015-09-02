@@ -1,19 +1,20 @@
 #MarmWork
 
-FrameWork de développement front-end.
+Front-end development framework
 
-##Dépendances
+##Dependencies
 
-MarmWork nécessite plusieurs dépendances indispensables :
+Before using this framework you must first install a few dependencies
 
- - Installer NodeJs : [nodejs.org](http://nodejs.org/)
- - Installer Gulp : `npm i -g gulp`
- - Installer les modules : `npm i`
+ - node.js : [nodejs.org](http://nodejs.org/)
+ - node modules : `npm i`
 
-##Lancer les processus de compilations
+##Usage
 
-Pour lancer les processus de compilation du code, il suffit de lancer cette commande dans le dossier :
+Run this simple command to start compilation processus
 
 ```shell
 gulp
 ```
+
+You can access the interface on port 5000

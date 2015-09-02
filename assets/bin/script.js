@@ -42,32 +42,11 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	"use strict";
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _componentsButton = __webpack_require__(2);
-
-	var _componentsButton2 = _interopRequireDefault(_componentsButton);
-
-	function onload() {
-
-		_react2["default"].render(_react2["default"].createElement(
-			"div",
-			null,
-			_react2["default"].createElement(
-				_componentsButton2["default"],
-				{ type: "raised" },
-				"Button"
-			)
-		), document.body);
-	}
+	function onload() {}
 
 	if (window.addEventListener) {
 
@@ -76,60 +55,6 @@
 
 		window.attachEvent("onload", onload);
 	}
-
-/***/ },
-/* 1 */
-/***/ function(module, exports) {
-
-	module.exports = React;
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-	var cx = React.addons.classSet;
-
-	var isset = __webpack_require__(3);
-
-	var Button = React.createClass({
-		displayName: "Button",
-
-		render: function render() {
-
-			var props = this.props;
-
-			var typeModifier = props.type === "raised" ? "button--raised" : "button--flat",
-			    colorModifier = props.color ? "button--" + props.color : null,
-			    disableModifier = isset(props.disable) ? "is-disabled" : null;
-
-			var classes = cx("button", typeModifier, colorModifier, disableModifier);
-
-			return React.createElement(
-				"div",
-				{ className: classes, tabIndex: isset(props.disable) ? "0" : "1", onClick: props.click },
-				props.children
-			);
-		}
-
-	});
-
-	module.exports = Button;
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	function isset(variable) {
-
-		return typeof variable !== "undefined";
-	}
-
-	module.exports = isset;
 
 /***/ }
 /******/ ]);

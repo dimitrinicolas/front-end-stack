@@ -1,5 +1,3 @@
 "use strict";
 
-var requireDir = require("require-dir");
-
-requireDir("./gulp", { recurse: true });
+require("require-dir")("./gulp", { recurse: true });

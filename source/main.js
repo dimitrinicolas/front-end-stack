@@ -1,18 +1,8 @@
 "use strict";
 
-import React from "react";
-
-import Button from "./components/Button";
-
 function onload() {
 
-	React.render((
-
-		<div>
-			<Button type="raised">Button</Button>
-		</div>
-
-	), document.body);
+	
 
 }
 

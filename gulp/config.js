@@ -1,9 +1,11 @@
 "use strict";
 
+var config = require("../config.json");
+
 module.exports = {
 
 	browserSync: true,
-	browserSyncProxy: "localhost:8000",
-	browserSyncProxyPort: "8000"
+	browserSyncProxy: "localhost:" + config.localPort,
+	browserSyncProxyPort: config.localPort
 
 };
