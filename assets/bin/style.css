@@ -212,7 +212,7 @@ body,.button {
 } 
 .button--flat {
 
-	color: #2196f3;
+	color: #f44336;
 
 	overflow: hidden;
 	transition: .15s;
@@ -222,14 +222,14 @@ body,.button {
 .button--flat:hover,
 .button--flat:focus {
 
-	color: rgb(105, 183, 247);
+	color: rgb(248, 132, 124);
 	transition: .25s;
 
 }
 
 .button--flat:active {
 
-	color: #2196f3;
+	color: #f44336;
 	transition: .2s;
 
 }
@@ -247,7 +247,7 @@ body,.button {
 
 	color: white;
 
-	background: #2196f3;
+	background: #f44336;
 	transition: .15s;
 	
 }
@@ -255,14 +255,14 @@ body,.button {
 .button--raised:hover,
 .button--raised:focus {
 
-	background: rgb(81, 171, 246);
+	background: rgb(247, 110, 100);
 	transition: .25s;
 
 }
 
 .button--raised:active {
 
-	background: #2196f3;
+	background: #f44336;
 	transition: .2s;
 
 }

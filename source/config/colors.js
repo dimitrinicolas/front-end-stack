@@ -21,6 +21,6 @@ var colors = {
 
 };
 
-colors.primary = colors.blue;
+colors["primary"] = colors["red"];
 
 module.exports = colors;
