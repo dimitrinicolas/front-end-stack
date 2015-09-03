@@ -157,19 +157,24 @@ body {
 
 	font-family: "Merriweather", serif;
 
+	font-size: 16px;
+
+	font-size: 1rem;
+
 }
 
 /* COMPONENTS
    ----------------------------- */
 
 @components;
-body,.button {
+.container {
 
-	font-size: 16px;
+	width: 100%;
+	max-width: 992px;
+	margin: auto;
+	padding: 16px;
 
-	font-size: 1rem;
-
-}
+} 
 .button {
 
 	position: relative;
@@ -188,6 +193,10 @@ body,.button {
 	margin: 10px;
 
 	font-family: "RobotoDraft", sans-serif;
+
+	font-size: 16px;
+
+	font-size: 1rem;
 	text-transform: uppercase;
 	text-align: center;
 	line-height: 35px;
@@ -272,13 +281,5 @@ body,.button {
 	color: #9e9e9e;
 
 	background: #eaeaea;
-
-} 
-.container {
-
-	width: 100%;
-	max-width: 992px;
-	margin: auto;
-	padding: 16px;
 
 } 
