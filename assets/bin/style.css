@@ -1,7 +1,3 @@
-
-/* BASE
-   ----------------------------- */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -90,8 +86,6 @@ input[type="search"] {
 	   -moz-appearance: textfield;
 
 }
-/* TITLES
-   ======================== */
 
 @font-face {
 
@@ -110,9 +104,6 @@ input[type="search"] {
 	src: local("RobotoDraft Light"), local("RobotoDraft-Light"), url(../fonts/roboto-light.woff) format("woff");
 
 }
-
-/* PARAGRAPHS
-   ======================== */
 
 @font-face {
 
@@ -157,24 +148,16 @@ body {
 
 	font-family: "Merriweather", serif;
 
+}
+
+body,.button {
+
 	font-size: 16px;
 
 	font-size: 1rem;
 
 }
 
-/* COMPONENTS
-   ----------------------------- */
-
-@components;
-.container {
-
-	width: 100%;
-	max-width: 992px;
-	margin: auto;
-	padding: 16px;
-
-} 
 .button {
 
 	position: relative;
@@ -191,26 +174,21 @@ body {
 	width: 160px;
 	height: 35px;
 	margin: 10px;
+	overflow: hidden;
 
 	font-family: "RobotoDraft", sans-serif;
-
-	font-size: 16px;
-
-	font-size: 1rem;
 	text-transform: uppercase;
 	text-align: center;
 	line-height: 35px;
 	line-height: 2.1875rem;
 	
 	background: transparent;
-	cursor: pointer;
 	border: none;
 	-webkit-user-select: none;
 	   -moz-user-select: none;
 	    -ms-user-select: none;
 	        user-select: none;
 	border-radius: 3px;
-	overflow: hidden;
 
 }
 
@@ -281,5 +259,13 @@ body {
 	color: #9e9e9e;
 
 	background: #eaeaea;
+
+} 
+.container {
+
+	width: 100%;
+	max-width: 992px;
+	margin: auto;
+	padding: 16px;
 
 } 

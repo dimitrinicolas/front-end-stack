@@ -1,22 +1,21 @@
 .button {
 
-	position: relative auto;
+	p: relative auto;
 	
 	d: ib;
 	size: 160px 35px;
 	margin: 10px;
+	overflow: hidden;
 
 	@mixin font title, 16px;
-	text-transform: uppercase;
-	text-align: center;
-	line-height: 35px;
+	tt: upp;
+	ta: center;
+	lh: 35px;
 	
 	bg: transparent;
-	cursor: pointer;
 	border: none;
 	user-select: none;
 	border-radius: 3px;
-	overflow: hidden;
 
 }
 

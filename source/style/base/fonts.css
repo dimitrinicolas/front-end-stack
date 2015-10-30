@@ -1,6 +1,4 @@
-
-/* TITLES
-   ======================== */
+$font-family-title: "RobotoDraft", sans-serif;
 
 @font-face {
 
@@ -20,8 +18,8 @@
 
 }
 
-/* PARAGRAPHS
-   ======================== */
+
+$font-family-paragraph: "Merriweather", serif;
 
 @font-face {
 

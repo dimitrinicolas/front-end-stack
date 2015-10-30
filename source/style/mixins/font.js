@@ -1,19 +1,22 @@
 "use strict";
 
-var variables = require("../../config/others.js");
+var variables = {};
 
 var fontStyles = ["italic"];
 
 var fontWeights = {
 
-	light:   300,
-	regular: 500,
-	medium:  500,
-	bold:    700
+	extralight: 100,
+	thin:       200,
+	light:      300,
+	regular:    400,
+	medium:     500,
+	semibold:   600,
+	bold:       700,
+	black:      800,
+	extrabold:  900
 
 };
-
-var fontFamilys = ["paragraph", "title"];
 
 module.exports = function(mixin, value, size) {
 
@@ -33,26 +36,14 @@ module.exports = function(mixin, value, size) {
 		};
 	}
 
-	if (!!~fontFamilys.indexOf(value)) {
+	var result = {};
 
-		var result = {};
+	result["font-family"] = "$font-family-" + value;
 
-		var fontFamilyValue = variables["font-family-" + value] || null;
-
-		if (fontFamilyValue) {
-
-			result["font-family"] = fontFamilyValue;
-
-		}
-
-		if (size) {
-
-			result["font-size"] = size;
-
-		}
-
-		return result;
-
+	if (size) {
+		result["font-size"] = size;
 	}
+
+	return result;
 
 };

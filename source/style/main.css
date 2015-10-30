@@ -1,13 +1,9 @@
-
-/* BASE
-   ----------------------------- */
+@import "../config/breakpoints";
+@import "../config/colors";
+@import "../config/sizes";
 
 @import "base/reset";
-@import "base/fonts-loader";
+@import "base/fonts";
 @import "base/body";
 
-/* COMPONENTS
-   ----------------------------- */
-
-@components;
 {{components}}

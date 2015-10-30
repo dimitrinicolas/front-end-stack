@@ -26,21 +26,17 @@ function on(element, event, fn) {
 	};
 
 	that.bind = function(bind) {
-
 		this._bind = bind;
-
 	}
 
 	if (typeof that.element.addEventListener !== "undefined") {
 
 		that.element.addEventListener(that.event, function(that) {
-
 			return function(event) {
 
 				that.fn.call(that._bind, event);
 
 			};
-
 		}(that), false);
 
 	}
@@ -48,13 +44,11 @@ function on(element, event, fn) {
 	else if (typeof that.element.attachEvent !== "undefined") {
 
 		that.element.attachEvent("on" + that.event, function(that) {
-
 			return function(event) {
 
 				that.fn.call(that._bind, event);
 
 			};
-
 		}(that));
 
 	}

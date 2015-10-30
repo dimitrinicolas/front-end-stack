@@ -1,16 +1,12 @@
-
-/* BASE
-   ----------------------------- */
+@import "../config/breakpoints";
+@import "../config/colors";
+@import "../config/sizes";
 
 @import "base/reset";
-@import "base/fonts-loader";
+@import "base/fonts";
 @import "base/body";
 
-/* COMPONENTS
-   ----------------------------- */
-
-@components;
-@import "../components/Container/container.css"; 
 @import "../components/Button/button.css"; 
 @import "../components/Button/flat.css"; 
 @import "../components/Button/raised.css"; 
+@import "../components/Container/container.css"; 

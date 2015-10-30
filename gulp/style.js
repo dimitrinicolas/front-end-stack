@@ -4,7 +4,6 @@ var gulp = require("gulp");
 
 var postcss = require("gulp-postcss");
 var rename = require("gulp-rename");
-var merge = require("merge");
 var minify = require("gulp-minify-css");
 
 var browserSync = require("browser-sync");
@@ -21,13 +20,7 @@ gulp.task("style", function () {
 			require("postcss-nested"),
 			require("postcss-for"),
 			require("postcss-each"),
-			require("postcss-simple-vars")({
-	
-				variables: merge(require("../source/config/colors.js"),
-				                 require("../source/config/breakpoints.js"),
-				                 require("../source/config/sizes.js"))
-	
-			}),
+			require("postcss-simple-vars")(),
 			require("postcss-assets")({ relativeTo: "assets/bin/" }),
 			require("postcss-calc")({ preserve: false }),
 			require("postcss-size"),
@@ -37,8 +30,7 @@ gulp.task("style", function () {
 			require("postcss-color-gray")(),
 			require("postcss-color-rgba-fallback")(),
 			require("postcss-image-set"),
-			require("autoprefixer-core")({ browsers: ["last 1 version"] }),
-			require("postcss-opacity"),
+			require("autoprefixer")({ browsers: ["last 1 version"] }),
 			require("postcss-pxtorem")({ replace: false }),
 			require("postcss-color-function")(),
 			require("postcss-merge-rules")()
