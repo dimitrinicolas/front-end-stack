@@ -26,43 +26,33 @@ time, mark, audio, video {
 }
 
 html {
-
 	line-height: 1;
 	box-sizing: border-box;
-
 }
 
 *, *:before, *:after {
-
 	box-sizing: inherit;
-
 }
 
 ol, ul { list-style: none; }
 
 table {
-
 	border-collapse: collapse;
 	border-spacing: 0;
-
 }
 
 caption, th, td {
-
 	text-align: left;
 	font-weight: normal;
 	vertical-align: middle;
-
 }
 
 q, blockquote { quotes: none; }
 
 q:before, q:after,
 blockquote:before, blockquote:after {
-
 	content: "";
 	content: none;
-
 }
 
 a img { border: none; }

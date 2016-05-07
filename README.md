@@ -11,4 +11,4 @@ Before using this framework you must first install a few dependencies
 
 ##Usage
 
-Run `gulp` command to start compilation processus
+Run `npm run dev` command to start compilation processus
