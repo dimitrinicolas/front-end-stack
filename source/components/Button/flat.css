@@ -9,25 +9,17 @@
 
 .button--flat:hover,
 .button--flat:focus {
-
 	color: color($primary lightness(+15%));
 	transition: .25s;
-
 }
 
 .button--flat:active {
-
 	color: $primary;
 	transition: .2s;
-
 }
 
 .button--flat.is-disabled {
-
 	color: $grey;
-	
-	bg: $light-grey;
-
+	background: $light-grey;
 	outline: none!important;
-
 }

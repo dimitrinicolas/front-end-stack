@@ -18,24 +18,18 @@ gulp.task("scripts", function () {
 		entry: "./source/main.js",
 
 		output: {
-
 			path: path.join(__dirname, "../assets/bin"),
 			filename: "script.js"
-
 		},
 
 		externals: {
-
 			"react": "React"
-
 		},
 
 		module: {
 			loaders: [
-
 				{ test: /\.(js|jsx)$/, exclude: /node_modules/, loader: "jsx" },
 				{ test: /\.(js|jsx)$/, exclude: /node_modules/, loader: require.resolve("babel-loader") },
-
 			]
 		},
 
@@ -44,9 +38,7 @@ gulp.task("scripts", function () {
 	}, function(error, stats) {
 
 		if (error) {
-
 			throw new gutil.PluginError("webpack:build", error);
-
 		}
 
 		gutil.log("[webpack:build]", stats.toString({ colors: true }));

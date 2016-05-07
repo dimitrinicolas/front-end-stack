@@ -1,18 +1,18 @@
 .button {
 
-	p: relative auto;
+	position: relative auto;
 	
-	d: ib;
+	display: inline-block;
 	size: 160px 35px;
 	margin: 10px;
 	overflow: hidden;
 
 	@mixin font title, 16px;
-	tt: upp;
-	ta: center;
-	lh: 35px;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 35px;
 	
-	bg: transparent;
+	background: transparent;
 	border: none;
 	user-select: none;
 	border-radius: 3px;
@@ -20,7 +20,5 @@
 }
 
 .button.is-disabled {
-
 	cursor: default;
-
 }

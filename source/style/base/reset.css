@@ -69,18 +69,14 @@ a img { border: none; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
 
+input {
+	appearance: none;
+	border-radius: 0;
+}
+
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
-
 	appearance: none;
-
-}
-
-input[type="search"] {
-
-	-webkit-appearance: textfield;
-	   -moz-appearance: textfield;
-
 }

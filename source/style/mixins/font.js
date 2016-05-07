@@ -5,7 +5,6 @@ var variables = {};
 var fontStyles = ["italic"];
 
 var fontWeights = {
-
 	extralight: 100,
 	thin:       200,
 	light:      300,
@@ -15,24 +14,19 @@ var fontWeights = {
 	bold:       700,
 	black:      800,
 	extrabold:  900
-
 };
 
 module.exports = function(mixin, value, size) {
 
 	if (!!~fontStyles.indexOf(value)) {
 		return {
-
 			"font-style": value
-
 		};
 	}
 
 	if (fontWeights[value]) {
 		return {
-
 			"font-weight": fontWeights[value]
-
 		};
 	}
 

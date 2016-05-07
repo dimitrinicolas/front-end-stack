@@ -2,30 +2,23 @@
 
 	color: white;
 
-	bg: $primary;
+	background: $primary;
 	transition: .15s;
 	
 }
 
 .button--raised:hover,
 .button--raised:focus {
-
-	bg: color($primary lightness(+10%));
+	background: color($primary lightness(+10%));
 	transition: .25s;
-
 }
 
 .button--raised:active {
-
-	bg: $primary;
+	background: $primary;
 	transition: .2s;
-
 }
 
 .button--raised.is-disabled {
-	
 	color: $grey;
-
-	bg: $light-grey;
-
+	background: $light-grey;
 }

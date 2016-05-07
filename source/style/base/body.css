@@ -8,9 +8,6 @@ body {
 }
 
 body {
-
-	line-height: 1.3;
-
 	@mixin font paragraph, 16px;
-
+	line-height: 1.3;
 }

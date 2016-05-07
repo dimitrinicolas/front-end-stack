@@ -19,9 +19,7 @@ gulp.task("browser-sync", function() {
 			logFileChanges: false
 
 		}, function(error, bs) {
-
 			console.log(bs.options.getIn(["urls", "local"]));
-
 		});
 
 	}

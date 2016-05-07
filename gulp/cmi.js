@@ -14,10 +14,8 @@ gulp.task("cmi", function() {
 		componentsFolder: "source/components",
 
 		componentsImport: {
-
 			from: "source/style/main.css",
 			to: "source/style/main.compiled.css"
-
 		}
 
 	});

@@ -1,7 +1,7 @@
 .container {
 
-	w: 100%;
-	max-w: $container-max-width;
+	width: 100%;
+	max-width: $container-max-width;
 	margin: auto;
 	padding: 16px;
 

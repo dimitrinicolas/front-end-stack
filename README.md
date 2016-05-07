@@ -11,10 +11,4 @@ Before using this framework you must first install a few dependencies
 
 ##Usage
 
-Run this simple command to start compilation processus
-
-```shell
-gulp
-```
-
-You can access the interface on port 5000
+Run `gulp` command to start compilation processus
