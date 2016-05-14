@@ -3,7 +3,7 @@
         "./build/preimport.js",
         "postcss-import",
         "postcss-nested",
-        "./build/responsive.js",
+        "postcss-inline-media",
         "./build/postcss-plugin.js",
         "postcss-simple-vars",
         "postcss-assets",

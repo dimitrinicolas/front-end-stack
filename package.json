@@ -22,6 +22,7 @@
     "postcss-flexibility": "^1.0.3",
     "postcss-image-set": "^1.0.0",
     "postcss-import": "^8.1.0",
+    "postcss-inline-media": "0.0.1",
     "postcss-merge-rules": "^2.0.6",
     "postcss-nested": "^1.0.0",
     "postcss-position": "^0.4.0",
