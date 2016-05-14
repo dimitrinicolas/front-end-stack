@@ -1,6 +1,9 @@
 .btn {
 
-    padding: 16px;
+    padding: 16px @md 14px 12px @(max-width: 100px) 8px;
+    margin: 0 calc(12px + 19px) @sm 10px;
+
+    font: title light 12px @xs title light 10px;
 
     background: white;
     color: $blue;

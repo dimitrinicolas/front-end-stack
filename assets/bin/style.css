@@ -100,8 +100,6 @@ body {
     display: block;
     padding: 6px;
 
-    font-family: "RobotoDraft", sans-serif;
-
     font-weight: 700;
 
     font-size: 16px;
@@ -114,11 +112,58 @@ body {
     background: #f44336;
 
 }
+body,.btn {
+
+    font-family: "RobotoDraft", sans-serif;
+
+}
 .btn {
 
     padding: 16px;
+    margin: 0 31px;
+    font-weight: 300;
+    font-size: 12px;
+    font-size: 0.75rem;
 
     background: white;
     color: #2196f3;
+
+}
+@media (max-width:  992px) {
+	.btn {
+
+		padding: 14px 12px;
+
+	}
+
+}
+@media (max-width:100px) {
+	.btn {
+
+		padding: 8px;
+
+	}
+
+}
+@media (max-width:  768px) {
+	.btn {
+
+		margin: 10px;
+
+	}
+
+}
+@media (max-width:  480px) {
+	.btn {
+
+		font-family: "RobotoDraft", sans-serif;
+
+		font-weight: 300;
+
+		font-size: 10px;
+
+		font-size: 0.625rem;
+
+	}
 
 }

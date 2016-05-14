@@ -25,24 +25,33 @@
     "postcss-pxtorem": "^3.3.1",
     "postcss-simple-vars": "^1.2.0",
     "postcss-size": "^1.0.0",
+    "postcss-value-parser": "^3.3.0",
     "webpack": "^1.12.15"
   },
   "watch": {
     "build:scripts": {
-      "patterns": [ "source" ],
+      "patterns": [
+        "source"
+      ],
       "extensions": "js"
     },
     "minify:scripts": {
-      "patterns": [ "assets/bin" ],
+      "patterns": [
+        "assets/bin"
+      ],
       "extensions": "js",
       "ignore": "assets/bin/script.min.js"
     },
     "build:style": {
-      "patterns": [ "source" ],
+      "patterns": [
+        "source"
+      ],
       "extensions": "css"
     },
     "minify:style": {
-      "patterns": [ "assets/bin" ],
+      "patterns": [
+        "assets/bin"
+      ],
       "extensions": "css",
       "ignore": "assets/bin/style.min.css"
     }
