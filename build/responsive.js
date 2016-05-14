@@ -56,8 +56,6 @@ function parse(nodes) {
 
     }
 
-    console.log("BAAASE" ,base);
-
     return {
         base: base,
         querys: querys
@@ -88,10 +86,22 @@ module.exports = postcss.plugin("responsive", function() {
                     }
 
                     for (var i = 0; i < content.querys.length; i++) {
+
                         var q = content.querys[i];
+                        var media = q.media;
+
+                        var color = media.indexOf(":") > -1;
+                        var parenthesis = media.replace(/^\(/gi, "").indexOf("(") > -1;
+
+                        if ((color && parenthesis) || (!color && !parenthesis)) {
+                            media = media.replace(/^\(/gi, "").replace(/\)$/gi, "");
+                        }
+
+                        media = media.replace(/ or /gi, ",");
+
                         var atRule = postcss.atRule({
                             name: "media",
-                            params: q.media
+                            params: media
                         });
                         var mediaRule = postcss.rule({
                             selector: rule.parent.selector,
@@ -102,6 +112,7 @@ module.exports = postcss.plugin("responsive", function() {
                         });
                         atRule.append(mediaRule);
                         root.append(atRule);
+
                     }
 
                     rule.remove();
