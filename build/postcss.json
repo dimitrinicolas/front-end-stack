@@ -19,7 +19,7 @@
     "input": "",
     "local-plugins": true,
     "postcss-assets": {
-        "relativeTo": "assets/bin/"
+        "relativeTo": "assets/dist/"
     },
     "postcss-calc": {
         "preserve": false
