@@ -62,36 +62,6 @@ input[type="search"]::-webkit-search-results-decoration {
 	-webkit-appearance: none;
 	        appearance: none;
 }
-@font-face {
-	font-family: "RobotoDraft";
-	font-style: normal;
-	font-weight: 400;
-	src: local("RobotoDraft"), url(../fonts/roboto-regular.woff) format("woff");
-}
-@font-face {
-	font-family: "RobotoDraft";
-	font-style: normal;
-	font-weight: 300;
-	src: local("RobotoDraft Light"), local("RobotoDraft-Light"), url(../fonts/roboto-light.woff) format("woff");
-}
-@font-face {
-	font-family: "Merriweather";
-	font-style: normal;
-	font-weight: 400;
-	src: local("Merriweather"), url(../fonts/merriweather-regular.woff) format("woff");
-}
-@font-face {
-	font-family: "Merriweather";
-	font-style: normal;
-	font-weight: 700;
-	src: local("Merriweather Bold"), local("Merriweather-Bold"), url(../fonts/merriweather-bold.woff) format("woff");
-}
-@font-face {
-	font-family: "Merriweather";
-	font-style: italic;
-	font-weight: 400;
-	src: local("Merriweather Italic"), local("Merriweather-Italic"), url(../fonts/merriweather-italic.woff) format("woff");
-}
 html {
     background: #4caf50;
 }
@@ -100,7 +70,7 @@ body {
     display: block;
     padding: 6px;
 
-    font-family: "RobotoDraft", sans-serif;
+    font-family: "Roboto", sans-serif;
 
     font-weight: 700;
 
@@ -120,6 +90,11 @@ body {
     color: red;
     border-color: blue;
     border: 1px solid blue;
+
+    font-size: 32px;
+
+    font-size: 2rem;
+    color: rgba(0, 0, 255, 0.7);
 
 }
 @media print {

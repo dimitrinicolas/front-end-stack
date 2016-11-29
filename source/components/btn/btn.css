@@ -5,4 +5,7 @@
     border-color: blue @(max-width: 600px) red;
     border: 1px solid blue;
 
+    font-size: 32px;
+    color: color(blue a(.7));
+
 }

@@ -5,19 +5,19 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title></title>
+		<title>Title</title>
 		<meta name="description" content="">
 
 		<meta name="theme-color" content="#ffffff">
 
-		<meta property="og:image" content="assets/icon.png">
-		<link rel="icon" sizes="192x192" href="assets/icon.png">
+		<meta property="og:image" content="assets/favicon.png">
+		<link rel="icon" sizes="192x192" href="assets/favicon.png">
 
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="apple-mobile-web-app-title" content="">
-		<link rel="apple-touch-icon" href="assets/icon.png">
+		<link rel="apple-touch-icon" href="assets/favicon.png">
 
-		<meta name="msapplication-TileImage" content="assets/icon.png">
+		<meta name="msapplication-TileImage" content="assets/favicon.png">
 		<meta name="msapplication-TileColor" content="#ffffff">
 
 		<link rel="stylesheet" href="assets/dist/style.min.css">
@@ -29,6 +29,20 @@
 
 		<div class="btn">Button</div>
 
+		<script>
+			document.body.onload = function() {
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', 'https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto:300,400,500', true);
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						var style = document.createElement('style');
+						style.innerHTML = xhr.responseText;
+						document.head.appendChild(style);
+					}
+				};
+				xhr.send();
+			};
+		</script>
 		<script src="assets/dist/script.min.js"></script>
 
 	</body>
