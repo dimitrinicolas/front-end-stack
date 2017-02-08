@@ -1,7 +1,5 @@
 "use strict";
 
-var path = require("path");
-
 module.exports = {
 
     externals: {
@@ -9,14 +7,16 @@ module.exports = {
     },
 
     module: {
-		loaders: [
+		rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader",
-                query: {
-                    presets: ["es2015", "react"],
-                    cacheDirectory: true
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["es2015", "react"],
+                        cacheDirectory: true
+                    }
                 }
             }
 		]

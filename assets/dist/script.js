@@ -11,16 +11,16 @@
 
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
 /******/ 		};
 
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 
 /******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
+/******/ 		module.l = true;
 
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -33,79 +33,107 @@
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+"use strict";
 
-	var _on = __webpack_require__(1);
 
-	var _on2 = _interopRequireDefault(_on);
+function on(element, event, fn) {
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function onload() {
-		console.log("onload");
+	if (!(typeof element.nodeName === "string" || element === window || element === document) || typeof event !== "string" || typeof fn !== "function") {
+		console.error("Invalid arguments");
+		return;
 	}
 
-	if (window.addEventListener) {
-		window.addEventListener("DOMContentLoaded", onload);
-	} else {
-		window.attachEvent("onload", onload);
+	var promise = {
+		element: element,
+		event: event.split(" ").join(""),
+		fn: fn,
+		_bind: element
+	};
+
+	promise.bind = function (bind) {
+		this._bind = bind;
+	};
+
+	if (typeof promise.element.addEventListener !== "undefined") {
+
+		promise.element.addEventListener(promise.event, function (promise) {
+			return function (event) {
+				promise.fn.call(promise._bind, event);
+			};
+		}(promise), false);
+	} else if (typeof promise.element.attachEvent !== "undefined") {
+
+		promise.element.attachEvent("on" + promise.event, function (promise) {
+			return function (event) {
+				promise.fn.call(promise._bind, event);
+			};
+		}(promise));
 	}
 
-/***/ },
+	return promise;
+}
+
+module.exports = on;
+
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+"use strict";
 
-	function on(element, event, fn) {
 
-		if (!(typeof element.nodeName === "string" || element === window || element === document) || typeof event !== "string" || typeof fn !== "function") {
-			console.error("Invalid arguments");
-			return;
-		}
+var _on = __webpack_require__(0);
 
-		var promise = {
-			element: element,
-			event: event.split(" ").join(""),
-			fn: fn,
-			_bind: element
-		};
+var _on2 = _interopRequireDefault(_on);
 
-		promise.bind = function (bind) {
-			this._bind = bind;
-		};
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-		if (typeof promise.element.addEventListener !== "undefined") {
+function onload() {
+	console.log("onload");
+}
 
-			promise.element.addEventListener(promise.event, function (promise) {
-				return function (event) {
-					promise.fn.call(promise._bind, event);
-				};
-			}(promise), false);
-		} else if (typeof promise.element.attachEvent !== "undefined") {
+if (window.addEventListener) {
+	window.addEventListener("DOMContentLoaded", onload);
+} else {
+	window.attachEvent("onload", onload);
+}
 
-			promise.element.attachEvent("on" + promise.event, function (promise) {
-				return function (event) {
-					promise.fn.call(promise._bind, event);
-				};
-			}(promise));
-		}
-
-		return promise;
-	}
-
-	module.exports = on;
-
-/***/ }
+/***/ })
 /******/ ]);

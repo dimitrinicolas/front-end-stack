@@ -10,11 +10,9 @@
         "postcss-calc",
         "postcss-size",
         "postcss-position",
-        "postcss-image-set",
         "autoprefixer",
         "postcss-pxtorem",
-        "postcss-color-function",
-        "postcss-merge-rules"
+        "postcss-color-function"
     ],
     "input": "",
     "local-plugins": true,
