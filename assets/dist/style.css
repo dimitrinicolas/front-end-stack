@@ -86,38 +86,16 @@ body {
 }
 .btn {
 
-    margin: 20px;
-    color: red;
-    border-color: blue;
-    border: 1px solid blue;
+    display: inline-block;
+    padding: 7px 12px;
 
-    font-size: 32px;
+    font-family: "Roboto", sans-serif;
 
-    font-size: 2rem;
-    color: rgba(0, 0, 255, 0.7);
+    font-weight: 400;
 
-}
-@media print {
-	.btn {
+    font-size: 16px;
 
-		margin: 100px;
-
-	}
-
-}
-@media print,(max-width: 600px) {
-	.btn {
-
-		color: blue;
-
-	}
-
-}
-@media (max-width:600px) {
-	.btn {
-
-		border-color: red;
-
-	}
+    font-size: 1rem;
+    background: #2196f3;
 
 }

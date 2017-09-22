@@ -27,12 +27,28 @@ module.exports = postcss.plugin("plugins", function(props) {
         css.walkDecls("font", function(decl) {
             if (decl.prop === "font") {
                 var values = decl.value.split(" ");
-                if (values.length > 2) {
+                if (values.length > 1) {
                     decl.parent.insertBefore(decl, { prop: "font-family", value: "$font-family-" + values[0] });
-                    if (typeof fontWeights[values[1]] !== "undefined") {
-                        decl.parent.insertBefore(decl, { prop: "font-weight", value: fontWeights[values[1]] + "" });
-                    }
-                    decl.parent.insertBefore(decl, { prop: "font-size", value: values[2] });
+
+					if (values[1]) {
+
+						var fontWeight = null;
+						if (!isNaN(parseInt(values[1]))) {
+							fontWeight = parseInt(values[1]);
+						}
+	                    if (typeof fontWeights[values[1]] !== "undefined") {
+							fontWeight = fontWeights[values[1]];
+	                    }
+						if (fontWeight) {
+							decl.parent.insertBefore(decl, { prop: "font-weight", value: fontWeight + "" });
+						}
+
+						if (values[2]) {
+							decl.parent.insertBefore(decl, { prop: "font-size", value: values[2] });
+						}
+
+					}
+
                     decl.remove();
                 }
             }

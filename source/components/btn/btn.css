@@ -1,11 +1,9 @@
 .btn {
 
-    margin: 20px @(print) 100px;
-    color: red @(print, (max-width: 600px)) blue;
-    border-color: blue @(max-width: 600px) red;
-    border: 1px solid blue;
+    display: inline-block;
+    padding: 7px 12px;
 
-    font-size: 32px;
-    color: color(blue a(.7));
+    font: title 400 16px;
+    background: $blue;
 
 }

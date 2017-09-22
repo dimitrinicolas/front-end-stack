@@ -4,7 +4,7 @@ var folders = __dirname.split("/");
 
 module.exports = {
     startPath: folders[folders.length - 2] + "/index.html",
-    proxy: "localhost:8080",
+    proxy: "localhost",
     port: 8081,
     files: "assets/**/*.*",
     logLevel: "info",

@@ -1,14 +1,14 @@
-#MarmWork
+# MarmWork
 
 Front-end development framework
 
-##Dependencies
+## Dependencies
 
 Before using this framework you must first install a few dependencies
 
  - node.js : [nodejs.org](http://nodejs.org/)
  - node modules : `npm i`
 
-##Usage
+## Usage
 
-Run `npm run dev` command to start compilation processus
+Run `npm run dev` command to start compilation process
