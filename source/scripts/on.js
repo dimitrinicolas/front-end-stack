@@ -1,15 +1,13 @@
-"use strict";
-
 function on(element, event, fn) {
 
-	if (!(typeof element.nodeName === "string" || element === window || element === document) || typeof event !== "string" || typeof fn !== "function") {
-		console.error("Invalid arguments");
+	if (!(typeof element.nodeName === 'string' || element === window || element === document) || typeof event !== 'string' || typeof fn !== 'function') {
+		console.error('Invalid arguments');
 		return;
 	}
 
 	var promise = {
 		element: element,
-		event: event.split(" ").join(""),
+		event: event.split(' ').join(''),
 		fn: fn,
 		_bind: element
 	};
@@ -18,7 +16,7 @@ function on(element, event, fn) {
 		this._bind = bind;
 	}
 
-	if (typeof promise.element.addEventListener !== "undefined") {
+	if (typeof promise.element.addEventListener !== 'undefined') {
 
 		promise.element.addEventListener(promise.event, function(promise) {
 			return function(event) {
@@ -28,9 +26,9 @@ function on(element, event, fn) {
 
 	}
 
-	else if (typeof promise.element.attachEvent !== "undefined") {
+	else if (typeof promise.element.attachEvent !== 'undefined') {
 
-		promise.element.attachEvent("on" + promise.event, function(promise) {
+		promise.element.attachEvent('on' + promise.event, function(promise) {
 			return function(event) {
 				promise.fn.call(promise._bind, event);
 			};

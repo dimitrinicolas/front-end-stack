@@ -12,18 +12,11 @@ $md: (max-width:  992px);
 $lg: (max-width: 1200px);
 $xl: (max-width: 1600px);
 
-html {
-    background: $green;
+html,
+body {
+    background: white;
 }
 
 body {
-
-    display: block;
-    padding: 6px;
-
-    font: title bold 16px;
-
-    @cover;
-    background: $red;
-
+    font: title regular 16px;
 }

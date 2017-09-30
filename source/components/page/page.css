@@ -1,0 +1,15 @@
+.page {
+    background: white;
+}
+.page__wrap {
+
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    @media (max-width: 1000px) {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+}

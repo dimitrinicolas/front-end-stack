@@ -1,5 +1,5 @@
-@import "style/colors";
-@import "style/reset";
-@import "style/main";
+@import "style/colors.css";
+@import "style/reset.css";
+@import "style/main.css";
 
 @components;
