@@ -1,4 +1,5 @@
-import on from './scripts/on.js';
+import marmottajax from 'marmottajax';
+import bean from 'bean';
 
 function onload() {
 

@@ -14,9 +14,6 @@ module.exports = {
         require('postcss-color-function')
     ],
     'local-plugins': true,
-    'postcss-assets': {
-        relativeTo: 'assets/dist/'
-    },
     'postcss-calc': {
         preserve: false
     },
