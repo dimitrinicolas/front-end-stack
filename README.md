@@ -2,7 +2,7 @@
 
 Front-end development framework
 
-## Install
+## Installation
 
 Before using this framework you must first install a few dependencies
 

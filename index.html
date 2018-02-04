@@ -31,20 +31,7 @@
 			</div>
 		</div>
 
-		<script>
-			document.body.onload = function() {
-				var xhr = new XMLHttpRequest();
-				xhr.open('GET', 'https://fonts.googleapis.com/css?family=Merriweather:400,500|Roboto:300,400,500', true);
-				xhr.onreadystatechange = function () {
-					if (xhr.readyState == 4 && xhr.status == 200) {
-						var style = document.createElement('style');
-						style.innerHTML = xhr.responseText;
-						document.head.appendChild(style);
-					}
-				};
-				xhr.send();
-			};
-		</script>
+		<link href="https://fonts.googleapis.com/css?family=Merriweather:400,500|Roboto:300,400,500" rel="stylesheet">
 		<script src="assets/dist/script.min.js"></script>
 
 	</body>
