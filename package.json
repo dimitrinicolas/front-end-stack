@@ -18,10 +18,10 @@
     "parallelshell": "^3.0.2",
     "postcss": "^6.0.16",
     "postcss-calc": "^6.0.0",
-    "postcss-cli": "^4.1.1",
+    "postcss-cli": "^5.0.0",
     "postcss-color-function": "^4.0.1",
-    "postcss-import": "^11.0.0",
-    "postcss-inline-media": "0.0.2",
+    "postcss-import": "^11.1.0",
+    "postcss-inline-media": "^1.0.1",
     "postcss-nested": "^3.0.0",
     "postcss-position": "^1.0.0",
     "postcss-pxtorem": "^4.0.0",
@@ -45,7 +45,7 @@
     }
   },
   "scripts": {
-    "build:style": "postcss -c ./build/postcss.config.js -o assets/dist/style.css source/main.css && npm run minify:style",
+    "build:style": "postcss --config ./build/postcss.config.js -o assets/dist/style.css source/main.css && npm run minify:style",
     "minify:style": "cleancss assets/dist/style.css -o assets/dist/style.min.css -d -O1 all:on -O2 all:on",
     "build:scripts": "webpack source/main.js assets/dist/script.js --config build/webpack.config.js && npm run minify:scripts",
     "minify:scripts": "uglifyjs assets/dist/script.js -o assets/dist/script.min.js -m",
