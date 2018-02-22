@@ -1,6 +1,3 @@
-import marmottajax from 'marmottajax';
-import bean from 'bean';
-
 function onload() {
 
 }

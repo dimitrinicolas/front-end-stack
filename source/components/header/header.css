@@ -4,15 +4,11 @@
 .header__wrap {
 
     max-width: 1000px;
-    margin: 0 auto;
-    padding: 24px 0;
+    margin-x: auto;
+    padding-y: 24px;
+    padding-x: @1000 16px;
 
     font: title regular 17px;
     color: white;
-
-    @media (max-width: 1000px) {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
 
 }
