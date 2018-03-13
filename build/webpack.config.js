@@ -1,5 +1,7 @@
 module.exports = {
 
+    mode: 'development',
+
     externals: {
         react: 'React'
     },

@@ -66,10 +66,22 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./source/main.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./assets/dist/script.js":
+/*!*******************************!*\
+  !*** ./assets/dist/script.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nfunction onload() {}\n\nif (window.addEventListener) {\n\twindow.addEventListener('DOMContentLoaded', onload);\n} else {\n\twindow.attachEvent('onload', onload);\n}\n\n//# sourceURL=webpack:///./assets/dist/script.js?");
+
+/***/ }),
 
 /***/ "./source/main.js":
 /*!************************!*\
@@ -79,7 +91,18 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nfunction onload() {}\n\nif (window.addEventListener) {\n\twindow.addEventListener('DOMContentLoaded', onload);\n} else {\n\twindow.attachEvent('onload', onload);\n}\n\n//# sourceURL=webpack:///./source/main.js?");
+eval("\n\nfunction onload() {\n\tconsole.log('test');\n}\n\nif (window.addEventListener) {\n\twindow.addEventListener('DOMContentLoaded', onload);\n} else {\n\twindow.attachEvent('onload', onload);\n}\nconsole.log('test');\n\n//# sourceURL=webpack:///./source/main.js?");
+
+/***/ }),
+
+/***/ 0:
+/*!******************************************************!*\
+  !*** multi ./source/main.js ./assets/dist/script.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! /Applications/MAMP/htdocs/marmwork/source/main.js */\"./source/main.js\");\nmodule.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/marmwork/assets/dist/script.js */\"./assets/dist/script.js\");\n\n\n//# sourceURL=webpack:///multi_./source/main.js_./assets/dist/script.js?");
 
 /***/ })
 

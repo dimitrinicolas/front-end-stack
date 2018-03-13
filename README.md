@@ -1,10 +1,10 @@
-# MarmWork
+# Front End Stack
 
-Front-end development framework
+Personnal front-end development stack, build on PostCSS, webpack, Babel and Browsersync
 
 ## Installation
 
-Before using this framework you must first install a few dependencies
+Before using this stack you must first install a few dependencies
 
  - node.js : [nodejs.org](http://nodejs.org/)
  - node modules : `npm i`
