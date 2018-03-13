@@ -76,10 +76,9 @@
   !*** ./source/main.js ***!
   \************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-eval("\n\nfunction onload() {}\n\nif (window.addEventListener) {\n\twindow.addEventListener('DOMContentLoaded', onload);\n} else {\n\twindow.attachEvent('onload', onload);\n}\n\n//# sourceURL=webpack:///./source/main.js?");
+eval("function onload() {}\n\nif (window.addEventListener) {\n\twindow.addEventListener('DOMContentLoaded', onload);\n} else {\n\twindow.attachEvent('onload', onload);\n}\n\n//# sourceURL=webpack:///./source/main.js?");
 
 /***/ })
 
