@@ -12,3 +12,7 @@ Before using this stack you must first install a few dependencies
 ## Usage
 
 Run `npm run dev` to start the compilation process
+
+## License
+
+This project is licensed under the [MIT license](LICENSE).

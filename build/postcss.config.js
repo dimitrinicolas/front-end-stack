@@ -19,7 +19,7 @@ module.exports = {
         preserve: false
     },
     autoprefixer: {
-        browsers: 'last 1 version'
+        browsers: 'last 2 versions'
     },
     'postcss-pxtorem': {
         'replace': false
