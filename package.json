@@ -27,9 +27,9 @@
     "postcss-pxtorem": "^4.0.0",
     "postcss-simple-vars": "^4.1.0",
     "postcss-size": "^2.0.0",
-    "uglify-js": "^3.3.16",
-    "webpack": "^4.2.0",
-    "webpack-cli": "^2.0.13"
+    "uglify-js": "^3.3.21",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
   },
   "watch": {
     "build:style": {
