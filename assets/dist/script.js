@@ -1,86 +1,131 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./source/main.js");
-/******/ })
-/************************************************************************/
-/******/ ({
+(function () {
+  'use strict';
 
-/***/ "./source/main.js":
-/*!************************!*\
-  !*** ./source/main.js ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  var ocTopColor = void 0;
+  var ocBottomColor = void 0;
 
-"use strict";
-eval("\n\nfunction onload() {}\n\nif (window.addEventListener) {\n\twindow.addEventListener('DOMContentLoaded', onload);\n} else {\n\twindow.attachEvent('onload', onload);\n}\n\n//# sourceURL=webpack:///./source/main.js?");
+  var ocStyleTag = void 0;
 
-/***/ })
+  var currentColor = void 0;
 
-/******/ });
+  var bodyBackground = void 0;
+
+  var bodyWrap = void 0;
+
+  var setBgColor = function setBgColor(color) {
+
+    currentColor = color;
+
+    if (ocStyleTag) {
+      ocStyleTag.parentNode.removeChild(ocStyleTag);
+    }
+
+    var css = 'html { background: ' + color + '; }';
+    var head = document.head || document.getElementsByTagName('head')[0];
+
+    ocStyleTag = document.createElement('style');
+
+    if (ocStyleTag.styleSheet) {
+      ocStyleTag.styleSheet.cssText = css;
+    } else {
+      ocStyleTag.appendChild(document.createTextNode(css));
+    }
+
+    head.appendChild(ocStyleTag);
+  };
+
+  var handleScroll = function handleScroll() {
+
+    if (document.body.scrollHeight === window.innerHeight) {
+      setBgColor(ocBottomColor);
+    } else {
+
+      var diffTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      var diffBottom = document.body.scrollHeight - (diffTop + window.innerHeight);
+
+      if (diffTop < diffBottom && currentColor !== ocTopColor) {
+        setBgColor(ocTopColor);
+      } else if (diffTop > diffBottom && currentColor !== ocBottomColor) {
+        setBgColor(ocBottomColor);
+      }
+    }
+  };
+
+  function initOverflowColor() {
+
+    var topEl = document.querySelector('[data-oc-top]');
+    var bottomEl = document.querySelector('[data-oc-bottom]');
+    var shortcutEl = document.querySelector('[data-oc]');
+
+    if (shortcutEl) {
+      var split = shortcutEl.getAttribute('data-oc').split(',');
+      if (split.length > 1) {
+        ocTopColor = split[0];
+        ocBottomColor = split[1];
+      } else if (split.length === 1) {
+        ocTopColor = ocBottomColor = split[0];
+      }
+    } else {
+      if (topEl) {
+        ocTopColor = topEl.getAttribute('data-oc-top');
+      }
+      if (bottomEl) {
+        ocBottomColor = bottomEl.getAttribute('data-oc-bottom');
+      }
+    }
+
+    if (ocTopColor || ocBottomColor) {
+
+      var bodyComputedStyle = window.getComputedStyle(document.body, null);
+      bodyBackground = bodyComputedStyle.getPropertyValue('background');
+      if (bodyBackground === '' || bodyComputedStyle.getPropertyValue('background-color') === 'rgba(0, 0, 0, 0)' && bodyBackground.substring(21, 17) === 'none') {
+        bodyBackground = 'white';
+      }
+      document.body.style.background = 'transparent';
+      bodyWrap = document.createElement('div');
+      bodyWrap.setAttribute('data-oc-wrap', '');
+      bodyWrap.style.background = bodyBackground;
+      for (var i = 0, l = document.body.childNodes.length; i < l; i++) {
+        bodyWrap.appendChild(document.body.childNodes[0]);
+      }
+      document.body.appendChild(bodyWrap);
+
+      if (!ocTopColor && ocBottomColor) {
+        ocTopColor = ocBottomColor;
+      } else if (ocTopColor && !ocBottomColor) {
+        ocBottomColor = ocTopColor;
+      }
+
+      if (document.body.scrollHeight > window.innerHeight) {
+        setBgColor(ocTopColor);
+      } else {
+        setBgColor(ocBottomColor);
+      }
+
+      if (typeof window.addEventListener !== 'undefined') {
+        window.addEventListener('scroll', handleScroll, false);
+        window.addEventListener('resize', handleScroll, false);
+      } else {
+        window.attachEvent('scroll', handleScroll);
+        window.attachEvent('resize', handleScroll);
+      }
+    }
+  }
+
+  if (['interactive', 'complete', 'loaded'].indexOf(document.readyState) >= 0) {
+    initOverflowColor();
+  } else if (typeof document.addEventListener !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', initOverflowColor, false);
+  } else {
+    document.attachEvent('onreadystatechange', initOverflowColor);
+  }
+
+  var onload = function onload() {};
+
+  if (['interactive', 'complete', 'loaded'].indexOf(document.readyState) >= 0) ; else if (window.addEventListener) {
+  	window.addEventListener('DOMContentLoaded', onload);
+  } else {
+  	window.attachEvent('onload', onload);
+  }
+
+}());
