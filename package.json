@@ -14,7 +14,7 @@
     "glob": "^7.0.5",
     "marmottajax": "^3.0.6",
     "npm-watch": "^0.3.0",
-    "overflow-color": "^2.1.1",
+    "overflow-color": "^2.1.2",
     "parallelshell": "^3.0.2",
     "postcss": "^6.0.22",
     "postcss-axis": "^0.1.2",
@@ -51,7 +51,6 @@
     }
   },
   "scripts": {
-    "ru": "rollup --config build/rollup.config.js",
     "build:style": "postcss --config ./build/postcss.config.js -o assets/dist/style.css source/main.css && npm run minify:style",
     "minify:style": "cleancss assets/dist/style.css -o assets/dist/style.min.css -d -O1 all:on -O2 all:on",
     "build:script": "rollup --config build/rollup.config.js && npm run minify:script",

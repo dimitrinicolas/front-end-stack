@@ -1,4 +1,4 @@
-import oc from '../../overflow-color';
+import oc from 'overflow-color';
 
 const onload = function() {
 
