@@ -1,6 +1,6 @@
 # Front End Stack
 
-Personnal front-end development stack, build on PostCSS, webpack, Babel and Browsersync
+Personnal front-end development stack, build on PostCSS, Rollup, Babel and Browsersync
 
 ## Installation
 
