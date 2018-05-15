@@ -13,7 +13,6 @@ $lg: (max-width: 1200px);
 $xl: (max-width: 1600px);
 
 html {
-    -webkit-text-size-adjust: 100%;
     background: white;
 }
 body {

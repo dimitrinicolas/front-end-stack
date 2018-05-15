@@ -74,35 +74,45 @@ body {
 }
 .btn {
 
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  display: inline-block;
 
-    font-family: "Roboto", sans-serif;
+  margin: 2px 0;
+  padding: 0.5em 1em;
 
-    font-weight: 400;
-
-    font-size: 1rem;
-    color: white;
-    text-decoration: none;
-
-    cursor: pointer;
-    background: #2196f3;
-    border-radius: 5px;
-    transition: .1s;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+color:#fe;
+  background-color: #001DF5;
+  border-radius: 4px;
+  outline: none;
+  transition: .1s;
 
 }
 .btn:focus,
 .btn:hover {
-    outline: none;
-    background: rgb(81, 171, 246);
+  color: white;
+  background-color: rgb(41, 66, 255);
 }
+.btn:focus:active,
+.btn:hover:active,
 .btn:active {
-    background: rgb(33, 141, 230);
+  color: white;
+  background-color: #001DF5;
+}
+.btn::-moz-focus-inner {
+  border: none;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(168, 178, 255),
+    0 0 0 1.5px rgb(168, 178, 255);
+}
+.js-focus-visible .btn:focus:not(.focus-visible) {
+  box-shadow: none;
 }
 .header {
-    background: #3f51b5;
+    background: #001DF5;
 }
 .header__wrap {
 
@@ -130,7 +140,54 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-@media (max-width: 1000px) {
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+button::-moz-focus-inner {
+  border: none;
+}
+button:focus {
+  box-shadow: 0 0 0 3px rgb(117, 133, 255),
+    0 0 0 1.5px rgb(117, 133, 255);
+}
+.js-focus-visible button:focus:not(.focus-visible) {
+  box-shadow: none;
+}
+a {
+  color: #001DF5;
+  outline: none;
+}
+a::-moz-focus-inner {
+  border: none;
+}
+a:focus,
+a:hover {
+  color: rgb(92, 111, 255);
+}
+a:focus:active,
+a:hover:active,
+a:active {
+  color: #001DF5;
+}
+a:focus {
+  box-shadow: 0 0 0 3px rgb(117, 133, 255),
+    0 0 0 1.5px rgb(117, 133, 255);
+}
+.js-focus-visible a:focus:not(.focus-visible) {
+  box-shadow: none;
+}
+@media (max-width: 1032px) {
+	.header__wrap {
+
+		max-width: 100%;
+
+	}
 	.header__wrap {
 
 		padding-left: 16px;
@@ -140,14 +197,14 @@ body {
 	}
 	.page__wrap {
 
-		padding-left: 16px;
-
-		padding-right: 16px;
+		max-width: 100%;
 
 	}
 	.page__wrap {
 
-		color: red;
+		padding-left: 16px;
+
+		padding-right: 16px;
 
 	}
 

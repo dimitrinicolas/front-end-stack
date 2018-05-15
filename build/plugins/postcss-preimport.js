@@ -1,5 +1,5 @@
 var postcss = require('postcss');
-var glob = require('glob')
+var glob = require('glob');
 
 module.exports = postcss.plugin('preimport', function() {
     return function(css, result) {

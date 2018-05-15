@@ -1,5 +1,4 @@
 var postcss = require('postcss');
-var glob = require('glob');
 
 var fontWeights = {
 	extralight: 100,
@@ -13,7 +12,7 @@ var fontWeights = {
 	extrabold:  900
 };
 
-module.exports = postcss.plugin('plugins', function(props) {
+module.exports = postcss.plugin('font-shortcut', function(props) {
     return function (css, result) {
 
         css.walkAtRules('cover', function(rule) {

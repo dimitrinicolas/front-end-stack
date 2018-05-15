@@ -1,15 +1,27 @@
-import oc from 'overflow-color';
+import overflowColor from 'overflow-color';
+import focusVisible from 'focus-visible';
 
 const onload = function() {
 
 };
 
-if (['interactive', 'complete', 'loaded'].indexOf(document.readyState) >= 0) {
-	onload();
-}
-else if (window.addEventListener) {
-	window.addEventListener('DOMContentLoaded', onload);
-}
-else {
-	window.attachEvent('onload', onload);
-}
+(function() {
+
+  let loaded;
+
+  function load() {
+    if (!loaded) {
+      loaded = true;
+      onload();
+    }
+  }
+
+  if (['interactive', 'complete'].indexOf(document.readyState) >= 0) {
+    onload();
+  } else {
+    loaded = false;
+    document.addEventListener('DOMContentLoaded', load, false);
+    window.addEventListener('load', load, false);
+  }
+
+})();
