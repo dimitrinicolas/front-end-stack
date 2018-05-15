@@ -6,4 +6,5 @@
     margin-x: auto;
     padding-y: 20px;
     padding-x: @1000 16px;
+    color: @1000 red;
 }

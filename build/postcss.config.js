@@ -12,7 +12,8 @@ module.exports = {
         require('postcss-position'),
         require('autoprefixer'),
         require('postcss-pxtorem'),
-        require('postcss-color-function')
+        require('postcss-color-function'),
+        require('css-mqpacker')
     ],
     'local-plugins': true,
     'postcss-calc': {

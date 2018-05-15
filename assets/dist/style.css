@@ -138,14 +138,16 @@ body {
 		padding-right: 16px;
 
 	}
-
-}
-@media (max-width: 1000px) {
 	.page__wrap {
 
 		padding-left: 16px;
 
 		padding-right: 16px;
+
+	}
+	.page__wrap {
+
+		color: red;
 
 	}
 
