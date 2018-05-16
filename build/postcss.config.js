@@ -20,7 +20,7 @@ module.exports = {
     preserve: false
   },
   autoprefixer: {
-    browsers: 'last 2 versions'
+    browsers: '>0.1%'
   },
   'postcss-pxtorem': {
     'replace': false

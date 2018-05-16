@@ -25,6 +25,7 @@ time, mark, audio, video {
 
 }
 html {
+  -webkit-text-size-adjust: 100%;
 	line-height: 1;
 	box-sizing: border-box;
 }
@@ -63,7 +64,6 @@ input[type="search"]::-webkit-search-results-decoration {
 	        appearance: none;
 }
 html {
-    -webkit-text-size-adjust: 100%;
     background: white;
 }
 body {
@@ -82,7 +82,7 @@ body {
   text-align: center;
   text-decoration: none;
   color: white;
-color:#fe;
+
   background-color: #001DF5;
   border-radius: 4px;
   outline: none;
