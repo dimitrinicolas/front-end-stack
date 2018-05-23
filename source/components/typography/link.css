@@ -9,14 +9,14 @@ a:focus,
 a:hover {
   color: color($blue lightness(+20%));
 }
-a:focus:active,
-a:hover:active,
-a:active {
-  color: $blue;
-}
 a:focus {
   box-shadow: 0 0 0 3px color($primary lightness(+25%)),
     0 0 0 1.5px color($primary lightness(+25%));
+}
+a:active,
+a:focus:active,
+a:hover:active {
+  color: $blue;
 }
 .js-focus-visible a:focus:not(.focus-visible) {
   box-shadow: none;

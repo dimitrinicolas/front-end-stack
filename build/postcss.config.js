@@ -13,7 +13,9 @@ module.exports = {
     require('autoprefixer'),
     require('postcss-pxtorem'),
     require('postcss-color-function'),
-    require('css-mqpacker')
+    require('css-mqpacker')({
+      sort: require('sort-css-media-queries').desktopFirst
+    })
   ],
   'local-plugins': true,
   'postcss-calc': {

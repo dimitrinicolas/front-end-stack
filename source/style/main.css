@@ -19,3 +19,7 @@ body {
     background: white;
     font: title regular 16px;
 }
+
+input {
+  font: title regular 16px;
+}

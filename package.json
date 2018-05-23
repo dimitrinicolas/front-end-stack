@@ -26,18 +26,19 @@
     "postcss-pxtorem": "^4.0.0",
     "postcss-simple-vars": "^4.1.0",
     "postcss-size": "^2.0.0",
-    "uglify-js": "^3.3.26",
+    "sort-css-media-queries": "^1.3.4",
+    "uglify-js": "^3.3.27",
     "webpack": "^4.8.1",
     "webpack-cli": "^2.1.3"
   },
   "watch": {
-    "build:style": {
+    "style:build": {
       "patterns": [
         "source"
       ],
       "extensions": "css"
     },
-    "build:script": {
+    "script:build": {
       "patterns": [
         "source"
       ],
@@ -45,10 +46,10 @@
     }
   },
   "scripts": {
-    "build:style": "postcss --config ./build/postcss.config.js -o assets/dist/style.css source/main.css && npm run minify:style",
-    "minify:style": "cleancss assets/dist/style.css -o assets/dist/style.min.css -d -O1 all:on -O2 all:on",
-    "build:script": "webpack source/main.js  --output-path='./assets/dist/' --output-filename='script.js' --config build/webpack.config.js && npm run minify:script",
-    "minify:script": "uglifyjs assets/dist/script.js -o assets/dist/script.min.js -m",
+    "style:build": "postcss --config ./build/postcss.config.js -o assets/dist/style.css source/main.css && npm run style:minify",
+    "style:minify": "cleancss assets/dist/style.css -o assets/dist/style.min.css -d -O1 all:on -O2 all:on",
+    "script:build": "webpack source/main.js  --output-path='./assets/dist/' --output-filename='script.js' --config build/webpack.config.js && npm run script:minify",
+    "script:minify": "uglifyjs assets/dist/script.js -o assets/dist/script.min.js -m",
     "watch": "npm-watch",
     "browser-sync": "browser-sync start --config build/bs.config.js",
     "browser-sync-silent": "browser-sync start --config build/bs.config.js --no-open",

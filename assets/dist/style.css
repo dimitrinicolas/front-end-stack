@@ -72,6 +72,11 @@ body {
     font-weight: 400;
     font-size: 1rem;
 }
+input {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
 .btn {
 
   display: inline-block;
@@ -83,30 +88,31 @@ body {
   text-decoration: none;
   color: white;
 
+  cursor: pointer;
   background-color: #001DF5;
   border-radius: 4px;
   outline: none;
   transition: .1s;
 
 }
+.btn::-moz-focus-inner {
+  border: none;
+}
 .btn:focus,
 .btn:hover {
   color: white;
   background-color: rgb(41, 66, 255);
 }
-.btn:focus:active,
-.btn:hover:active,
-.btn:active {
-  color: white;
-  background-color: #001DF5;
-}
-.btn::-moz-focus-inner {
-  border: none;
-}
 .btn:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgb(168, 178, 255),
     0 0 0 1.5px rgb(168, 178, 255);
+}
+.btn:active,
+.btn:focus:active,
+.btn:hover:active {
+  color: white;
+  background-color: #001DF5;
 }
 .js-focus-visible .btn:focus:not(.focus-visible) {
   box-shadow: none;
@@ -170,14 +176,14 @@ a:focus,
 a:hover {
   color: rgb(92, 111, 255);
 }
-a:focus:active,
-a:hover:active,
-a:active {
-  color: #001DF5;
-}
 a:focus {
   box-shadow: 0 0 0 3px rgb(117, 133, 255),
     0 0 0 1.5px rgb(117, 133, 255);
+}
+a:active,
+a:focus:active,
+a:hover:active {
+  color: #001DF5;
 }
 .js-focus-visible a:focus:not(.focus-visible) {
   box-shadow: none;
