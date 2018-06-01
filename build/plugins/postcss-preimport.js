@@ -6,7 +6,7 @@ module.exports = postcss.plugin('preimport', function() {
         return new Promise(function(resolve, reject) {
 
             css.walkAtRules('components', function(rule) {
-                glob('source/components/**/*.css', function(error, files) {
+                glob('src/components/**/*.css', function(error, files) {
                     if (!error) {
                         for (var i = 0, l = files.length; i < l; i++) {
                             css.insertBefore(rule, { name: 'import', params: '\"' + files[i] + '\"' });

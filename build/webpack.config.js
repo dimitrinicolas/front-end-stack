@@ -22,7 +22,7 @@ module.exports = {
   	]
   },
   performance: {
-    hints: "error"
+    hints: 'error'
   }
 
 };
