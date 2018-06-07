@@ -1,9 +1,9 @@
 .page {
-    background: white;
+
 }
 .page__wrap {
-    max-width: 1000px @1032 100%;
-    margin-x: auto;
-    padding-y: 20px;
-    padding-x: @1032 16px;
+  max-width: 1000px @1032 100%;
+  margin-x: auto;
+  padding-y: 20px;
+  padding-x: @1032 16px;
 }

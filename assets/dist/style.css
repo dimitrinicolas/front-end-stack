@@ -63,14 +63,14 @@ input[type="search"]::-webkit-search-results-decoration {
 	-webkit-appearance: none;
 	        appearance: none;
 }
-html {
-    background: white;
+html,
+body {
+  background: white;
 }
 body {
-    background: white;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
 }
 input {
   font-family: "Roboto", sans-serif;
@@ -118,33 +118,33 @@ input {
   box-shadow: none;
 }
 .header {
-    background: #001DF5;
+  background: #001DF5;
 }
 .header__wrap {
 
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 24px;
-    padding-bottom: 24px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
 
-    font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 
-    font-weight: 400;
+  font-weight: 400;
 
-    font-size: 1.0625rem;
-    color: white;
+  font-size: 1.0625rem;
+  color: white;
 
 }
 .page {
-    background: white;
+
 }
 .page__wrap {
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 button {
   padding: 0;

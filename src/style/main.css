@@ -12,12 +12,12 @@ $md: (max-width:  992px);
 $lg: (max-width: 1200px);
 $xl: (max-width: 1600px);
 
-html {
-    background: white;
+html,
+body {
+  background: white;
 }
 body {
-    background: white;
-    font: title regular 16px;
+  font: title regular 16px;
 }
 
 input {
