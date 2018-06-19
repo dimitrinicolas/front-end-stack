@@ -1,0 +1,12 @@
+{
+  "imgs/bg.jpg": {
+    "vibrantColor": {
+      "vibrant": "#b58c49",
+      "lightVibrant": null,
+      "darkVibrant": "#6c542c",
+      "muted": "#8e9974",
+      "lightMuted": "#bdbbc0",
+      "darkMuted": "#484640"
+    }
+  }
+}

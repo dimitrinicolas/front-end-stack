@@ -1,0 +1,57 @@
+{
+  "input": "src/assets",
+  "output": "assets",
+  "watch": true,
+  "dataOutput": "src/assets.json",
+  "filters": [
+    {
+      "glob": [
+        "**/*.jpg",
+        "**/*.jpeg"
+      ],
+      "use": [
+        {
+          "name": "lepto-resize",
+          "maxWidth": 1800
+        },
+        {
+          "name": "lepto-webp",
+          "quality": 70
+        },
+        "lepto-vibrant-color",
+        {
+          "name": "lepto.jpeg",
+          "quality": 70
+        }
+      ]
+    },
+    {
+      "glob": "**/*.png",
+      "use": [
+        {
+          "name": "lepto-resize",
+          "retina": [
+            2
+          ]
+        },
+        {
+          "name": "lepto.png",
+          "quality": "70-80"
+        }
+      ]
+    },
+    {
+      "glob": "imgs/bg.jpg",
+      "use": [
+        {
+          "name": "lepto.jpeg",
+          "quality": 50
+        },
+        {
+          "name": "lepto-webp",
+          "quality": 50
+        }
+      ]
+    }
+  ]
+}
