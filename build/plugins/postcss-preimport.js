@@ -1,24 +1,26 @@
-var postcss = require('postcss');
-var glob = require('glob');
+const glob = require('glob');
+const postcss = require('postcss');
 
-module.exports = postcss.plugin('preimport', function() {
-    return function(css, result) {
-        return new Promise(function(resolve, reject) {
-
-            css.walkAtRules('components', function(rule) {
-                glob('src/components/**/*.css', function(error, files) {
-                    if (!error) {
-                        for (var i = 0, l = files.length; i < l; i++) {
-                            css.insertBefore(rule, { name: 'import', params: '\"' + files[i] + '\"' });
-                        }
-                        rule.remove();
-                        resolve();
-                    }
-                    else { reject(); }
-                });
-
-            });
-
+module.exports = postcss.plugin('preimport', (opts) => {
+  return (css, result) => {
+    return new Promise((resolve, reject) => {
+      css.walkAtRules('importcomponents', rule => {
+        glob(opts.glob, (error, files) => {
+          if (!error) {
+            for (let file of files) {
+              css.insertBefore(rule, {
+                name: 'import',
+                params: `\"${file}\"`
+              });
+            }
+            rule.remove();
+            resolve();
+          }
+          else {
+            reject();
+          }
         });
-    };
+      });
+    });
+  };
 });

@@ -1,6 +1,8 @@
 module.exports = {
   plugins: [
-    require('./plugins/postcss-preimport.js'),
+    require('./plugins/postcss-preimport.js')({
+      glob: 'src/components/**/*.css'
+    }),
     require('postcss-import'),
     require('postcss-nested'),
     require('postcss-inline-media'),
@@ -13,6 +15,7 @@ module.exports = {
     require('autoprefixer'),
     require('postcss-pxtorem'),
     require('postcss-color-function'),
+    require('postcss-easing-gradients'),
     require('css-mqpacker')({
       sort: require('sort-css-media-queries').desktopFirst
     })

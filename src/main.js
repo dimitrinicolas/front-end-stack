@@ -1,8 +1,5 @@
-import overflowColor from 'overflow-color';
-import focusVisible from 'focus-visible';
-
-overflowColor();
-focusVisible();
+require('overflow-color');
+require('./vendor/focus-visible.js');
 
 const onload = () => {
   // main code
