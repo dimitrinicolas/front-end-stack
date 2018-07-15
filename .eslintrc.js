@@ -8,6 +8,8 @@ module.exports = {
     'max-len': ['error', {
       'code': 150
     }],
+    'comma-dangle': 0,
+    'no-plusplus': 0,
     'arrow-parens': ['error', 'as-needed'],
     'no-multi-assign': 0,
     'strict': 0,
@@ -20,6 +22,7 @@ module.exports = {
     'prefer-arrow-callback': 0,
     'arrow-body-style': 0,
     'no-restricted-globals': 0,
+    'no-restricted-syntax': 0,
     'consistent-return': 0,
     'no-param-reassign': 0,
     'no-underscore-dangle': 0,

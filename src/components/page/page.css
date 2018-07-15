@@ -1,6 +1,7 @@
 .page {
 
 }
+
 .page__wrap {
   max-width: 1000px @1032 100%;
   margin-x: auto;

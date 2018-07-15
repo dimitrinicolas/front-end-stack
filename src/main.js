@@ -1,25 +1,35 @@
 import 'overflow-color';
 import './vendor/focus-visible.js';
 
-const onload = () => {
-  // main code
+const onDOMContentLoaded = () => {
+
+};
+const onLoad = () => {
+
 };
 
 (() => {
-  let loaded;
+  let DOMContentLoaded;
+  let windowLoaded;
 
-  const load = () => {
-    if (!loaded) {
-      loaded = true;
-      onload();
+  const test = (variable, func) => {
+    if (!variable) {
+      variable = true;
+      func();
     }
   };
 
   if (['interactive', 'complete'].indexOf(document.readyState) >= 0) {
-    onload();
+    test(DOMContentLoaded, onDOMContentLoaded);
   } else {
-    loaded = false;
-    document.addEventListener('DOMContentLoaded', load, false);
-    window.addEventListener('load', load, false);
+    DOMContentLoaded = false;
+    document.addEventListener('DOMContentLoaded', () => test(DOMContentLoaded, onDOMContentLoaded), false);
+    window.addEventListener('load', () => test(DOMContentLoaded, onDOMContentLoaded), false);
+  }
+
+  if (document.readyState === 'complete') {
+    test(windowLoaded, onLoad);
+  } else {
+    window.addEventListener('load', () => test(windowLoaded, onLoad), false);
   }
 })();

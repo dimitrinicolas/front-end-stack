@@ -1,6 +1,7 @@
 .header {
   background: $primary;
 }
+
 .header__wrap {
 
   max-width: 1000px @1032 100%;

@@ -4,6 +4,12 @@
   "author": "Dimitri NICOLAS",
   "license": "MIT",
   "watch": {
+    "html:minify": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "html"
+    },
     "style:build": {
       "patterns": [
         "src"
@@ -24,33 +30,31 @@
     }
   },
   "scripts": {
-    "style:build": "postcss --config ./build/postcss.config.js -o assets/dist/style.css src/main.css && npm run style:minify",
-    "style:minify": "cleancss assets/dist/style.css -o assets/dist/style.min.css -d -O1 'all:on;specialComments:0' -O2 all:on",
-    "script:build": "webpack src/main.js  --output-path='./assets/dist/' --output-filename='script.js' --config build/webpack.config.js && npm run script:minify",
-    "script:minify": "uglifyjs assets/dist/script.js -o assets/dist/script.min.js -m",
+    "html:minify": "html-minifier --input-dir src --output-dir public --file-ext html --config-file build/html-minifier.config.js",
+    "style:build": "postcss --config ./build/postcss.config.js -o public/assets/dist/style.css src/main.css",
+    "script:build": "webpack src/main.js  --output-path='./public/assets/dist/' --output-filename='script.js' --config build/webpack.config.js",
     "script:lint": "eslint src/**/**/*.js",
     "watch": "npm-watch",
     "browser-sync": "browser-sync start --config build/bs.config.js",
     "browser-sync-silent": "browser-sync start --config build/bs.config.js --no-open",
-    "dev": "parallelshell \"npm run watch\" \"lepto -c build/lepto.config.json\" \"npm run browser-sync -s\"",
     "build": "parallelshell \"npm run watch\" \"lepto -c build/lepto.config.json\" \"npm run browser-sync-silent -s\"",
-    "start": "npm run dev"
+    "start": "parallelshell \"npm run watch\" \"lepto -c build/lepto.config.json\" \"npm run browser-sync -s\""
   },
   "devDependencies": {
-    "autoprefixer": "^8.6.4",
+    "autoprefixer": "^8.6.5",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.5",
-    "babel-loader": "^7.1.4",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.24.5",
-    "clean-css-cli": "^4.1.11",
     "css-mqpacker": "^6.0.2",
-    "eslint": "^5.0.1",
+    "eslint": "^5.1.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
     "glob": "^7.0.5",
+    "html-minifier": "^3.5.19",
     "lepto-cli": "^1.0.7",
     "lepto-resize": "^1.0.1",
     "lepto-vibrant-color": "^1.0.0",
@@ -62,19 +66,19 @@
     "postcss": "^6.0.23",
     "postcss-axis": "^0.1.2",
     "postcss-calc": "^6.0.0",
+    "postcss-clean": "^1.1.0",
     "postcss-cli": "^5.0.1",
     "postcss-color-function": "^4.0.1",
     "postcss-easing-gradients": "^3.0.0",
     "postcss-import": "^11.1.0",
-    "postcss-inline-media": "^1.1.0",
+    "postcss-inline-media": "^1.1.1",
     "postcss-nested": "^3.0.0",
     "postcss-position": "^1.0.0",
     "postcss-pxtorem": "^4.0.0",
     "postcss-simple-vars": "^4.1.0",
     "postcss-size": "^2.0.0",
     "sort-css-media-queries": "^1.3.4",
-    "uglify-js": "^3.4.2",
-    "webpack": "^4.14.0",
+    "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8"
   }
 }

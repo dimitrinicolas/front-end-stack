@@ -1,6 +1,6 @@
 {
   "input": "src/assets",
-  "output": "assets",
+  "output": "public/assets",
   "watch": true,
   "dataOutput": "src/assets.json",
   "filters": [
@@ -21,7 +21,8 @@
         "lepto-vibrant-color",
         {
           "name": "lepto.jpeg",
-          "quality": 70
+          "quality": 70,
+          "forceExt": "jpg"
         }
       ]
     },

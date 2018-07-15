@@ -1,19 +1,19 @@
 const postcss = require('postcss');
 
 const fontWeights = {
-	extralight: 100,
-	thin:       200,
-	light:      300,
-	regular:    400,
-	medium:     500,
-	semibold:   600,
-	bold:       700,
-	black:      800,
-	extrabold:  900
+  extralight: 100,
+  thin: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  black: 800,
+  extrabold: 900
 };
 
-module.exports = postcss.plugin('font-shortcut', props => {
-  return (css, result) => {
+module.exports = postcss.plugin('font-shortcut', () => {
+  return css => {
     css.walkAtRules('cover', rule => {
       rule.parent.insertBefore(rule, {
         prop: 'background-position',
@@ -37,8 +37,8 @@ module.exports = postcss.plugin('font-shortcut', props => {
 
           if (values[1]) {
             let fontWeight = null;
-            if (!isNaN(parseInt(values[1]))) {
-              fontWeight = parseInt(values[1]);
+            if (!isNaN(parseInt(values[1], 10))) {
+              fontWeight = parseInt(values[1], 10);
             }
             if (typeof fontWeights[values[1]] !== 'undefined') {
               fontWeight = fontWeights[values[1]];
@@ -46,7 +46,7 @@ module.exports = postcss.plugin('font-shortcut', props => {
             if (fontWeight) {
               decl.parent.insertBefore(decl, {
                 prop: 'font-weight',
-                value: fontWeight + ''
+                value: fontWeight.toString()
               });
             }
             if (values[2]) {
