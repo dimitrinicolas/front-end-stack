@@ -1,20 +1,15 @@
 .btn {
-
   display: inline-block;
-
   margin: 2px 0;
   padding: 0.5em 1em;
-
   text-align: center;
   text-decoration: none;
   color: white;
-
   cursor: pointer;
   background-color: $primary;
   border-radius: 4px;
   outline: none;
   transition: .1s;
-
 }
 .btn::-moz-focus-inner {
   border: none;

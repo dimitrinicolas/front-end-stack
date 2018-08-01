@@ -6,7 +6,6 @@ module.exports = {
     require('postcss-import'),
     require('postcss-nested'),
     require('postcss-inline-media'),
-    require('./postcss-plugins/postcss-plugin.js'),
     require('postcss-simple-vars'),
     require('postcss-calc')({
       preserve: false
@@ -17,7 +16,9 @@ module.exports = {
     require('autoprefixer')({
       browsers: '>0.1%'
     }),
-    require('postcss-pxtorem'),
+    require('postcss-pxtorem')({
+      replace: false
+    }),
     require('postcss-color-function'),
     require('postcss-easing-gradients'),
     require('css-mqpacker')({
@@ -34,8 +35,5 @@ module.exports = {
         }
       }
     })
-  ],
-  'postcss-pxtorem': {
-    replace: false
-  }
+  ]
 };

@@ -3,13 +3,10 @@
 }
 
 .header__wrap {
-
   max-width: 1000px @1032 100%;
   margin-x: auto;
   padding-y: 24px;
   padding-x: @1032 16px;
-
-  font: title regular 17px;
+  font-size: 17px;
   color: white;
-
 }

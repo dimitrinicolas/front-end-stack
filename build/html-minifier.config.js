@@ -1,6 +1,6 @@
 module.exports = {
   collapseBooleanAttributes: true,
-  collapseInlineTagWhitespace: true,
+  collapseInlineTagWhitespace: false,
   collapseWhitespace: true,
   html5: true,
   minifyCSS: true,

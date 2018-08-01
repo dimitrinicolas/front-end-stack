@@ -1,0 +1,39 @@
+.title {
+  margin-y: 24px @900 18px @600 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: black;
+}
+
+h1.title,
+.title.title--1 {
+  font-size: 48px @900 42px @600 38px;
+}
+h2.title,
+.title.title--2 {
+  font-size: 38px @900 33px @600 30px;
+}
+h3.title,
+.title.title--3 {
+  font-weight: 500;
+  font-size: 30px @900 28px @600 24px;
+}
+h4.title,
+.title.title--4 {
+  font-weight: 500;
+  font-size: 24px @900 20px @600 18px;
+}
+h5.title,
+.title.title--5 {
+  font-weight: 500;
+  font-size: 18px @900 17px @600 16px;
+}
+h6.title,
+.title.title--6 {
+  font-weight: 500;
+  font-size: 16px @900 15px @600 14px;
+}
+
+.title.title--center {
+  text-align: center;
+}
