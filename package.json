@@ -36,13 +36,13 @@
     "script:build": "webpack src/main.js  --output-path='./public/assets/dist/' --output-filename='script.js' --config build/webpack.config.js",
     "script:lint": "eslint src/**/**/*.js",
     "watch": "npm-watch",
-    "browser-sync": "browser-sync start --config build/bs.config.js",
-    "browser-sync-silent": "browser-sync start --config build/bs.config.js --no-open",
+    "browser-sync": "browser-sync start --config build/browser-sync.config.js",
+    "browser-sync-silent": "browser-sync start --config build/browser-sync.config.js --no-open",
     "build": "parallelshell \"npm run watch\" \"lepto -c build/lepto.config.json\" \"npm run browser-sync-silent -s\"",
     "start": "parallelshell \"npm run watch\" \"lepto -c build/lepto.config.json\" \"npm run browser-sync -s\""
   },
   "devDependencies": {
-    "autoprefixer": "^9.0.2",
+    "autoprefixer": "^9.1.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.5",
@@ -62,7 +62,7 @@
     "lepto-webp": "^1.0.1",
     "normalize.css": "^8.0.0",
     "npm-watch": "^0.3.0",
-    "overflow-color": "^2.1.3",
+    "overflow-color": "^2.1.4",
     "parallelshell": "^3.0.2",
     "postcss": "^7.0.2",
     "postcss-axis": "^0.1.2",
@@ -79,7 +79,7 @@
     "postcss-simple-vars": "^4.1.0",
     "postcss-size": "^2.0.0",
     "sort-css-media-queries": "^1.3.4",
-    "webpack": "^4.16.3",
+    "webpack": "^4.16.4",
     "webpack-cli": "^3.1.0"
   }
 }

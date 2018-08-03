@@ -13,9 +13,7 @@ module.exports = {
     require('postcss-size'),
     require('postcss-axis'),
     require('postcss-position'),
-    require('autoprefixer')({
-      browsers: '>0.1%'
-    }),
+    require('autoprefixer'),
     require('postcss-pxtorem')({
       replace: false
     }),
