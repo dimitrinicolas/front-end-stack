@@ -1,8 +1,5 @@
 {
-  "input": "src/assets",
-  "output": "public/assets",
   "watch": true,
-  "dataOutput": "src/assets.json",
   "filters": [
     {
       "glob": [

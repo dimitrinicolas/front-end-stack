@@ -1,9 +1,6 @@
 module.exports = {
   plugins: [
-    require('./postcss-plugins/postcss-preimport.js')({
-      glob: 'src/components/**/*.css'
-    }),
-    require('postcss-import'),
+    require('postcss-easy-import'),
     require('postcss-nested'),
     require('postcss-inline-media'),
     require('postcss-simple-vars'),

@@ -5,41 +5,30 @@
   "license": "MIT",
   "homepage": "https://github.com/dimitrinicolas/front-end-stack",
   "watch": {
-    "html:minify": {
-      "patterns": [
-        "src"
-      ],
+    "minify:html": {
+      "patterns": "src",
       "extensions": "html"
     },
-    "style:build": {
-      "patterns": [
-        "src"
-      ],
+    "build:style": {
+      "patterns": "src",
       "extensions": "css"
     },
-    "script:build": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": "js"
-    },
-    "script:lint": {
-      "patterns": [
-        "src"
-      ],
+    "build:script": {
+      "patterns": "src",
       "extensions": "js"
     }
   },
   "scripts": {
-    "html:minify": "html-minifier --input-dir src --output-dir public --file-ext html --config-file build/html-minifier.config.js",
-    "style:build": "postcss --config ./build/postcss.config.js -o public/assets/dist/style.css src/main.css",
-    "script:build": "webpack src/main.js  --output-path='./public/assets/dist/' --output-filename='script.js' --config build/webpack.config.js",
-    "script:lint": "eslint src/**/**/*.js",
+    "minify:html": "html-minifier --input-dir src --output-dir public --file-ext html --config-file build/html-minifier.config.js",
+    "build:static": "lepto -i src/static -o public/assets -d src/assets.json -c build/lepto.config.json",
+    "build:style": "postcss src/style/index.css -o public/assets/dist/style.css --config ./build/postcss.config.js",
+    "build:script": "webpack src/script/index.js --output-path='./public/assets/dist/' --output-filename='script.js' --config build/webpack.config.js",
+    "lint": "eslint src/**/**/*.js",
     "watch": "npm-watch",
     "browser-sync": "browser-sync start --config build/browser-sync.config.js",
-    "browser-sync-silent": "browser-sync start --config build/browser-sync.config.js --no-open",
-    "build": "parallelshell \"npm run watch\" \"lepto -c build/lepto.config.json\" \"npm run browser-sync-silent -s\"",
-    "start": "parallelshell \"npm run watch\" \"lepto -c build/lepto.config.json\" \"npm run browser-sync -s\""
+    "browser-sync-no-open": "browser-sync start --config build/browser-sync.config.js --no-open",
+    "build": "parallelshell \"npm run watch\" \"npm run build:static\" \"npm run browser-sync-no-open -s\"",
+    "start": "parallelshell \"npm run watch\" \"npm run build:static\" \"npm run browser-sync -s\""
   },
   "devDependencies": {
     "autoprefixer": "^9.1.0",
@@ -49,37 +38,35 @@
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.24.6",
     "css-mqpacker": "^7.0.0",
-    "eslint": "^5.2.0",
+    "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
     "glob": "^7.0.5",
     "html-minifier": "^3.5.19",
-    "lepto-cli": "^1.0.7",
+    "lepto-cli": "^1.0.9",
     "lepto-resize": "^1.0.1",
     "lepto-vibrant-color": "^1.0.0",
     "lepto-webp": "^1.0.1",
-    "normalize.css": "^8.0.0",
     "npm-watch": "^0.3.0",
     "overflow-color": "^2.1.4",
     "parallelshell": "^3.0.2",
-    "postcss": "^7.0.2",
     "postcss-axis": "^0.1.2",
     "postcss-calc": "^6.0.0",
     "postcss-clean": "^1.1.0",
     "postcss-cli": "^6.0.0",
     "postcss-color-function": "^4.0.1",
     "postcss-easing-gradients": "^3.0.0",
-    "postcss-import": "^11.1.0",
-    "postcss-inline-media": "^1.1.1",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-inline-media": "^1.1.2",
     "postcss-nested": "^3.0.0",
     "postcss-position": "^1.0.0",
     "postcss-pxtorem": "^4.0.0",
     "postcss-simple-vars": "^4.1.0",
     "postcss-size": "^2.0.0",
     "sort-css-media-queries": "^1.3.4",
-    "webpack": "^4.16.4",
+    "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
   }
 }

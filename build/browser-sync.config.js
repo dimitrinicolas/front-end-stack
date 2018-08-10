@@ -1,7 +1,7 @@
 const folders = __dirname.split('/');
 
 module.exports = {
-  startPath: `${folders[folders.length - 2]}/`,
+  startPath: `${folders[folders.length - 2]}/public/`,
   proxy: 'localhost',
   port: 8081,
   browser: 'google chrome',
@@ -13,5 +13,6 @@ module.exports = {
     'assets/**/*.svg'
   ],
   logLevel: 'info',
+  logPrefix: 'Browser Sync',
   notify: false
 };

@@ -8,17 +8,3 @@ $sm: (max-width:  768px);
 $md: (max-width:  992px);
 $lg: (max-width: 1200px);
 $xl: (max-width: 1600px);
-
-html,
-body {
-  background: white;
-}
-body {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-}
-
-input {
-  font-size: 16px;
-}
