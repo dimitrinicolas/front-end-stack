@@ -1,17 +1,19 @@
 # Front-end Stack
 
-Personal front-end development stack, built on PostCSS, Webpack, Babel, ESLint and Browsersync.
+Personal front-end development stack, built on PostCSS, Webpack, Babel, ESLint
+and Browsersync.
 
 ## Installation
 
 Before using this stack you must first install a few dependencies:
 
- - Node.js: [nodejs.org](http://nodejs.org/)
- - node modules: `npm install`
+- Node.js: [nodejs.org](http://nodejs.org/)
+- node modules: `npm install`
 
 ## Usage
 
-Run `npm start` to start the compilation process, run `npm run build` for compiling without having Browsersync to open the web browser.
+Run `npm start` to start the compilation process, run `npm run build` for
+compiling without having Browsersync to open the web browser.
 
 ## License
 

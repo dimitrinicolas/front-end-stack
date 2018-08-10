@@ -1,0 +1,9 @@
+input {
+  border: 1px solid $grey;
+  font-size: 16px;
+  outline: none;
+}
+input:focus {
+  border-color: $focus-color;
+  box-shadow: 0 0 0 calc($focus-width - 1px) $focus-color;
+}

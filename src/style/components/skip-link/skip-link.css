@@ -1,0 +1,9 @@
+.skip-link {
+  @extend %visually-hidden-focusable;
+}
+
+.skip-link:focus {
+  position: absolute 10px auto auto 10px;
+  padding: 5px 6px;
+  background: white;
+}

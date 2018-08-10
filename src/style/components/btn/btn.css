@@ -2,34 +2,62 @@
   display: inline-block;
   margin: 2px 0;
   padding: 0.5em 1em;
+
   text-align: center;
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
+
   background-color: $primary;
   border-radius: 4px;
+  cursor: pointer;
   outline: none;
+
   transition: .1s;
+  will-change: background-color, box-shadow;
 }
-.btn::-moz-focus-inner {
-  border: none;
-}
-.btn:focus,
+.btn,
+.btn:link,
+.btn:visited,
+.btn:active,
 .btn:hover {
   color: white;
+  text-decoration: none;
+}
+
+.btn.btn--disabled,
+.btn[disabled="disabled"],
+.btn[disabled] {
+  cursor: default;
+  &,
+  &:hover,
+  &:active,
+  &:hover:active {
+    background: #d1d1d1;
+  }
+}
+
+.btn:hover {
   background-color: color($primary lightness(+10%));
 }
-.btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px color($primary lightness(+35%)),
-    0 0 0 1.5px color($primary lightness(+35%));
-}
 .btn:active,
-.btn:focus:active,
 .btn:hover:active {
-  color: white;
   background-color: $primary;
+}
+.btn:focus {
+  box-shadow: 0 0 0 $focus-width $focus-color;
 }
 .js-focus-visible .btn:focus:not(.focus-visible) {
   box-shadow: none;
+}
+
+.btn.btn--red {
+  background-color: $red;
+}
+.btn.btn--red:focus {
+  box-shadow: 0 0 0 $focus-width color($red lightness(+25%));;
+}
+.btn.btn--red:hover {
+  background-color: color($red lightness(+10%));
+}
+.btn.btn--red:active,
+.btn.btn--red:hover:active {
+  background-color: $red;
 }

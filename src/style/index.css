@@ -1,5 +1,7 @@
 @import "vendor/**/*.css";
 @import "settings/**/*.css";
+@import "helpers/**/*.css";
+@import "core/**/*.css";
 @import "generic/**/*.css";
 @import "components/**/*.css";
-@import "helpers/**/*.css";
+@import "utilities/**/*.css";

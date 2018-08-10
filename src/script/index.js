@@ -23,8 +23,16 @@ const onLoad = () => {
     test(DOMContentLoaded, onDOMContentLoaded);
   } else {
     DOMContentLoaded = false;
-    document.addEventListener('DOMContentLoaded', () => test(DOMContentLoaded, onDOMContentLoaded), false);
-    window.addEventListener('load', () => test(DOMContentLoaded, onDOMContentLoaded), false);
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => test(DOMContentLoaded, onDOMContentLoaded),
+      false
+    );
+    window.addEventListener(
+      'load',
+      () => test(DOMContentLoaded, onDOMContentLoaded),
+      false
+    );
   }
   if (document.readyState === 'complete') {
     test(windowLoaded, onLoad);

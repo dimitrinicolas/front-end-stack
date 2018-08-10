@@ -2,6 +2,7 @@ module.exports = {
   plugins: [
     require('postcss-easy-import'),
     require('postcss-nested'),
+    require('postcss-extend-rule'),
     require('postcss-inline-media'),
     require('postcss-simple-vars'),
     require('postcss-calc')({

@@ -59,6 +59,7 @@
     "postcss-color-function": "^4.0.1",
     "postcss-easing-gradients": "^3.0.0",
     "postcss-easy-import": "^3.0.0",
+    "postcss-extend-rule": "^2.0.0",
     "postcss-inline-media": "^1.1.2",
     "postcss-nested": "^3.0.0",
     "postcss-position": "^1.0.0",
