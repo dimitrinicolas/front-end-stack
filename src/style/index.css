@@ -1,7 +1,8 @@
-@import "vendor/**/*.css";
-@import "settings/**/*.css";
-@import "helpers/**/*.css";
-@import "core/**/*.css";
-@import "generic/**/*.css";
-@import "components/**/*.css";
-@import "utilities/**/*.css";
+@import "normalize.css";
+
+@import-glob "settings/**/*.css";
+@import-glob "helpers/**/*.css";
+@import-glob "core/**/*.css";
+@import-glob "generic/**/*.css";
+@import-glob "components/**/*.css";
+@import-glob "utilities/**/*.css";

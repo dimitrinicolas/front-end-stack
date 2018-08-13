@@ -1,6 +1,7 @@
 module.exports = {
   plugins: [
-    require('postcss-easy-import'),
+    require('postcss-import-ext-glob'),
+    require('postcss-import'),
     require('postcss-nested'),
     require('postcss-extend-rule'),
     require('postcss-inline-media'),
