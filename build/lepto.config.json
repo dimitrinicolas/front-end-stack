@@ -2,10 +2,7 @@
   "watch": true,
   "filters": [
     {
-      "glob": [
-        "**/*.jpg",
-        "**/*.jpeg"
-      ],
+      "glob": ["**/*.jpg", "**/*.jpeg"],
       "use": [
         {
           "name": "lepto-resize",
@@ -28,9 +25,7 @@
       "use": [
         {
           "name": "lepto-resize",
-          "retina": [
-            2
-          ]
+          "retina": [2]
         },
         {
           "name": "lepto.png",

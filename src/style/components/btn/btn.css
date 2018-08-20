@@ -10,7 +10,7 @@
   cursor: pointer;
   outline: none;
 
-  transition: .1s;
+  transition: 0.1s;
   will-change: background-color, box-shadow;
 }
 .btn,
@@ -52,7 +52,7 @@
   background-color: $red;
 }
 .btn.btn--red:focus {
-  box-shadow: 0 0 0 $focus-width color($red lightness(+25%));;
+  box-shadow: 0 0 0 $focus-width color($red lightness(+25%));
 }
 .btn.btn--red:hover {
   background-color: color($red lightness(+10%));

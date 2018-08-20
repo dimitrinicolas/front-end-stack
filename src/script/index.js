@@ -1,12 +1,8 @@
 import 'overflow-color';
 import './vendor/focus-visible.js';
 
-const onDOMContentLoaded = () => {
-
-};
-const onLoad = () => {
-
-};
+const onDOMContentLoaded = () => {};
+const onLoad = () => {};
 
 (() => {
   let DOMContentLoaded;

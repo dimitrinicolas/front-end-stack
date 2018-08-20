@@ -7,7 +7,7 @@ and Browsersync.
 
 Before using this stack you must first install a few dependencies:
 
-- Node.js: [nodejs.org](http://nodejs.org/)
+- Node.js: [nodejs.org](https://nodejs.org/en/)
 - node modules: `npm install`
 
 ## Usage
