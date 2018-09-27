@@ -1,8 +1,13 @@
 {
   "watch": true,
+  "watchConfig": true,
+  "followUnlink": true,
   "filters": [
     {
-      "glob": ["**/*.jpg", "**/*.jpeg"],
+      "glob": [
+        "**/*.jpg",
+        "**/*.jpeg"
+      ],
       "use": [
         {
           "name": "lepto-resize",
@@ -25,7 +30,9 @@
       "use": [
         {
           "name": "lepto-resize",
-          "retina": [2]
+          "retina": [
+            2
+          ]
         },
         {
           "name": "lepto.png",
@@ -45,6 +52,24 @@
           "quality": 50
         }
       ]
+    },
+    {
+      "glob": [
+        "icons/mock.png",
+        "icons/mock-white.png"
+      ],
+      "use": [
+        {
+          "name": "lepto-resize",
+          "height": 40,
+          "retina": [
+            2
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "input": "src/static",
+  "output": "public/assets",
+  "dataOutput": "src/assets.json"
 }

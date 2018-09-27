@@ -1,0 +1,37 @@
+.header__nav {
+  flex: 1;
+  text-align: right;
+}
+
+.header__nav ul {
+  list-style: none;
+}
+.header__nav ul li {
+  display: inline-block;
+}
+
+.header__nav a {
+  position: relative;
+  padding-y: 16px;
+  padding-x: 20px;
+  color: white;
+  text-decoration: none;
+}
+.header__nav a::after {
+  content: "";
+  position: absolute auto 20px 7px 20px;
+  height: 2px;
+  background-color: transparent;
+  transition: 0.12s;
+  will-change: background-color;
+}
+.header__nav li.--active a,
+.header__nav li a:focus,
+.header__nav li a:hover {
+  color: white;
+}
+.header__nav li.--active a::after,
+.header__nav li a:focus::after,
+.header__nav li a:hover::after {
+  background-color: white;
+}

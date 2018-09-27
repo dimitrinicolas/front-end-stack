@@ -1,14 +1,11 @@
-.header {
-  background: $primary;
+.footer {
+  background: $footer-background;
 }
 
-.header__wrap {
-  display: flex;
-  align-items: center;
+.footer__wrap {
   max-width: 1000px @1032 100%;
   margin-x: auto;
   padding-y: 24px;
   padding-x: @1032 16px;
   font-size: 17px;
-  color: white;
 }

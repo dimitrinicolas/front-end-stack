@@ -1,13 +1,15 @@
-$red:         #f44336;
-$pink:        #fd538c;
-$purple:      #bf32d8;
-$blue:        #001DF5;
-$green:       #5ac45d;
-$yellow:      #ffeb3b;
-$orange:      #ff7b00;
-$grey:        #9e9e9e;
-$light-grey:  #eaeaea;
-$dark-grey:   #3a3a3a;
+$red: #f44336;
+$pink: #fd538c;
+$purple: #bf32d8;
+$blue: #001df5;
+$green: #5ac45d;
+$yellow: #ffeb3b;
+$orange: #ff7b00;
+$grey: #9e9e9e;
+$light-grey: #eaeaea;
+$dark-grey: #3a3a3a;
 
-$primary: #001DF5;
+$primary: #001df5;
 $focus-color: #7585ff;
+
+$footer-background: #eaeaea;

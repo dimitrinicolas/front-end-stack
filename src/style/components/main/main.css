@@ -1,4 +1,6 @@
 .main {
+  background: white;
+  overflow: auto;
 }
 
 .main__wrap {
