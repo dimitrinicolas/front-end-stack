@@ -31,10 +31,10 @@
     "start": "run-p develop serve"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
     "autoprefixer": "^9.4.3",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
+    "babel-loader": "^8.0.4",
     "browser-sync": "^2.26.3",
     "css-mqpacker": "^7.0.0",
     "html-minifier": "^3.5.21",

@@ -1,7 +1,10 @@
-# Front-end Stack
+# Website starter
 
-Personal front-end development stack, built on PostCSS, Webpack, Babel, ESLint
-and Browsersync.
+Personal website development stack.
+
+Front-end is built on PostCSS, Webpack, Babel, ESLint and Browsersync.
+
+Back-end is build on Node.js and Express.
 
 ## Installation
 
@@ -24,7 +27,7 @@ Run `npm run develop`.
 
 ## Installation on a Linux server
 
-First install server dependencies:
+First install server-side dependencies:
 
 ```bash
 npm i --production
