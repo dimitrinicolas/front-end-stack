@@ -39,34 +39,6 @@
           "quality": "70-80"
         }
       ]
-    },
-    {
-      "glob": "imgs/bg.jpg",
-      "use": [
-        {
-          "name": "lepto.jpeg",
-          "quality": 50
-        },
-        {
-          "name": "lepto-webp",
-          "quality": 50
-        }
-      ]
-    },
-    {
-      "glob": [
-        "icons/mock.png",
-        "icons/mock-white.png"
-      ],
-      "use": [
-        {
-          "name": "lepto-resize",
-          "height": 40,
-          "retina": [
-            2
-          ]
-        }
-      ]
     }
   ],
   "input": "src/static",
