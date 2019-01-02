@@ -1,6 +1,6 @@
 {
   "name": "front-end-stack",
-  "description": "Personnal Front-end development Stack",
+  "description": "Personal website development stack",
   "author": "Dimitri NICOLAS <dimitri@ooeo.fr>",
   "license": "MIT",
   "homepage": "https://github.com/dimitrinicolas/front-end-stack",
@@ -19,13 +19,13 @@
     }
   },
   "scripts": {
-    "build:html": "html-minifier --input-dir src --output-dir public --file-ext html --config-file build/html-minifier.config.js",
-    "build:static": "lepto -i src/static -o public/assets -d src/assets.json -c build/lepto.config.json",
-    "build:style": "postcss src/style/index.css -o public/assets/dist/style.css --config ./build/postcss.config.js",
-    "build:script": "webpack src/script/index.js --output-path='./public/assets/dist/' --output-filename='script.js' --config build/webpack.config.js",
+    "build:html": "html-minifier --input-dir src --output-dir public --file-ext html --config-file .htmlminifierrc",
+    "build:static": "lepto -i src/static -o public/assets -d src/assets.json",
+    "build:style": "postcss src/style/index.css -o public/assets/dist/style.css --config .postcssrc.js",
+    "build:script": "webpack src/script/index.js --output-path='./public/assets/dist/' --output-filename='script.js' --config .webpackrc.js",
     "watch": "npm-watch",
-    "browser-sync": "browser-sync start -c build/browser-sync.config.js",
-    "browser-sync-no-open": "browser-sync start -c build/browser-sync.config.js --no-open",
+    "browser-sync": "browser-sync start -c .browsersyncrc.js",
+    "browser-sync-no-open": "browser-sync start -c .browsersyncrc.js --no-open",
     "develop": "run-p watch build:static browser-sync",
     "serve": "NODE_ENV=development nodemon ./server/index.js --ignore 'public/**/*'",
     "start": "run-p develop serve"
